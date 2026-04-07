@@ -4,17 +4,12 @@ import App from "./App.jsx";
 import "@mantine/core/styles.css";
 
 import { MantineProvider } from "@mantine/core";
+import { theme } from "./theme";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <MantineProvider
-      theme={{
-        fontFamily: "Poppins, sans-serif",
-        headings: { fontFamily: "Poppins, sans-serif" },
-      }}
-      defaultColorScheme="light"
-    >
-      <App />
-    </MantineProvider>
+    <MantineProvider theme={theme}>
+  <App />
+</MantineProvider>
   </React.StrictMode>
 );
