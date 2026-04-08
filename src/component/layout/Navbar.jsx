@@ -1,127 +1,140 @@
 import {
-    Container,
-    Group,
-    Text,
-    Button,
-    Burger,
-    Drawer,
-    Stack,
-  } from "@mantine/core";
-  import { useDisclosure } from "@mantine/hooks";
-  import { Link } from "react-router-dom";
-  import { motion } from "framer-motion";
-  
-  // React Icons
-  import { FaMapMarkerAlt, FaEnvelope, FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaArrowRight } from "react-icons/fa";
-  
-  import { theme } from "../../theme";
-  
-  function Navbar() {
-    const [opened, { toggle, close }] = useDisclosure(false);
-  
-    return (
-      <>
-        {/* 🔝 Top Bar */}
-        <div
-          style={{
-            background: theme.colors.dark,
-            color: "#ffffff80",
-            padding: "8px 0",
-          }}
-        >
-          <Container size="lg">
-            <Group justify="space-between">
-  
-              {/* Left */}
-              <Group gap="md">
-                <Group gap={5}>
-                  <FaMapMarkerAlt size={14} />
-                  <Text size="sm">123 Street, New York, USA</Text>
-                </Group>
-                <Group gap={5}>
-                  <FaEnvelope size={14} />
-                  <Text size="sm">info@example.com</Text>
-                </Group>
-              </Group>
-  
-              {/* Right */}
-              <Group gap="sm">
-                <Text size="sm">Follow us:</Text>
-                <FaFacebookF />
-                <FaTwitter />
-                <FaLinkedinIn />
-                <FaInstagram />
-              </Group>
-            </Group>
-          </Container>
-        </div>
-  
-        {/* 🔥 Main Navbar */}
-        <motion.div
-          initial={{ y: -80, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          style={{
-            background: theme.colors.dark,
-            position: "sticky",
-            top: 0,
-            zIndex: 1000,
-          }}
-        >
-          <Container size="lg">
-            <Group justify="space-between" py="md">
-  
-              {/* Logo */}
-              <Text fw={700} size="xl" c={theme.colors.primary}>
-                Chari<span style={{ color: "white" }}>Team</span>
-              </Text>
-  
-              {/* Desktop Menu */}
-              <Group gap="lg" visibleFrom="md">
-                <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-                  Home
-                </Link>
-                <Link to="/about" style={{ color: "white", textDecoration: "none" }}>
-                  About
-                </Link>
-                <Link to="/contact" style={{ color: "white", textDecoration: "none" }}>
-                  Contact
-                </Link>
-              </Group>
-  
-              {/* Donate Button */}
+  Container,
+  Group,
+  Text,
+  Button,
+  Burger,
+  Drawer,
+  Stack,
+} from "@mantine/core";
+import { useDisclosure, useWindowScroll } from "@mantine/hooks";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+
+import { FaArrowRight } from "react-icons/fa";
+import { theme } from "../../theme";
+
+function Navbar() {
+  const [opened, { toggle, close }] = useDisclosure(false);
+  const [scroll] = useWindowScroll();
+  const location = useLocation();
+
+  // 🔥 Detect scroll
+  const isScrolled = scroll.y > 20;
+
+  // 🎯 Active link style
+  const getLinkStyle = (path) => ({
+    color:
+      location.pathname === path
+        ? theme.colors.orange[5]
+        : "white",
+    textDecoration: "none",
+    fontWeight: 500,
+    transition: "0.3s",
+  });
+
+  return (
+    <>
+      {/* 🔥 Navbar */}
+      <motion.div
+        initial={{ y: -80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        style={{
+          background: isScrolled
+            ? theme.colors.darkBlue[9]
+            : "transparent",
+          backdropFilter: isScrolled ? "blur(10px)" : "none",
+          position: "fixed",
+          width: "100%",
+          top: 0,
+          zIndex: 1000,
+          transition: "0.3s ease",
+        }}
+      >
+        <Container size="lg">
+          <Group justify="space-between" py="md">
+
+            {/* 🔶 Logo (LEFT) */}
+            <Text fw={700} size="xl">
+              <span style={{ color: theme.colors.orange[5] }}>
+                IISJ
+              </span>
+              <span style={{ color: "white" }}>Collective</span>
+            </Text>
+
+            {/* 🖥 Desktop Menu (RIGHT) */}
+            <Group gap="lg" visibleFrom="md">
+              <Link to="/" style={getLinkStyle("/")}>
+                Home
+              </Link>
+              <Link to="/about" style={getLinkStyle("/about")}>
+                About
+              </Link>
+              <Link to="/contact" style={getLinkStyle("/contact")}>
+                Contact
+              </Link>
+
+              {/* Donate acts like nav item */}
               <Button
-                variant="outline"
+                variant="subtle"
                 color="orange"
                 rightSection={<FaArrowRight size={14} />}
-                visibleFrom="md"
               >
-                Donate Now
+                Donate
               </Button>
-  
-              {/* Mobile Burger */}
-              <Burger opened={opened} onClick={toggle} hiddenFrom="md" />
             </Group>
-          </Container>
-        </motion.div>
-  
-        {/* 📱 Mobile Drawer */}
-        <Drawer opened={opened} onClose={close} title="Menu" padding="md" size="75%">
-          <Stack>
-            <Link to="/" onClick={close}>Home</Link>
-            <Link to="/about" onClick={close}>About</Link>
-            <Link to="/contact" onClick={close}>Contact</Link>
-  
-            <Button
-              color="orange"
-              rightSection={<FaArrowRight size={14} />}
-            >
-              Donate Now
-            </Button>
-          </Stack>
-        </Drawer>
-      </>
-    );
-  }
-  
-  export default Navbar;
+
+            {/* 📱 Mobile Burger */}
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              hiddenFrom="md"
+              color="white"
+            />
+          </Group>
+        </Container>
+      </motion.div>
+
+      {/* 📱 Mobile Drawer (LEFT SIDE) */}
+      <Drawer
+        opened={opened}
+        onClose={close}
+        withCloseButton={false}
+        padding="md"
+        size="60%"
+        position="right"
+        styles={{
+          content: {
+            backgroundColor: theme.colors.darkBlue[9],
+          },
+        }}
+      >
+        <Stack mt="xl" gap="lg">
+
+          <Link to="/" onClick={close} style={getLinkStyle("/")}>
+            Home
+          </Link>
+
+          <Link to="/about" onClick={close} style={getLinkStyle("/about")}>
+            About
+          </Link>
+
+          <Link to="/contact" onClick={close} style={getLinkStyle("/contact")}>
+            Contact
+          </Link>
+
+          <Button
+            variant="light"
+            color="orange"
+            rightSection={<FaArrowRight size={14} />}
+          >
+            Donate
+          </Button>
+        </Stack>
+      </Drawer>
+    </>
+  );
+}
+
+export default Navbar;
