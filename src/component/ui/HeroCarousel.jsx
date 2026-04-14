@@ -4,11 +4,8 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
-// Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
-
-// Images (adjust path if needed)
 import slide1 from "../../assets/home/carousel-1.jpg";
 import slide2 from "../../assets/home/carousel-2.jpg";
 
