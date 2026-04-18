@@ -123,14 +123,6 @@ function Navbar() {
           <Link to="/contact" onClick={close} style={getLinkStyle("/contact")}>
             Contact
           </Link>
-
-          {/* <Button
-            variant="light"
-            color="orange"
-            rightSection={<FaArrowRight size={14} />}
-          >
-            Donate
-          </Button> */}
           <Button
             component={Link}
             to="/contact"
