@@ -25,7 +25,7 @@ export default function IISJPreview() {
 
             <Button
               radius="xl"
-              onClick={() => navigate("/iisj")}
+              onClick={() => navigate("/IISJ")}
             >
               Learn More
             </Button>

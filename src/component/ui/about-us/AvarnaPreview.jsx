@@ -40,7 +40,7 @@ export default function AvarnaPreview() {
                 advocacy.
               </Text>
 
-              <Button radius="xl" onClick={() => navigate("/avarna")}>
+              <Button radius="xl" onClick={() => navigate("/Avarna")}>
                 Learn More
               </Button>
             </Stack>

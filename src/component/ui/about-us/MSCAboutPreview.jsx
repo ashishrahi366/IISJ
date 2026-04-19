@@ -57,7 +57,7 @@ export default function MSCAboutPreview() {
                   <Button
                     mt="md"
                     radius="xl"
-                    onClick={() => navigate("/about")}
+                    onClick={() => navigate("/MSC-Detail")}
                   >
                     Learn More
                   </Button>
