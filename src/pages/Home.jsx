@@ -9,6 +9,8 @@ import StatsSection from '../component/ui/StatsSection';
 import LeaderSection from '../component/ui/LeaderSection';
 import VideoSection from '../component/ui/VideoSection';
 import BlogSection from '../component/ui/BlogSection';
+import HomeRecentNews from '../component/ui/HomeRecentNews';
+import HomeGallery from '../component/ui/HomeGallery';
 
 const Home = () => {
     return (
@@ -22,7 +24,9 @@ const Home = () => {
             <DonateSection/>
             <LeaderSection/>
             <VideoSection/>
+            <HomeRecentNews/>
             <BlogSection/>
+            <HomeGallery/>
         </div>
     );
 };

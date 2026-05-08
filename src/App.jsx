@@ -11,6 +11,7 @@ import ContactPage from "./pages/Contact";
 import MSCPage from "./pages/MSCPage";
 import AvarnaPage from "./pages/AvarnaPage";
 import IISJPage from "./pages/IISJPage";
+import GalleryPage from "./pages/GalleryPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="/MSC-Detail" element={<MSCPage />} />
         <Route path="/Avarna" element={<AvarnaPage />} />
         <Route path="/IISJ" element={<IISJPage />} />
