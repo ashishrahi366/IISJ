@@ -4,7 +4,8 @@ import { FaHandsHelping } from "react-icons/fa";
 import { theme } from "../../theme";
 import { Button } from "@mantine/core";
 import { FaArrowRight } from "react-icons/fa";
-import overviewImg from "../../assets/home/about-1.jpg";
+import overviewImg from "../../assets/home/MSC-Commitee.jpg";
+import { Link } from "react-router-dom";
 
 function MSCOverview() {
   return (
@@ -43,14 +44,16 @@ function MSCOverview() {
                 lineHeight: 1.3,
               }}
             >
-              Empowering Communities Through Meaningful Support
+              Movement for Scavenger Community (MSC)
             </Title>
 
             {/* Description */}
             <Text c="dimmed" size="md" mb="md">
-              We focus on creating sustainable solutions that uplift communities
-              and improve lives. Our initiatives span across education,
-              healthcare, and essential resources to ensure long-term impact.
+              Movement for Scavenger Community (MSC) is an all-Indian NGO which
+              provides access to basic human rights for the members of the
+              scavenger-community. Working with local communties and activists,
+              MSC uses strictly non-violent methods to make change towards
+              equality happen for everyone.
             </Text>
 
             <Text c="dimmed" size="md">
@@ -60,6 +63,8 @@ function MSCOverview() {
             </Text>
 
             <Button
+              component={Link}
+              to="/MSC-Detail"
               mt="lg"
               color="orange"
               radius="md"
@@ -67,7 +72,6 @@ function MSCOverview() {
             >
               Know More
             </Button>
-              
           </motion.div>
         </Grid.Col>
 

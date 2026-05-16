@@ -1,0 +1,13 @@
+.navbar-dropdown-item {
+    color: white !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .navbar-dropdown-item:hover {
+    background: #2563eb !important;
+  }
+  
+  .navbar-dropdown-item:hover .mantine-Menu-itemLabel {
+    color: white !important;
+  }

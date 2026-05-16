@@ -11,16 +11,18 @@ import VideoSection from '../component/ui/VideoSection';
 import BlogSection from '../component/ui/BlogSection';
 import HomeRecentNews from '../component/ui/HomeRecentNews';
 import HomeGallery from '../component/ui/HomeGallery';
+import HomeQuickAccess from '../component/ui/HomeQuickAccess';
 
 const Home = () => {
     return (
         <div>
             <HeroCarousel/>
+            <MSCOverview/>
+            <HomeQuickAccess/>
             <HeroSection/>
             <ServicesSection/>
             <StatsSection/>
             <DRBRAAni/>
-            <MSCOverview/>
             <DonateSection/>
             <LeaderSection/>
             <VideoSection/>
