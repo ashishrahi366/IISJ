@@ -13,6 +13,7 @@ import MSCPage from "./pages/MSCPage";
 import AvarnaPage from "./pages/AvarnaPage";
 import IISJPage from "./pages/IISJPage";
 import GalleryPage from "./pages/GalleryPage";
+import FellowshipProgramPage from "./pages/FellowshipProgramPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/MSC-Detail" element={<MSCPage />} />
         <Route path="/Avarna" element={<AvarnaPage />} />
         <Route path="/IISJ" element={<IISJPage />} />
+        <Route path="/Fellowship-Program-app" element={<FellowshipProgramPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

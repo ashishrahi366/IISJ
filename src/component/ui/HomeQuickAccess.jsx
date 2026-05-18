@@ -163,10 +163,10 @@ export default function HomeQuickAccess() {
                       alt={item.title}
                     />
 
-                    <Overlay
+                    {/* <Overlay
                       gradient="linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,0.85) 100%)"
                       opacity={1}
-                    />
+                    /> */}
 
                     {/* ICON */}
                     <Box
@@ -200,7 +200,7 @@ export default function HomeQuickAccess() {
                       <Title
                         order={3}
                         style={{
-                          color: "white",
+                          color: "#330cf7",
                           fontWeight: 800,
                         }}
                       >

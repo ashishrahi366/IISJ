@@ -12,8 +12,8 @@ import {
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { theme } from "../../theme";
-import about1 from "../../assets/home/about-1.jpg";
-import about2 from "../../assets/home/about-2.jpg";
+import about1 from "../../assets/home/MSC-Organisation.jpg";
+import about2 from "../../assets/home/Inherited-Biographies.jpg";
 import { useRef } from "react";
 
 function HeroSection() {

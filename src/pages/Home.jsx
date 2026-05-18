@@ -12,6 +12,7 @@ import BlogSection from '../component/ui/BlogSection';
 import HomeRecentNews from '../component/ui/HomeRecentNews';
 import HomeGallery from '../component/ui/HomeGallery';
 import HomeQuickAccess from '../component/ui/HomeQuickAccess';
+import MediaCoverageSection from '../component/ui/MediaCoverageSection';
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
             <MSCOverview/>
             <HomeQuickAccess/>
             <HeroSection/>
+            <MediaCoverageSection/>
             <ServicesSection/>
             <StatsSection/>
             <DRBRAAni/>

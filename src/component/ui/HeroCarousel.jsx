@@ -24,7 +24,7 @@ const slides = [
 
 function HeroCarousel() {
   return (
-    <div style={{ marginBottom: "50px" }}>
+    <div style={{ marginBottom: "40px" }}>
       <Swiper
         modules={[Navigation, Autoplay]}
         navigation
@@ -36,7 +36,7 @@ function HeroCarousel() {
             <div
               style={{
                 position: "relative",
-                height: "80vh",
+                height: "90vh",
                 backgroundImage: `url(${slide.image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",

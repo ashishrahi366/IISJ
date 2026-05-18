@@ -40,8 +40,9 @@ import {
 } from "react-icons/fa";
 
 import { theme } from "../theme";
+import { Link } from "react-router-dom";
 
-import heroImg from "../assets/home/about-1.jpg";
+import heroImg from "../assets/pages/VimalinAction-scaled.jpg";
 
 function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -161,8 +162,8 @@ function ContactPage() {
             mx="auto"
             size="lg"
           >
-            Join hands with us to create a world rooted in dignity,
-            equality, education, and social justice.
+            Join hands with us to create a world rooted in dignity, equality,
+            education, and social justice.
           </Text>
         </motion.div>
       </Box>
@@ -197,47 +198,29 @@ function ContactPage() {
                   Let’s Build Change Together
                 </Title>
 
-                <Text
-                  mt="lg"
-                  c="rgba(255,255,255,0.75)"
-                  size="lg"
-                  lh={1.9}
-                >
-                  We believe real transformation begins through
-                  collaboration, compassion, and community leadership.
-                  Whether you are an individual, organization, volunteer,
-                  donor, researcher, or partner — your voice and support
-                  matter.
+                <Text mt="lg" c="rgba(255,255,255,0.75)" size="lg" lh={1.9}>
+                  We believe real transformation begins through collaboration,
+                  compassion, and community leadership. Whether you are an
+                  individual, organization, volunteer, donor, researcher, or
+                  partner — your voice and support matter.
                 </Text>
 
-                <Text
-                  mt="md"
-                  c="rgba(255,255,255,0.75)"
-                  size="lg"
-                  lh={1.9}
-                >
-                  Reach out to us to collaborate on programs, support
-                  grassroots initiatives, participate in community
-                  projects, or simply learn more about our mission.
+                <Text mt="md" c="rgba(255,255,255,0.75)" size="lg" lh={1.9}>
+                  Reach out to us to collaborate on programs, support grassroots
+                  initiatives, participate in community projects, or simply
+                  learn more about our mission.
                 </Text>
 
                 <Group mt={35}>
                   <Button
+                    component={Link}
+                    to="/Fellowship-Program-app"
                     color="orange"
                     radius="xl"
                     size="md"
                     rightSection={<FaArrowRight size={14} />}
                   >
                     Become a Partner
-                  </Button>
-
-                  <Button
-                    variant="outline"
-                    color="gray"
-                    radius="xl"
-                    size="md"
-                  >
-                    Support Our Mission
                   </Button>
                 </Group>
               </motion.div>
@@ -266,10 +249,7 @@ function ContactPage() {
                     color: "#22c55e",
                   },
                 ].map((item, index) => (
-                  <Grid.Col
-                    key={index}
-                    span={{ base: 12, sm: 6 }}
-                  >
+                  <Grid.Col key={index} span={{ base: 12, sm: 6 }}>
                     <motion.div
                       initial={{ opacity: 0, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -284,11 +264,9 @@ function ContactPage() {
                         p="xl"
                         h="100%"
                         style={{
-                          background:
-                            "rgba(255,255,255,0.06)",
+                          background: "rgba(255,255,255,0.06)",
                           backdropFilter: "blur(14px)",
-                          border:
-                            "1px solid rgba(255,255,255,0.08)",
+                          border: "1px solid rgba(255,255,255,0.08)",
                         }}
                       >
                         <ThemeIcon
@@ -303,12 +281,7 @@ function ContactPage() {
                           {item.icon}
                         </ThemeIcon>
 
-                        <Title
-                          order={4}
-                          c="white"
-                          mt="lg"
-                          fw={700}
-                        >
+                        <Title order={4} c="white" mt="lg" fw={700}>
                           {item.title}
                         </Title>
 
@@ -346,8 +319,8 @@ function ContactPage() {
               </Title>
 
               <Text c="dimmed" mt="md" size="lg">
-                Connect with our teams and community centers
-                across different regions.
+                Connect with our teams and community centers across different
+                regions.
               </Text>
 
               <Stack mt={40} gap="xl">
@@ -374,8 +347,7 @@ function ContactPage() {
                     p="xl"
                     shadow="md"
                     style={{
-                      border:
-                        "1px solid rgba(0,0,0,0.05)",
+                      border: "1px solid rgba(0,0,0,0.05)",
                     }}
                   >
                     <Group align="flex-start" wrap="nowrap">
@@ -393,11 +365,7 @@ function ContactPage() {
                           {item.title}
                         </Text>
 
-                        <Text
-                          c="dimmed"
-                          mt={5}
-                          lh={1.8}
-                        >
+                        <Text c="dimmed" mt={5} lh={1.8}>
                           {item.address}
                         </Text>
                       </div>
@@ -425,9 +393,7 @@ function ContactPage() {
 
                   <Group>
                     <FaEnvelope />
-                    <Text fw={600}>
-                      contact@iisjcollective.org
-                    </Text>
+                    <Text fw={600}>contact@iisjcollective.org</Text>
                   </Group>
 
                   <Divider color="rgba(255,255,255,0.2)" />
@@ -479,8 +445,7 @@ function ContactPage() {
                 style={{
                   background:
                     "linear-gradient(180deg, #ffffff 0%, #fff7ed 100%)",
-                  border:
-                    "1px solid rgba(249,115,22,0.1)",
+                  border: "1px solid rgba(249,115,22,0.1)",
                 }}
               >
                 <Title order={2} fw={800}>
@@ -488,9 +453,8 @@ function ContactPage() {
                 </Title>
 
                 <Text c="dimmed" mt="sm">
-                  We'd love to hear from you. Fill out the
-                  form below and our team will contact you
-                  soon.
+                  We'd love to hear from you. Fill out the form below and our
+                  team will contact you soon.
                 </Text>
 
                 <form onSubmit={handleSubmit}>
@@ -561,9 +525,7 @@ function ContactPage() {
                       radius="xl"
                       size="md"
                       loading={loading}
-                      rightSection={
-                        <FaArrowRight size={14} />
-                      }
+                      rightSection={<FaArrowRight size={14} />}
                     >
                       Send Message
                     </Button>
@@ -575,8 +537,7 @@ function ContactPage() {
                         title="Message Sent Successfully"
                         onClose={() => setSuccess(false)}
                       >
-                        Thank you for reaching out. We
-                        will contact you soon.
+                        Thank you for reaching out. We will contact you soon.
                       </Notification>
                     )}
                   </Stack>
@@ -596,9 +557,8 @@ function ContactPage() {
             </Title>
 
             <Text c="dimmed" maw={700} ta="center" size="lg">
-              Together we can create sustainable social impact
-              through education, leadership, and grassroots
-              empowerment.
+              Together we can create sustainable social impact through
+              education, leadership, and grassroots empowerment.
             </Text>
           </Stack>
 
@@ -623,10 +583,7 @@ function ContactPage() {
                 color: "#22c55e",
               },
             ].map((item, index) => (
-              <Grid.Col
-                key={index}
-                span={{ base: 12, md: 4 }}
-              >
+              <Grid.Col key={index} span={{ base: 12, md: 4 }}>
                 <motion.div
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.3 }}
@@ -637,8 +594,7 @@ function ContactPage() {
                     h="100%"
                     shadow="md"
                     style={{
-                      border:
-                        "1px solid rgba(0,0,0,0.05)",
+                      border: "1px solid rgba(0,0,0,0.05)",
                     }}
                   >
                     <ThemeIcon
@@ -667,8 +623,7 @@ function ContactPage() {
           </Grid>
         </Container>
       </Box>
-
-      {/* 🔥 MINI GALLERY */}
+      {/* 🔥 COMMUNITY ACTIVITIES */}
       <Container size="xl" py={100}>
         <Stack align="center" mb={60}>
           <Title order={2} fw={800}>
@@ -676,44 +631,140 @@ function ContactPage() {
           </Title>
 
           <Text c="dimmed" ta="center" maw={700}>
-            Moments from leadership workshops, fellowship
-            programs, grassroots meetings, and education
-            initiatives.
+            Moments from leadership workshops, fellowship programs, grassroots
+            meetings, and education initiatives.
           </Text>
         </Stack>
 
-        <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="lg">
-          {[1, 2, 3, 4].map((item) => (
-            <motion.div
-              key={item}
-              whileHover={{ scale: 1.03 }}
-            >
-              <Card
-                radius="24px"
-                p={0}
-                style={{
-                  overflow: "hidden",
-                }}
-              >
-                <Image
-                  src={`https://picsum.photos/600/40${item}`}
-                  height={260}
-                />
+        {/* 🔥 PROGRAM ARRAY */}
+        {(() => {
+          const programs = [
+            {
+              image:
+                "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+              title: "Community Leadership Program",
+              description:
+                "Empowering youth and grassroots leaders through leadership workshops, civic participation, and community organizing initiatives.",
+              buttonText: "Learn More",
+              link: "/about",
+            },
 
-                <Box p="lg">
-                  <Text fw={700}>
-                    Community Leadership Program
-                  </Text>
+            {
+              image:
+                "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+              title: "Movement for Scavenger Community – MSC",
+              description:
+                "Aim is equality, the same chances for everyone, no matter what caste, class they belong to. Goal is empowerment through education.",
+              buttonText: "Explore Program",
+              link: "/MSC-Detail",
+            },
+            {
+              image:
+                "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+              title: "Fellowship Program",
+              description:
+                "Our fellows live and work at different locations. Working hand in hand with the committee of the local Dr. B. R. Ambedkar Community Resource Centre.",
+              buttonText: "View Fellowship",
+              link: "/Fellowship-Program-app",
+            },
 
-                  <Text size="sm" c="dimmed" mt={6}>
-                    Empowering youth and communities through
-                    collaborative action.
-                  </Text>
-                </Box>
-              </Card>
-            </motion.div>
-          ))}
-        </SimpleGrid>
+            {
+              image:
+                "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+              title: "Avarna Foundation",
+              description:
+                "It represents a world beyond division—where identity is not defined by caste, gender, religion, or race, but by shared humanity and collective growth.",
+              buttonText: "Read More",
+              link: "/Avarna",
+            },
+          ];
+
+          return (
+            <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="lg">
+              {programs.map((item, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{
+                    y: -8,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                  }}
+                >
+                  <Card
+                    radius="28px"
+                    p={0}
+                    shadow="lg"
+                    style={{
+                      overflow: "hidden",
+                      height: "100%",
+                      border: "1px solid rgba(0,0,0,0.05)",
+                      background: "#fff",
+                    }}
+                  >
+                    {/* IMAGE */}
+                    <Box
+                      style={{
+                        overflow: "hidden",
+                        position: "relative",
+                      }}
+                    >
+                      <motion.div
+                        whileHover={{
+                          scale: 1.08,
+                        }}
+                        transition={{
+                          duration: 0.4,
+                        }}
+                      >
+                        <Image src={item.image} height={260} alt={item.title} />
+                      </motion.div>
+
+                      {/* OVERLAY */}
+                      <Box
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          background:
+                            "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
+                        }}
+                      />
+                    </Box>
+
+                    {/* CONTENT */}
+                    <Box p="xl">
+                      <Title
+                        order={4}
+                        fw={800}
+                        style={{
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {item.title}
+                      </Title>
+
+                      <Text size="sm" c="dimmed" mt="md" lh={1.8}>
+                        {item.description}
+                      </Text>
+
+                      {/* BUTTON */}
+                      <Button
+                        component="a"
+                        href={item.link}
+                        mt="xl"
+                        color="orange"
+                        radius="xl"
+                        fullWidth
+                      >
+                        {item.buttonText}
+                      </Button>
+                    </Box>
+                  </Card>
+                </motion.div>
+              ))}
+            </SimpleGrid>
+          );
+        })()}
       </Container>
 
       {/* 🔥 VOLUNTEER CTA */}
@@ -726,11 +777,6 @@ function ContactPage() {
           position: "relative",
         }}
       >
-        {/* <Overlay
-          color="#000"
-          // backgroundOpacity={0.7}
-        /> */}
-
         <Container
           size="md"
           style={{
@@ -749,16 +795,10 @@ function ContactPage() {
             Fellow for Equality Application
           </Title>
 
-          <Text
-            c="rgba(255,255,255,0.8)"
-            size="lg"
-            mt="lg"
-            lh={1.9}
-          >
-            Become part of a growing movement dedicated to
-            justice, equality, and grassroots empowerment.
-            Join our internships, fellowships, and volunteer
-            initiatives to create meaningful impact.
+          <Text c="rgba(255,255,255,0.8)" size="lg" mt="lg" lh={1.9}>
+            Become part of a growing movement dedicated to justice, equality,
+            and grassroots empowerment. Join our internships, fellowships, and
+            volunteer initiatives to create meaningful impact.
           </Text>
 
           <Group justify="center" mt={40}>
@@ -776,8 +816,7 @@ function ContactPage() {
       <Box
         py={90}
         style={{
-          background:
-            "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+          background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
         }}
       >
         <Container size="lg">
@@ -787,30 +826,20 @@ function ContactPage() {
                 Support Our Mission
               </Title>
 
-              <Text
-                c="rgba(255,255,255,0.85)"
-                mt="md"
-                size="lg"
-                lh={1.9}
-              >
-                Your contribution helps us provide education,
-                leadership training, fellowships, and support
-                systems for marginalized communities across
-                India.
+              <Text c="rgba(255,255,255,0.85)" mt="md" size="lg" lh={1.9}>
+                Your contribution helps us provide education, leadership
+                training, fellowships, and support systems for marginalized
+                communities across India.
               </Text>
             </Grid.Col>
 
-            <Grid.Col
-              span={{ base: 12, md: 4 }}
-            >
+            <Grid.Col span={{ base: 12, md: 4 }}>
               <Group justify="flex-end">
                 <Button
                   size="lg"
                   radius="xl"
                   color="dark"
-                  rightSection={
-                    <FaArrowRight size={14} />
-                  }
+                  rightSection={<FaArrowRight size={14} />}
                 >
                   Donate Now
                 </Button>

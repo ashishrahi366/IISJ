@@ -13,11 +13,12 @@ import {
 import { motion } from "framer-motion";
 import {
   FaUsers,
-  FaAward,
+  // FaLocationDot,
   FaTasks,
   FaComments,
   FaCheck,
 } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 import { theme } from "../../theme";
 
 /* ✅ Custom Counter Hook (NO BUGS) */
@@ -46,17 +47,16 @@ function useCounter(end, duration = 2) {
 
 /* ✅ Stats Data */
 const stats = [
-  { icon: FaUsers, value: 500, label: "Team Members" },
-  { icon: FaAward, value: 70, label: "Award Winning" },
-  { icon: FaTasks, value: 3000, label: "Total Projects" },
-  { icon: FaComments, value: 7000, label: "Client Reviews" },
+  { icon: FaUsers, value: 500, label: "Volunteer" },
+  { icon: FaLocationDot, value: 70, label: "Locations" },
+  { icon: FaTasks, value: 10, label: "Total Projects" },
+  { icon: FaComments, value: 7000, label: "Lives Enhanced" },
 ];
 
 function StatsSection() {
   return (
     <Container size="lg" py={{ base: 40, sm: 60, md: 80 }}>
       <Grid align="center" gutter={{ base: "md", md: "xl" }}>
-        
         {/* 🔢 LEFT SIDE - STATS */}
         <Grid.Col span={{ base: 12, md: 6 }}>
           <Grid gutter="md">
@@ -125,12 +125,7 @@ function StatsSection() {
             viewport={{ once: true }}
           >
             <Stack gap="sm">
-
-              <Text
-                c={theme.colors.orange[6]}
-                fw={600}
-                tt="uppercase"
-              >
+              <Text c={theme.colors.orange[6]} fw={600} tt="uppercase">
                 Why Choose Us
               </Text>
 
@@ -153,13 +148,16 @@ function StatsSection() {
               {/* Points */}
               <Stack gap={6} mt="sm">
                 <Text size="sm">
-                  <FaCheck color={theme.colors.orange[6]} /> Justo magna erat amet
+                  <FaCheck color={theme.colors.orange[6]} /> Justo magna erat
+                  amet
                 </Text>
                 <Text size="sm">
-                  <FaCheck color={theme.colors.orange[6]} /> Aliqu diam amet diam et eos
+                  <FaCheck color={theme.colors.orange[6]} /> Aliqu diam amet
+                  diam et eos
                 </Text>
                 <Text size="sm">
-                  <FaCheck color={theme.colors.orange[6]} /> Clita erat ipsum et lorem
+                  <FaCheck color={theme.colors.orange[6]} /> Clita erat ipsum et
+                  lorem
                 </Text>
               </Stack>
 
@@ -167,14 +165,12 @@ function StatsSection() {
               <Group mt="md" wrap="wrap">
                 <Button color="orange">Donate Now</Button>
                 <Button variant="outline" color="orange">
-                  Join Us
+                  Why Choose Us
                 </Button>
               </Group>
-
             </Stack>
           </motion.div>
         </Grid.Col>
-
       </Grid>
     </Container>
   );
