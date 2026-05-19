@@ -1,0 +1,716 @@
+import React from "react";
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Grid,
+  Group,
+  Image,
+  List,
+  Overlay,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
+} from "@mantine/core";
+
+import { motion } from "framer-motion";
+
+import {
+  FaArrowRight,
+  FaBookOpen,
+  FaHandsHelping,
+  FaLightbulb,
+  FaUsers,
+  FaCheckCircle,
+} from "react-icons/fa";
+
+import { Link } from "react-router-dom";
+
+import heroImg from "../assets/home/about-1.jpg";
+import ChildBanner from "../assets/pages/ChildBanner2.jpg";
+
+function FellowsForEqualityPage() {
+  const workAreas = [
+    "Improving educational outcomes within the community",
+    "Supporting employability through partnerships and training",
+    "Strengthening community-based organizations and micro enterprises",
+    "Fundraising and sustainability for Community Resource Centres",
+    "Encouraging grassroots leadership and community development",
+    "Building collaborations for entrepreneurship and livelihoods",
+    "Connecting communities with larger social justice movements",
+  ];
+
+  return (
+    <div>
+      {/* 🔥 HERO SECTION */}
+      <Box
+        style={{
+          height: "85vh",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <Image src={heroImg} h="100%" fit="cover" />
+
+        {/* <Overlay color="#000" backgroundOpacity={0.65} blur={2} /> */}
+
+        <Container
+          size="lg"
+          style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            zIndex: 2,
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <Text
+              c="orange"
+              fw={700}
+              tt="uppercase"
+              mb={15}
+              size="sm"
+              style={{ letterSpacing: "1px" }}
+            >
+              Leadership • Equality • Community
+            </Text>
+
+            <Title
+              c="white"
+              fw={900}
+              style={{
+                fontSize: "clamp(42px, 7vw, 78px)",
+                lineHeight: 1.05,
+                maxWidth: "900px",
+              }}
+            >
+              Fellows For Equality
+            </Title>
+
+            <Text
+              c="rgba(255,255,255,0.8)"
+              size="xl"
+              mt="xl"
+              maw={720}
+              lh={1.9}
+            >
+              Empowering young leaders from scavenger communities through
+              mentorship, education, grassroots action, and social justice
+              leadership.
+            </Text>
+
+            <Group mt={40}>
+              <Button
+                component={Link}
+                to="/Fellowship-Program-app"
+                size="lg"
+                radius="xl"
+                color="orange"
+                rightSection={<FaArrowRight size={14} />}
+              >
+                Apply for Fellowship
+              </Button>
+
+              <Button
+                component={Link}
+                to="/contact"
+                target="_blank"
+                variant="outline"
+                color="gray"
+                size="lg"
+                radius="xl"
+              >
+                Support the Program
+              </Button>
+            </Group>
+          </motion.div>
+        </Container>
+      </Box>
+
+      {/* 🔥 SUPPORT SECTION */}
+      <Container size="lg" py={100}>
+        <Grid gutter={60} align="center">
+          {/* IMAGE */}
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                radius="30px"
+                h={500}
+                fit="cover"
+              />
+
+              <Text ta="center" mt="md" c="dimmed" fs="italic" size="sm">
+                Young community leaders participating in grassroots fellowship
+                and leadership training programs.
+              </Text>
+            </motion.div>
+          </Grid.Col>
+
+          {/* CONTENT */}
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <Text c="orange" fw={700} tt="uppercase" size="sm" mb={10}>
+                Community Leadership
+              </Text>
+
+              <Title
+                order={2}
+                fw={800}
+                style={{
+                  fontSize: "clamp(32px, 5vw, 52px)",
+                  lineHeight: 1.2,
+                }}
+              >
+                MSC Supports Local Community Members
+              </Title>
+
+              <Text mt="xl" size="lg" c="dimmed" lh={2}>
+                MSC supports the development of scavenger communities by
+                identifying young leaders and supporting them through a one-year
+                fellowship journey.
+              </Text>
+
+              <Text mt="md" size="lg" c="dimmed" lh={2}>
+                Fellows work closely with local Dr. B. R. Ambedkar Community
+                Resource Centres while implementing projects focused on
+                education, leadership, livelihood, and community empowerment.
+              </Text>
+
+              <Text mt="md" size="lg" c="dimmed" lh={2}>
+                Through workshops and mentorship programs, fellows gain
+                practical skills in resource mobilization, development planning,
+                communication, and grassroots leadership.
+              </Text>
+            </motion.div>
+          </Grid.Col>
+        </Grid>
+      </Container>
+
+      {/* 🔥 MENTORSHIP SECTION */}
+      <Box
+        py={100}
+        style={{
+          background: "linear-gradient(135deg, #0f172a 0%, #111827 100%)",
+        }}
+      >
+        <Container size="lg">
+          <Grid gutter={60} align="center">
+            {/* CONTENT */}
+            <Grid.Col span={{ base: 12, md: 6 }}>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+              >
+                <Text c="orange" fw={700} tt="uppercase" size="sm" mb={10}>
+                  Mentorship & Growth
+                </Text>
+
+                <Title
+                  c="white"
+                  fw={800}
+                  style={{
+                    fontSize: "clamp(32px, 5vw, 52px)",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Guiding Future Community Leaders
+                </Title>
+
+                <Text mt="xl" c="rgba(255,255,255,0.75)" size="lg" lh={2}>
+                  Every Fellow For Equality is assigned a mentor who provides
+                  continuous guidance, goal setting support, and leadership
+                  development throughout the fellowship year.
+                </Text>
+
+                <Text mt="md" c="rgba(255,255,255,0.75)" size="lg" lh={2}>
+                  After completing the fellowship, fellows continue their
+                  journey as senior fellows, helping mentor the next generation
+                  of young leaders within their communities.
+                </Text>
+              </motion.div>
+            </Grid.Col>
+
+            {/* IMAGE */}
+            <Grid.Col span={{ base: 12, md: 6 }}>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop"
+                  radius="30px"
+                  h={500}
+                  fit="cover"
+                />
+
+                <Text
+                  ta="center"
+                  mt="md"
+                  c="rgba(255,255,255,0.65)"
+                  fs="italic"
+                  size="sm"
+                >
+                  One of our Fellows For Equality at a function of his
+                  community.
+                </Text>
+              </motion.div>
+            </Grid.Col>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* 🔥 HOW FELLOWS WORK */}
+      <Container size="lg" py={100}>
+        <Stack align="center" mb={60}>
+          <Text c="orange" fw={700} tt="uppercase" size="sm">
+            Fellowship Areas
+          </Text>
+
+          <Title
+            order={2}
+            ta="center"
+            fw={800}
+            style={{
+              fontSize: "clamp(32px, 5vw, 52px)",
+            }}
+          >
+            How Fellows For Equality Work
+          </Title>
+
+          <Text ta="center" c="dimmed" size="lg" maw={760}>
+            Fellows take responsibility for community-based projects focused on
+            education, livelihoods, grassroots organizing, and empowerment.
+          </Text>
+        </Stack>
+
+        <Grid gutter="xl">
+          {workAreas.map((item, index) => (
+            <Grid.Col key={index} span={{ base: 12, sm: 6, md: 4 }}>
+              <motion.div whileHover={{ y: -8 }}>
+                <Card
+                  radius="28px"
+                  p="xl"
+                  h="100%"
+                  shadow="md"
+                  style={{
+                    border: "1px solid rgba(0,0,0,0.05)",
+                  }}
+                >
+                  <ThemeIcon
+                    size={60}
+                    radius="xl"
+                    color="orange"
+                    variant="light"
+                  >
+                    <FaCheckCircle size={24} />
+                  </ThemeIcon>
+
+                  <Text fw={700} size="lg" mt="lg">
+                    {item}
+                  </Text>
+                </Card>
+              </motion.div>
+            </Grid.Col>
+          ))}
+        </Grid>
+      </Container>
+
+      {/* 🔥 CTA SECTION */}
+      <Box
+        py={110}
+        style={{
+          backgroundImage: `url(${ChildBanner})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          position: "relative",
+        }}
+      >
+        <Container
+          size="md"
+          style={{
+            position: "relative",
+            zIndex: 2,
+            textAlign: "center",
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <Title
+              c="white"
+              fw={900}
+              style={{
+                fontSize: "clamp(34px, 6vw, 64px)",
+                lineHeight: 1.1,
+              }}
+            >
+              Are You Interested?
+            </Title>
+
+            <Text c="rgba(255,255,255,0.8)" size="lg" mt="xl" lh={2}>
+              Support our fellowship program through donations, partnerships,
+              volunteering, or by applying to become a Fellow For Equality.
+            </Text>
+
+            <Text c="rgba(255,255,255,0.8)" size="lg" mt="md" lh={2}>
+              Together, we can nurture the next generation of community leaders
+              and social changemakers.
+            </Text>
+
+            <Group justify="center" mt={40}>
+              <Button
+                component={Link}
+                to="/Fellowship-Program-app"
+                size="lg"
+                radius="xl"
+                color="orange"
+                rightSection={<FaArrowRight size={14} />}
+              >
+                Apply Now
+              </Button>
+            </Group>
+          </motion.div>
+        </Container>
+      </Box>
+
+      {/* 🔥 CURRENT FELLOWS */}
+      <Box
+        py={100}
+        style={{
+          background:
+            "linear-gradient(135deg, #0f172a 0%, #111827 50%, #1e293b 100%)",
+        }}
+      >
+        <Container size="xl">
+          {/* TOP */}
+          <Stack align="center" mb={60}>
+            <Text
+              c="orange"
+              fw={700}
+              tt="uppercase"
+              size="sm"
+              style={{ letterSpacing: "2px" }}
+            >
+              Leadership In Action
+            </Text>
+
+            <Title
+              order={2}
+              c="white"
+              ta="center"
+              style={{
+                fontSize: "clamp(32px, 5vw, 54px)",
+                lineHeight: 1.2,
+              }}
+            >
+              Meet Our Current Fellows
+            </Title>
+
+            <Text ta="center" c="rgba(255,255,255,0.75)" maw={760} size="lg">
+              Young changemakers leading community transformation through
+              education, advocacy, leadership, and grassroots action.
+            </Text>
+          </Stack>
+
+          {/* FELLOWS ARRAY */}
+          <Grid gutter="xl">
+            {[
+              {
+                name: "Ravi Kumar",
+                role: "Community Education Fellow",
+                image:
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200",
+                desc: "Working to improve educational access for children in underserved communities.",
+              },
+              {
+                name: "Pooja Devi",
+                role: "Women Leadership Fellow",
+                image:
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200",
+                desc: "Supporting women-led community initiatives and local advocacy campaigns.",
+              },
+              {
+                name: "Aman Valmiki",
+                role: "Youth Development Fellow",
+                image:
+                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200",
+                desc: "Building youth engagement programs focused on digital literacy and leadership.",
+              },
+            ].map((item, index) => (
+              <Grid.Col key={index} span={{ base: 12, sm: 6, md: 4 }}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.15,
+                  }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8 }}
+                >
+                  <Card
+                    radius="28px"
+                    p={0}
+                    style={{
+                      overflow: "hidden",
+                      background: "rgba(255,255,255,0.05)",
+                      backdropFilter: "blur(12px)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                    }}
+                  >
+                    {/* IMAGE */}
+                    <Box
+                      style={{
+                        position: "relative",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <Image
+                        src={item.image}
+                        height={340}
+                        style={{
+                          transition: "0.5s",
+                        }}
+                      />
+
+                      <Box
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          background:
+                            "linear-gradient(to top, rgba(0,0,0,0.75), transparent)",
+                        }}
+                      />
+                    </Box>
+
+                    {/* CONTENT */}
+                    <Box p="xl">
+                      <Text c="orange" fw={700} size="sm" tt="uppercase">
+                        {item.role}
+                      </Text>
+
+                      <Title order={3} c="white" mt={8}>
+                        {item.name}
+                      </Title>
+
+                      <Text
+                        c="rgba(255,255,255,0.72)"
+                        mt="md"
+                        lh={1.8}
+                        size="sm"
+                      >
+                        {item.desc}
+                      </Text>
+                    </Box>
+                  </Card>
+                </motion.div>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* 🔥 ALUMNI SUCCESS STORIES */}
+      <Box py={100}>
+        <Container size="xl">
+          {/* TOP */}
+          <Stack align="center" mb={60}>
+            <Text
+              c="orange"
+              fw={700}
+              tt="uppercase"
+              size="sm"
+              style={{ letterSpacing: "2px" }}
+            >
+              Success Stories
+            </Text>
+
+            <Title
+              order={2}
+              ta="center"
+              style={{
+                fontSize: "clamp(32px, 5vw, 54px)",
+              }}
+            >
+              Alumni Impact Stories
+            </Title>
+
+            <Text ta="center" c="dimmed" maw={720} size="lg">
+              Discover how former Fellows For Equality are creating lasting
+              impact within their communities.
+            </Text>
+          </Stack>
+
+          <Grid gutter="xl">
+            {[
+              {
+                title: "From Fellowship to Community Leader",
+                image:
+                  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200",
+                desc: "Empowering rural youth through education and digital access.",
+                url: "/alumni/ravi-kumar",
+              },
+              {
+                title: "Women Leading Grassroots Change",
+                image:
+                  "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200",
+                desc: "Supporting women’s leadership and social justice initiatives.",
+                url: "/alumni/pooja-devi",
+              },
+              {
+                title: "Creating Opportunities Through Innovation",
+                image:
+                  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200",
+                desc: "Building sustainable livelihoods and youth entrepreneurship.",
+                url: "/alumni/aman-valmiki",
+              },
+            ].map((item, index) => (
+              <Grid.Col key={index} span={{ base: 12, md: 4 }}>
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Card
+                    component="a"
+                    href={item.url}
+                    radius="28px"
+                    p={0}
+                    shadow="xl"
+                    style={{
+                      overflow: "hidden",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {/* IMAGE */}
+                    <Box style={{ position: "relative" }}>
+                      <Image src={item.image} height={280} />
+
+                      <Box
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          background:
+                            "linear-gradient(to top, rgba(0,0,0,0.75), transparent)",
+                        }}
+                      />
+                    </Box>
+
+                    {/* CONTENT */}
+                    <Box p="xl">
+                      <Title order={4}>{item.title}</Title>
+
+                      <Text c="dimmed" mt="sm" size="sm" lh={1.7}>
+                        {item.desc}
+                      </Text>
+
+                      <Group mt="lg">
+                        <Text fw={700} c="orange" size="sm">
+                          Read Story →
+                        </Text>
+                      </Group>
+                    </Box>
+                  </Card>
+                </motion.div>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* 🔥 STICKY APPLY CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          zIndex: 999,
+          width: "calc(100% - 40px)",
+          maxWidth: "340px",
+        }}
+      >
+        <Card
+          radius="24px"
+          p="md"
+          shadow="xl"
+          style={{
+            background: "rgba(15, 23, 42, 0.92)",
+            backdropFilter: "blur(14px)",
+            border: "1px solid rgba(255,255,255,0.08)",
+            maxWidth: "320px",
+          }}
+          animate={{
+            boxShadow: [
+              "0 0 0 rgba(249,115,22,0)",
+              "0 0 25px rgba(249,115,22,0.35)",
+              "0 0 0 rgba(249,115,22,0)",
+            ],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+        >
+          <Group align="flex-start" wrap="nowrap">
+            <ThemeIcon size={54} radius="xl" color="orange" variant="light">
+              <FaUsers size={24} />
+            </ThemeIcon>
+
+            <Box>
+              <Text c="white" fw={700} size="md">
+                Become a Fellow
+              </Text>
+
+              <Text c="rgba(255,255,255,0.7)" size="sm" mt={4} lh={1.6}>
+                Applications are now open for the Fellows For Equality
+                leadership program.
+              </Text>
+
+              <Button
+                component={Link}
+                to="/Fellowship-Program-app"
+                color="orange"
+                radius="xl"
+                fullWidth
+                mt="md"
+                rightSection={<FaArrowRight size={14} />}
+              >
+                Apply Now
+              </Button>
+            </Box>
+          </Group>
+        </Card>
+      </motion.div>
+    </div>
+  );
+}
+
+export default FellowsForEqualityPage;

@@ -13,10 +13,12 @@ import HomeRecentNews from '../component/ui/HomeRecentNews';
 import HomeGallery from '../component/ui/HomeGallery';
 import HomeQuickAccess from '../component/ui/HomeQuickAccess';
 import MediaCoverageSection from '../component/ui/MediaCoverageSection';
+import HomeHeroSection from '../component/ui/HomeHeroSection';
 
 const Home = () => {
     return (
         <div>
+            <HomeHeroSection/>
             <HeroCarousel/>
             <MSCOverview/>
             <HomeQuickAccess/>

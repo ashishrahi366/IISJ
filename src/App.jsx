@@ -14,6 +14,9 @@ import AvarnaPage from "./pages/AvarnaPage";
 import IISJPage from "./pages/IISJPage";
 import GalleryPage from "./pages/GalleryPage";
 import FellowshipProgramPage from "./pages/FellowshipProgramPage";
+import FellowsForEqualityPage from "./pages/FellowsForEqualityPage";
+import CommunityResourceCenters from "./pages/CommunityResourceCenters";
+import VimalKumarLeaderSection from "./pages/VimalKumarLeaderSection";
 
 function App() {
   return (
@@ -29,6 +32,9 @@ function App() {
         <Route path="/Avarna" element={<AvarnaPage />} />
         <Route path="/IISJ" element={<IISJPage />} />
         <Route path="/Fellowship-Program-app" element={<FellowshipProgramPage />} />
+        <Route path="/Fellowship-Equality" element={<FellowsForEqualityPage />} />
+        <Route path="/Community-Resource-Centers" element={<CommunityResourceCenters />} />
+        <Route path="/Vimal-Kumar" element={<VimalKumarLeaderSection />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

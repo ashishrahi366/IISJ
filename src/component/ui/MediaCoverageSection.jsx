@@ -34,6 +34,7 @@ function MediaCoverageSection() {
       link: "https://www.bbc.co.uk/programmes/p04jlc9w",
       icon: <FaExternalLinkAlt size={15} />,
       color: "#f97316",
+      textColor: "#ffffff",
     },
 
     {
@@ -43,6 +44,7 @@ function MediaCoverageSection() {
       link: "https://yourstory.com/2015/09/vimal-kumar",
       icon: <FaArrowRight size={15} />,
       color: "#3b82f6",
+      textColor: "#3c9efa",
     },
 
     {
@@ -52,6 +54,7 @@ function MediaCoverageSection() {
       link: "https://www.youtube.com/watch?v=GF44g6sxqy0",
       icon: <FaPlay size={15} />,
       color: "#ef4444",
+      textColor: "#eb1515",
     },
   ];
 
@@ -156,7 +159,7 @@ function MediaCoverageSection() {
                   {/* TITLE */}
                   <Title
                     order={2}
-                    c="white"
+                    c={item.textColor}
                     fw={900}
                     style={{
                       fontSize: "30px",
@@ -166,7 +169,7 @@ function MediaCoverageSection() {
                   </Title>
 
                   {/* SUBTITLE */}
-                  <Text c="rgba(255,255,255,0.8)" mt={8} size="md">
+                  <Text c={item.textColor} mt={8} size="md">
                     {item.subtitle}
                   </Text>
                 </Box>

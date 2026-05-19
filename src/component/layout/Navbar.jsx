@@ -291,9 +291,9 @@ function Navbar() {
                         style={{
                           color:
                             location.pathname.includes(
-                              "/community-resource-center"
+                              "/Community-Resource-Centers"
                             ) ||
-                            location.pathname.includes("/fellows-for-equality")
+                            location.pathname.includes("/Fellowship-Equality")
                               ? theme.colors.orange[5]
                               : "white",
 
@@ -309,9 +309,9 @@ function Navbar() {
                         size={12}
                         color={
                           location.pathname.includes(
-                            "/community-resource-center"
+                            "/Community-Resource-Centers"
                           ) ||
-                          location.pathname.includes("/fellows-for-equality")
+                          location.pathname.includes("/Fellowship-Equality")
                             ? theme.colors.orange[5]
                             : "white"
                         }
@@ -319,9 +319,9 @@ function Navbar() {
                     </Group>
 
                     {(location.pathname.includes(
-                      "/community-resource-center"
+                      "/Community-Resource-Centers"
                     ) ||
-                      location.pathname.includes("/fellows-for-equality")) && (
+                      location.pathname.includes("/Fellowship-Equality")) && (
                       <motion.div
                         layoutId="navbar-underline"
                         style={{
@@ -351,7 +351,7 @@ function Navbar() {
                 >
                   <Menu.Item
                     component={Link}
-                    to="/community-resource-center"
+                    to="/Community-Resource-Centers"
                     className="navbar-dropdown-item"
                   >
                     Community Resource Center
@@ -359,7 +359,7 @@ function Navbar() {
 
                   <Menu.Item
                     component={Link}
-                    to="/fellows-for-equality"
+                    to="/Fellowship-Equality"
                     className="navbar-dropdown-item"
                   >
                     Fellows For Equality
