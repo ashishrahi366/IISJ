@@ -22,7 +22,7 @@ const Home = () => {
             <HeroCarousel/>
             <MSCOverview/>
             <HomeQuickAccess/>
-            <HeroSection/>
+            <HeroSection/>  
             <MediaCoverageSection/>
             <ServicesSection/>
             <StatsSection/>

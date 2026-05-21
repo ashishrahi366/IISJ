@@ -2,14 +2,14 @@ import { Box, Container, Title, Text, Overlay } from "@mantine/core";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { theme } from "../../../theme";
-import heroImg from "../../../assets/home/about-1.jpg";
+import heroImg from "../../../assets/pages/abtHero1.jpg";
 
 function AboutHero() {
   return (
     <Box
       style={{
         position: "relative",
-        height: "60vh",
+        height: "80vh",
         minHeight: "350px",
         backgroundImage: `url(${heroImg})`,
         backgroundSize: "cover",

@@ -23,8 +23,10 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-import leaderImg from "../../assets/home/about-1.jpg";
-import leader2 from "../../assets/home/about-1.jpg";
+// import leaderImg from "../../assets/home/Vimalpic2.jpg";
+import leaderImg from "../../assets/home/LeaderImg.jpg";
+import leader1 from "../../assets/home/Vimalpic2.jpg";
+import leader2 from "../../assets/home/leader2.JPG";
 import leader3 from "../../assets/home/about-1.jpg";
 
 import { theme } from "../../theme";
@@ -35,7 +37,7 @@ function LeaderSection() {
     {
       name: "Dr. Vimal Kumar",
       designation: "Founder & CEO",
-      image: leaderImg,
+      image: leader1,
       description:
         "A passionate social justice leader working to eradicate caste-based discrimination and empower marginalized communities through education, dignity, and leadership.",
     },
@@ -328,7 +330,7 @@ function LeaderSection() {
                 >
                   <Image
                     src={leader.image}
-                    height={340}
+                    height={400}
                     fit="cover"
                   />
 

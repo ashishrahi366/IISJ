@@ -12,6 +12,8 @@ import {
   import { motion } from "framer-motion";
   import { FaArrowRight } from "react-icons/fa";
   import { Link } from "react-router-dom";
+  import logo from "../../assets/Logomark_Digital.png"
+  import mainHero1 from "../../assets/home/mainHero1.avif"
   
   const MotionBox = motion(Box);
   
@@ -77,7 +79,7 @@ import {
   
                 <Group mb="xl">
                   <Image
-                    src="/logo.png" // replace with your IISJ logo path
+                    src={logo}
                     alt="IISJ Logo"
                     w={65}
                     h={65}
@@ -208,7 +210,8 @@ import {
                     }}
                   >
                     <Image
-                      src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop"
+                      // src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop"
+                      src={mainHero1}
                       h={520}
                       fit="cover"
                     />

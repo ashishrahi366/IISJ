@@ -17,6 +17,7 @@ import FellowshipProgramPage from "./pages/FellowshipProgramPage";
 import FellowsForEqualityPage from "./pages/FellowsForEqualityPage";
 import CommunityResourceCenters from "./pages/CommunityResourceCenters";
 import VimalKumarLeaderSection from "./pages/VimalKumarLeaderSection";
+import SupportMSCPage from "./pages/SupportMSCPage";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/Fellowship-Equality" element={<FellowsForEqualityPage />} />
         <Route path="/Community-Resource-Centers" element={<CommunityResourceCenters />} />
         <Route path="/Vimal-Kumar" element={<VimalKumarLeaderSection />} />
+        <Route path="/Support-MSC" element={<SupportMSCPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

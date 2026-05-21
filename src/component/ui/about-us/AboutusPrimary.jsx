@@ -15,9 +15,9 @@ import { useNavigate } from "react-router-dom";
 import { FaHandsHelping, FaHeartbeat, FaBook } from "react-icons/fa";
 
 // 👉 Import your local images
-import img1 from "../../../assets/home/about-1.jpg";
-import img2 from "../../../assets/home/about-2.jpg";
-import img3 from "../../../assets/home/about-2.jpg";
+import img1 from "../../../assets/pages/about1.JPG";
+import img2 from "../../../assets/pages/about2.JPG";
+import img3 from "../../../assets/pages/about3.JPG";
 
 export default function AboutUs() {
   const navigate = useNavigate();

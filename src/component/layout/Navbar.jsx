@@ -3,6 +3,7 @@ import {
   Group,
   Text,
   Button,
+  Image,
   Burger,
   Drawer,
   Stack,
@@ -13,6 +14,7 @@ import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../../styles/navbar.css";
+import logo from "../../assets/Logomark_Digital.png";
 import {
   FaArrowRight,
   FaChevronDown,
@@ -93,6 +95,8 @@ function Navbar() {
         <Container size="lg">
           <Group justify="space-between" py="md">
             {/* 🔶 LOGO */}
+            {/* 🔶 LOGO */}
+
             <Box
               component={Link}
               to="/"
@@ -101,11 +105,25 @@ function Navbar() {
               }}
             >
               <motion.div whileHover={{ scale: 1.03 }}>
-                <Text fw={800} size="xl">
-                  <span style={{ color: theme.colors.orange[5] }}>IISJ</span>
+                <Group gap={10} align="center">
+                  {/* LOGO IMAGE */}
 
-                  <span style={{ color: "white" }}>Collective</span>
-                </Text>
+                  <Image
+                    src={logo}
+                    alt="IISJ Logo"
+                    w={42}
+                    h={42}
+                    fit="contain"
+                  />
+
+                  {/* LOGO TEXT */}
+
+                  <Text fw={800} size="xl">
+                    <span style={{ color: theme.colors.orange[5] }}>IISJ</span>
+
+                    <span style={{ color: "white" }}>Collective</span>
+                  </Text>
+                </Group>
               </motion.div>
             </Box>
 

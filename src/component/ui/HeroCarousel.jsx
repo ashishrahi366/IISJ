@@ -6,8 +6,12 @@ import { FaArrowRight } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import slide1 from "../../assets/home/carousel-1.jpg";
-import slide2 from "../../assets/home/carousel-2.jpg";
+import slide1 from "../../assets/home/homeHero1.JPG";
+import slide2 from "../../assets/home/heroHome2.jpeg";
+import slide3 from "../../assets/home/heroHome3.JPG";
+import slide4 from "../../assets/home/heroHome4.JPG";
+import slide5 from "../../assets/home/heroHome5.JPG";
+import slide6 from "../../assets/home/homeHero6.jpeg";
 
 const slides = [
   {
@@ -17,6 +21,26 @@ const slides = [
   },
   {
     image: slide2,
+    title: "Let's Save More Lifes With Our Helping Hand",
+    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+  },
+  {
+    image: slide3,
+    title: "Let's Change The World With Humanity",
+    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+  },
+  {
+    image: slide4,
+    title: "Let's Save More Lifes With Our Helping Hand",
+    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+  },
+  {
+    image: slide5,
+    title: "Let's Change The World With Humanity",
+    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+  },
+  {
+    image: slide6,
     title: "Let's Save More Lifes With Our Helping Hand",
     text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
   },

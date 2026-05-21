@@ -28,9 +28,9 @@ import {
 import { theme } from "../../theme";
 
 // Dummy Images
-import infoImg from "../../assets/home/infoImg.avif";
-import projectImg from "../../assets/home/projectImg.avif";
-import involvedImg from "../../assets/home/about-1.jpg";
+import infoImg from "../../assets/home/infoImg1.JPG";
+import projectImg from "../../assets/home/infoImg2.JPG";
+import involvedImg from "../../assets/home/infoImg3.jpeg";
 
 const cards = [
   {
@@ -200,7 +200,8 @@ export default function HomeQuickAccess() {
                       <Title
                         order={3}
                         style={{
-                          color: "#330cf7",
+                          // color: "#330cf7",
+                          color: "white",
                           fontWeight: 800,
                         }}
                       >
