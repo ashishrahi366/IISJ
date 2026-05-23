@@ -16,7 +16,8 @@ import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import previewImg from "../../../assets/home/about-1.jpg";
+import { Link } from "react-router-dom";
+import previewImg from "../../../assets/pages/iisj2.jpeg";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
@@ -81,10 +82,7 @@ export default function IISJPreview() {
             {/* LEFT CONTENT */}
 
             <Grid.Col span={{ base: 12, md: 6 }}>
-              <Stack
-                p={{ base: "xl", md: 60 }}
-                gap="lg"
-              >
+              <Stack p={{ base: "xl", md: 60 }} gap="lg">
                 <Badge
                   color="orange"
                   variant="light"
@@ -110,13 +108,9 @@ export default function IISJPreview() {
                   Social Justice
                 </Title>
 
-                <Text
-                  size="lg"
-                  fw={500}
-                  c="orange.7"
-                >
-                  Empowering communities through education,
-                  leadership, and opportunity.
+                <Text size="lg" fw={500} c="orange.7">
+                  Empowering communities through education, leadership, and
+                  opportunity.
                 </Text>
 
                 <Text
@@ -127,10 +121,10 @@ export default function IISJPreview() {
                     maxWidth: 580,
                   }}
                 >
-                  IISJ is dedicated to building socially conscious
-                  leaders and strengthening marginalized communities
-                  through education, fellowship programs, advocacy,
-                  and grassroots leadership initiatives.
+                  IISJ is dedicated to building socially conscious leaders and
+                  strengthening marginalized communities through education,
+                  fellowship programs, advocacy, and grassroots leadership
+                  initiatives.
                 </Text>
 
                 {/* STATS */}
@@ -171,25 +165,21 @@ export default function IISJPreview() {
 
                 <Group mt="xl">
                   <Button
+                    component={Link}
+                    to="/IISJ"
                     size="lg"
                     radius="xl"
                     color="orange"
                     rightSection={<FaArrowRight size={14} />}
                     onClick={() => navigate("/IISJ")}
                     style={{
-                      boxShadow:
-                        "0 10px 30px rgba(255,123,0,0.25)",
+                      boxShadow: "0 10px 30px rgba(255,123,0,0.25)",
                     }}
                   >
                     Explore IISJ
                   </Button>
 
-                  <Button
-                    size="lg"
-                    radius="xl"
-                    variant="light"
-                    color="orange"
-                  >
+                  <Button size="lg" radius="xl" variant="light" color="orange">
                     Our Programs
                   </Button>
                 </Group>
@@ -209,11 +199,7 @@ export default function IISJPreview() {
                   overflow: "hidden",
                 }}
               >
-                <Image
-                  src={previewImg}
-                  h={620}
-                  fit="cover"
-                />
+                <Image src={previewImg} h={620} fit="cover" />
 
                 {/* OVERLAY */}
 
@@ -242,23 +228,12 @@ export default function IISJPreview() {
                     zIndex: 2,
                   }}
                 >
-                  <Text
-                    c="orange.3"
-                    fw={700}
-                    tt="uppercase"
-                    size="sm"
-                    mb={8}
-                  >
+                  <Text c="orange.3" fw={700} tt="uppercase" size="sm" mb={8}>
                     Building Futures
                   </Text>
 
-                  <Title
-                    order={3}
-                    c="white"
-                    fw={800}
-                  >
-                    Education & Leadership
-                    For Social Transformation
+                  <Title order={3} c="white" fw={800}>
+                    Education & Leadership For Social Transformation
                   </Title>
 
                   <Text
@@ -268,9 +243,8 @@ export default function IISJPreview() {
                       lineHeight: 1.8,
                     }}
                   >
-                    Supporting communities with sustainable
-                    opportunities, learning spaces, and
-                    leadership development.
+                    Supporting communities with sustainable opportunities,
+                    learning spaces, and leadership development.
                   </Text>
                 </MotionCard>
               </MotionBox>

@@ -15,7 +15,9 @@ import {
 } from "@mantine/core";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaHandsHelping } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+// import { } from "react-router-dom";
 
 import mscImg from "../../../assets/MSC/MSC-About.jpg";
 
@@ -102,13 +104,9 @@ export default function MSCAboutPreview() {
                   Leadership
                 </Title>
 
-                <Text
-                  size="lg"
-                  fw={500}
-                  c="orange.7"
-                >
-                  A grassroots movement empowering marginalized
-                  scavenger communities across India.
+                <Text size="lg" fw={500} c="orange.7">
+                  A grassroots movement empowering marginalized scavenger
+                  communities across India.
                 </Text>
 
                 <Text
@@ -118,10 +116,9 @@ export default function MSCAboutPreview() {
                     lineHeight: 1.9,
                   }}
                 >
-                  Founded in 2009 by young social activists from
-                  within the scavenger community, MSC works to
-                  challenge caste-based exclusion through
-                  education, leadership development, and
+                  Founded in 2009 by young social activists from within the
+                  scavenger community, MSC works to challenge caste-based
+                  exclusion through education, leadership development, and
                   sustainable community initiatives.
                 </Text>
 
@@ -132,10 +129,10 @@ export default function MSCAboutPreview() {
                     lineHeight: 1.9,
                   }}
                 >
-                  Through community resource centers, vocational
-                  training, digital literacy, and advocacy
-                  programs, MSC supports communities in building
-                  dignified, independent, and empowered futures.
+                  Through community resource centers, vocational training,
+                  digital literacy, and advocacy programs, MSC supports
+                  communities in building dignified, independent, and empowered
+                  futures.
                 </Text>
 
                 {/* MINI STATS */}
@@ -176,14 +173,15 @@ export default function MSCAboutPreview() {
 
                 <Group mt="xl">
                   <Button
+                    component={Link}
+                    to="/MSC-Detail"
                     size="lg"
                     radius="xl"
                     color="orange"
                     rightSection={<FaArrowRight size={14} />}
                     onClick={() => navigate("/MSC-Detail")}
                     style={{
-                      boxShadow:
-                        "0 10px 30px rgba(255,123,0,0.25)",
+                      boxShadow: "0 10px 30px rgba(255,123,0,0.25)",
                     }}
                   >
                     Explore MSC
@@ -220,12 +218,7 @@ export default function MSCAboutPreview() {
                   boxShadow: "0 30px 80px rgba(0,0,0,0.15)",
                 }}
               >
-                <Image
-                  src={mscImg}
-                  h={640}
-                  fit="cover"
-                  alt="MSC NGO"
-                />
+                <Image src={mscImg} h={640} fit="cover" alt="MSC NGO" />
 
                 {/* OVERLAY */}
 
@@ -265,11 +258,7 @@ export default function MSCAboutPreview() {
                     Grassroots Social Change
                   </Text>
 
-                  <Title
-                    order={3}
-                    c="white"
-                    fw={900}
-                  >
+                  <Title order={3} c="white" fw={900}>
                     Building Communities
                     <br />
                     With Equality &
@@ -284,8 +273,8 @@ export default function MSCAboutPreview() {
                       lineHeight: 1.8,
                     }}
                   >
-                    Empowering local communities with education,
-                    leadership, dignity, and sustainable growth.
+                    Empowering local communities with education, leadership,
+                    dignity, and sustainable growth.
                   </Text>
                 </MotionCard>
               </Box>

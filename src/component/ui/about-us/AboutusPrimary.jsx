@@ -16,7 +16,8 @@ import { FaHandsHelping, FaHeartbeat, FaBook } from "react-icons/fa";
 
 // 👉 Import your local images
 import img1 from "../../../assets/pages/about1.JPG";
-import img2 from "../../../assets/pages/about2.JPG";
+// import img2 from "../../../assets/pages/about2.JPG";
+import img2 from "../../../assets/pages/ngo1.JPG";
 import img3 from "../../../assets/pages/about3.JPG";
 
 export default function AboutUs() {

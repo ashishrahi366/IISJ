@@ -13,12 +13,12 @@ import {
   Text,
   Title,
 } from "@mantine/core";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import avarnaImg from "../../../assets/home/about-1.jpg";
-
+import avarnaImg from "../../../assets/home/homeHero6.jpeg";
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
@@ -82,11 +82,7 @@ export default function AvarnaPreview() {
                   boxShadow: "0 30px 80px rgba(0,0,0,0.35)",
                 }}
               >
-                <Image
-                  src={avarnaImg}
-                  h={620}
-                  fit="cover"
-                />
+                <Image src={avarnaImg} h={620} fit="cover" />
 
                 {/* OVERLAY */}
 
@@ -126,11 +122,7 @@ export default function AvarnaPreview() {
                     Inclusive Education & Leadership
                   </Text>
 
-                  <Title
-                    order={3}
-                    c="white"
-                    fw={900}
-                  >
+                  <Title order={3} c="white" fw={900}>
                     Beyond Barriers,
                     <br />
                     Towards Equality
@@ -143,8 +135,8 @@ export default function AvarnaPreview() {
                       lineHeight: 1.8,
                     }}
                   >
-                    Empowering marginalized communities through
-                    leadership, entrepreneurship, and opportunity.
+                    Empowering marginalized communities through leadership,
+                    entrepreneurship, and opportunity.
                   </Text>
                 </MotionCard>
               </Box>
@@ -187,13 +179,9 @@ export default function AvarnaPreview() {
                   Discrimination
                 </Title>
 
-                <Text
-                  size="lg"
-                  fw={500}
-                  c="orange.3"
-                >
-                  Creating opportunities through education,
-                  leadership, and social empowerment.
+                <Text size="lg" fw={500} c="orange.3">
+                  Creating opportunities through education, leadership, and
+                  social empowerment.
                 </Text>
 
                 <Text
@@ -203,10 +191,9 @@ export default function AvarnaPreview() {
                     lineHeight: 1.9,
                   }}
                 >
-                  AVARNA is a grassroots initiative focused on
-                  uplifting Dalit, tribal, and marginalized
-                  communities through leadership development,
-                  entrepreneurship, education, and policy advocacy.
+                  AVARNA is a grassroots initiative focused on uplifting Dalit,
+                  tribal, and marginalized communities through leadership
+                  development, entrepreneurship, education, and policy advocacy.
                 </Text>
 
                 <Text
@@ -216,10 +203,9 @@ export default function AvarnaPreview() {
                     lineHeight: 1.9,
                   }}
                 >
-                  The foundation works to create sustainable
-                  systems that encourage equality, dignity,
-                  innovation, and inclusive social change across
-                  communities.
+                  The foundation works to create sustainable systems that
+                  encourage equality, dignity, innovation, and inclusive social
+                  change across communities.
                 </Text>
 
                 {/* STATS */}
@@ -260,25 +246,21 @@ export default function AvarnaPreview() {
 
                 <Group mt="xl">
                   <Button
+                    component={Link}
+                    to="/Avarna"
                     size="lg"
                     radius="xl"
                     color="orange"
                     rightSection={<FaArrowRight size={14} />}
                     onClick={() => navigate("/Avarna")}
                     style={{
-                      boxShadow:
-                        "0 10px 30px rgba(255,123,0,0.25)",
+                      boxShadow: "0 10px 30px rgba(255,123,0,0.25)",
                     }}
                   >
                     Explore AVARNA
                   </Button>
 
-                  <Button
-                    size="lg"
-                    radius="xl"
-                    variant="white"
-                    color="dark"
-                  >
+                  <Button size="lg" radius="xl" variant="white" color="dark">
                     View Initiatives
                   </Button>
                 </Group>

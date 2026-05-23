@@ -20,6 +20,14 @@ import {
     FaHome,
     FaUsers,
   } from "react-icons/fa";
+
+  import wwd1 from "../../../assets/home/heroHome4.JPG"
+  import wwd2 from "../../../assets/pages/wwd2.JPG"
+  import wwd3 from "../../../assets/pages/wwd3.JPG"
+  import wwd4 from "../../../assets/pages/wwd4.JPG"
+
+  import about2 from "../../../assets/pages/about2.JPG"
+  import heroHome5 from "../../../assets/home/heroHome5.JPG"
   
   const MotionBox = motion(Box);
   const MotionCard = motion(Card);
@@ -28,29 +36,29 @@ import {
     {
       icon: FaUsers,
       title: "Leadership Programs",
-      image:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
+      image:wwd1,
+        // "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
       desc: "We nurture grassroots leaders who work towards dignity, equality, and sustainable social transformation within their communities.",
     },
     {
       icon: FaBookOpen,
       title: "Education Initiatives",
-      image:
-        "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
+      image:wwd2,
+        // "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
       desc: "MSC creates access to education, workshops, mentorship, and learning opportunities for marginalized communities across India.",
     },
     {
       icon: FaHome,
       title: "Community Resource Centers",
-      image:
-        "https://images.unsplash.com/photo-1497486751825-1233686d5d80?q=80&w=1200&auto=format&fit=crop",
+      image:wwd3,
+        // "https://images.unsplash.com/photo-1497486751825-1233686d5d80?q=80&w=1200&auto=format&fit=crop",
       desc: "Our Dr. B. R. Ambedkar Community Resource Centres provide safe spaces for education, collaboration, and community development.",
     },
     {
       icon: FaHandsHelping,
       title: "Social Justice Campaigns",
-      image:
-        "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop",
+      image:wwd4,
+        // "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop",
       desc: "We advocate against caste discrimination and support initiatives focused on equality, dignity, and human rights.",
     },
   ];
@@ -254,7 +262,7 @@ import {
                   position: "absolute",
                   inset: 0,
                   backgroundImage:
-                    "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1800&auto=format&fit=crop')",
+                    `url(${heroHome5})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   opacity: 0.08,
@@ -325,7 +333,7 @@ import {
                     }}
                   >
                     <Image
-                      src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop"
+                      src={about2}
                       h={450}
                       fit="cover"
                     />

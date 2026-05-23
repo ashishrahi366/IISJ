@@ -27,7 +27,7 @@ import {
 import leaderImg from "../../assets/home/LeaderImg.jpg";
 import leader1 from "../../assets/home/Vimalpic2.jpg";
 import leader2 from "../../assets/home/leader2.JPG";
-import leader3 from "../../assets/home/about-1.jpg";
+import leader3 from "../../assets/home/leader3.jpg";
 
 import { theme } from "../../theme";
 
@@ -384,14 +384,14 @@ function LeaderSection() {
                       Leadership Team
                     </Badge>
 
-                    <ThemeIcon
+                    {/* <ThemeIcon
                       radius="xl"
                       size={40}
                       color="orange"
                       variant="light"
                     >
                       <FaArrowRight size={14} />
-                    </ThemeIcon>
+                    </ThemeIcon> */}
                   </Group>
                 </Box>
               </Card>
