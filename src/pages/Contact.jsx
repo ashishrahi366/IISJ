@@ -45,8 +45,8 @@ import { Link } from "react-router-dom";
 import heroImg from "../assets/pages/VimalinAction-scaled.jpg";
 import contact2 from "../assets/pages/contact2.jpeg";
 import CA1 from "../assets/pages/CA1.JPG";
-import CA2 from "../assets/pages/CA2.JPG";
-import CA3 from "../assets/pages/CA3.JPG";
+import CA2 from "../assets/pages/CA2.jpg";
+import CA3 from "../assets/pages/CA3.jpg";
 import CA4 from "../assets/home/infoImg3.jpeg";
 
 function ContactPage() {
