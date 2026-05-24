@@ -260,7 +260,14 @@ export default function AvarnaPreview() {
                     Explore AVARNA
                   </Button>
 
-                  <Button size="lg" radius="xl" variant="white" color="dark">
+                  <Button
+                    component={Link}
+                    to="/Fellowship-Equality"
+                    size="lg"
+                    radius="xl"
+                    variant="white"
+                    color="dark"
+                  >
                     View Initiatives
                   </Button>
                 </Group>

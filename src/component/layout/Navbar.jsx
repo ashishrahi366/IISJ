@@ -10,11 +10,24 @@ import {
   Menu,
   Box,
 } from "@mantine/core";
-import { useDisclosure, useWindowScroll } from "@mantine/hooks";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import {
+  useDisclosure,
+  useWindowScroll,
+} from "@mantine/hooks";
+
+import {
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+
 import { motion } from "framer-motion";
+
 import "../../styles/navbar.css";
+
 import logo from "../../assets/Logomark_Digital.png";
+
 import {
   FaArrowRight,
   FaChevronDown,
@@ -29,30 +42,43 @@ import { theme } from "../../theme";
 function Navbar() {
   const navigate = useNavigate();
 
-  const [opened, { toggle, close }] = useDisclosure(false);
+  const [opened, { toggle, close }] =
+    useDisclosure(false);
 
   const [scroll] = useWindowScroll();
 
   const location = useLocation();
 
-  // 🔥 Detect scroll
+  // SCROLL
+
   const isScrolled = scroll.y > 20;
 
-  // 🔥 ACTIVE ROUTE
-  const isActive = (path) => location.pathname === path;
+  // ACTIVE ROUTE
 
-  // 🔥 NAV LINK STYLE
+  const isActive = (path) =>
+    location.pathname === path;
+
+  // NAV STYLE
+
   const navLinkStyle = (path) => ({
     position: "relative",
-    color: isActive(path) ? theme.colors.orange[5] : "white",
+    color: isActive(path)
+      ? theme.colors.orange[5]
+      : "white",
+
     textDecoration: "none",
+
     fontWeight: 600,
+
     fontSize: "15px",
+
     transition: "0.3s ease",
+
     paddingBottom: "5px",
   });
 
-  // 🔥 UNDERLINE
+  // UNDERLINE
+
   const renderUnderline = (path) =>
     isActive(path) && (
       <motion.div
@@ -63,7 +89,8 @@ function Navbar() {
           bottom: -2,
           width: "100%",
           height: "2px",
-          background: theme.colors.orange[5],
+          background:
+            theme.colors.orange[5],
           borderRadius: "10px",
         }}
       />
@@ -71,31 +98,42 @@ function Navbar() {
 
   return (
     <>
-      {/* 🔥 NAVBAR */}
+      {/* NAVBAR */}
+
       <motion.div
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         style={{
-          background: isScrolled ? "rgba(7, 16, 35, 0.95)" : "transparent",
+          background: isScrolled
+            ? "rgba(7, 16, 35, 0.95)"
+            : "transparent",
 
-          backdropFilter: isScrolled ? "blur(12px)" : "none",
+          backdropFilter: isScrolled
+            ? "blur(12px)"
+            : "none",
 
           borderBottom: isScrolled
             ? "1px solid rgba(255,255,255,0.08)"
             : "none",
 
           position: "fixed",
+
           width: "100%",
+
           top: 0,
+
           zIndex: 1000,
+
           transition: "0.3s ease",
         }}
       >
-        <Container size="lg">
-          <Group justify="space-between" py="md">
-            {/* 🔶 LOGO */}
-            {/* 🔶 LOGO */}
+        <Container size="xl">
+          <Group
+            justify="space-between"
+            py="md"
+          >
+            {/* LOGO */}
 
             <Box
               component={Link}
@@ -104,10 +142,13 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              <motion.div whileHover={{ scale: 1.03 }}>
-                <Group gap={10} align="center">
-                  {/* LOGO IMAGE */}
-
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+              >
+                <Group
+                  gap={10}
+                  align="center"
+                >
                   <Image
                     src={logo}
                     alt="IISJ Logo"
@@ -116,22 +157,48 @@ function Navbar() {
                     fit="contain"
                   />
 
-                  {/* LOGO TEXT */}
+                  <Text
+                    fw={800}
+                    size="xl"
+                  >
+                    <span
+                      style={{
+                        color:
+                          theme.colors.orange[5],
+                      }}
+                    >
+                      IISJ
+                    </span>
 
-                  <Text fw={800} size="xl">
-                    <span style={{ color: theme.colors.orange[5] }}>IISJ</span>
-
-                    <span style={{ color: "white" }}>Collective</span>
+                    <span
+                      style={{
+                        color: "white",
+                      }}
+                    >
+                      Collective
+                    </span>
                   </Text>
                 </Group>
               </motion.div>
             </Box>
 
-            {/* 🖥 DESKTOP MENU */}
-            <Group gap={30} visibleFrom="md">
+            {/* DESKTOP MENU */}
+
+            <Group
+              gap={30}
+              visibleFrom="md"
+            >
               {/* HOME */}
-              <Box style={{ position: "relative" }}>
-                <Link to="/" style={navLinkStyle("/")}>
+
+              <Box
+                style={{
+                  position: "relative",
+                }}
+              >
+                <Link
+                  to="/"
+                  style={navLinkStyle("/")}
+                >
                   Home
                 </Link>
 
@@ -139,23 +206,36 @@ function Navbar() {
               </Box>
 
               {/* ABOUT */}
-              <Box style={{ position: "relative" }}>
-                <Link to="/about" style={navLinkStyle("/about")}>
+
+              <Box
+                style={{
+                  position: "relative",
+                }}
+              >
+                <Link
+                  to="/about"
+                  style={navLinkStyle(
+                    "/about"
+                  )}
+                >
                   About
                 </Link>
 
                 {renderUnderline("/about")}
               </Box>
 
-              {/* 🔥 INFORMATION DROPDOWN */}
+              {/* INFORMATION */}
+
               <Menu
                 trigger="hover"
                 openDelay={100}
                 closeDelay={200}
                 shadow="xl"
-                width={250}
+                width={260}
                 transitionProps={{
-                  transition: "pop-top-right",
+                  transition:
+                    "pop-top-right",
+
                   duration: 250,
                 }}
               >
@@ -170,18 +250,28 @@ function Navbar() {
                       <Text
                         style={{
                           color:
-                            location.pathname.includes("/msc") ||
-                            location.pathname.includes("/avarna") ||
-                            location.pathname.includes("/iisj") ||
-                            location.pathname.includes("/gallery") ||
-                            location.pathname.includes("/blogs") ||
-                            location.pathname.includes("/vimal-kumar")
-                              ? theme.colors.orange[5]
+                            location.pathname.includes(
+                              "/iisj"
+                            ) ||
+                            location.pathname.includes(
+                              "/gallery"
+                            ) ||
+                            location.pathname.includes(
+                              "/blogs"
+                            ) ||
+                            location.pathname.includes(
+                              "/vimal-kumar"
+                            )
+                              ? theme.colors
+                                  .orange[5]
                               : "white",
 
                           fontWeight: 600,
+
                           fontSize: "15px",
-                          transition: "0.3s",
+
+                          transition:
+                            "0.3s",
                         }}
                       >
                         Information
@@ -190,71 +280,53 @@ function Navbar() {
                       <FaChevronDown
                         size={12}
                         color={
-                          location.pathname.includes("/msc") ||
-                          location.pathname.includes("/avarna") ||
-                          location.pathname.includes("/iisj") ||
-                          location.pathname.includes("/gallery") ||
-                          location.pathname.includes("/blogs") ||
-                          location.pathname.includes("/vimal-kumar")
-                            ? theme.colors.orange[5]
+                          location.pathname.includes(
+                            "/iisj"
+                          ) ||
+                          location.pathname.includes(
+                            "/gallery"
+                          ) ||
+                          location.pathname.includes(
+                            "/blogs"
+                          ) ||
+                          location.pathname.includes(
+                            "/vimal-kumar"
+                          )
+                            ? theme.colors
+                                .orange[5]
                             : "white"
                         }
                       />
                     </Group>
-
-                    {(location.pathname.includes("/msc") ||
-                      location.pathname.includes("/avarna") ||
-                      location.pathname.includes("/iisj") ||
-                      location.pathname.includes("/gallery") ||
-                      location.pathname.includes("/blogs") ||
-                      location.pathname.includes("/vimal-kumar")) && (
-                      <motion.div
-                        layoutId="navbar-underline"
-                        style={{
-                          position: "absolute",
-                          left: 0,
-                          bottom: -7,
-                          width: "100%",
-                          height: "2px",
-                          background: theme.colors.orange[5],
-                          borderRadius: "10px",
-                        }}
-                      />
-                    )}
                   </Box>
                 </Menu.Target>
 
-                {/* DROPDOWN */}
                 <Menu.Dropdown
                   style={{
-                    background: "rgba(10, 18, 38, 0.96)",
-                    backdropFilter: "blur(14px)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    borderRadius: "18px",
-                    padding: "10px",
-                    boxShadow: "0 20px 50px rgba(0,0,0,0.35)",
+                    background:
+                      "rgba(10, 18, 38, 0.96)",
+
+                    backdropFilter:
+                      "blur(14px)",
+
+                    border:
+                      "1px solid rgba(255,255,255,0.08)",
+
+                    borderRadius: "24px",
+
+                    padding: "12px",
+
+                    boxShadow:
+                      "0 20px 50px rgba(0,0,0,0.35)",
                   }}
                 >
                   <Menu.Item
                     component={Link}
-                    to="/msc"
-                    className="navbar-dropdown-item"
-                  >
-                    Scavenger Communities
-                  </Menu.Item>
-
-                  <Menu.Item
-                    component={Link}
-                    to="/avarna"
-                    className="navbar-dropdown-item"
-                  >
-                    Avarna
-                  </Menu.Item>
-
-                  <Menu.Item
-                    component={Link}
                     to="/iisj"
                     className="navbar-dropdown-item"
+                    leftSection={
+                      <FaFileAlt size={14} />
+                    }
                   >
                     IISJ
                   </Menu.Item>
@@ -263,6 +335,9 @@ function Navbar() {
                     component={Link}
                     to="/gallery"
                     className="navbar-dropdown-item"
+                    leftSection={
+                      <FaImages size={14} />
+                    }
                   >
                     Gallery
                   </Menu.Item>
@@ -271,6 +346,9 @@ function Navbar() {
                     component={Link}
                     to="/blogs"
                     className="navbar-dropdown-item"
+                    leftSection={
+                      <FaNewspaper size={14} />
+                    }
                   >
                     News & Stories
                   </Menu.Item>
@@ -279,21 +357,27 @@ function Navbar() {
                     component={Link}
                     to="/vimal-kumar"
                     className="navbar-dropdown-item"
+                    leftSection={
+                      <FaCalendarAlt size={14} />
+                    }
                   >
                     About Vimal Kumar
                   </Menu.Item>
                 </Menu.Dropdown>
               </Menu>
 
-              {/* 🔥 OUR PROJECT DROPDOWN */}
+              {/* PROJECTS */}
+
               <Menu
                 trigger="hover"
                 openDelay={100}
                 closeDelay={200}
                 shadow="xl"
-                width={250}
+                width={280}
                 transitionProps={{
-                  transition: "pop-top-right",
+                  transition:
+                    "pop-top-right",
+
                   duration: 250,
                 }}
               >
@@ -311,16 +395,34 @@ function Navbar() {
                             location.pathname.includes(
                               "/Community-Resource-Centers"
                             ) ||
-                            location.pathname.includes("/Fellowship-Equality")
-                              ? theme.colors.orange[5]
+                            location.pathname.includes(
+                              "/Fellowship-Equality"
+                            ) ||
+                            location.pathname.includes(
+                              "/Fellowship-Program-app"
+                            ) ||
+                            location.pathname.includes(
+                              "/support-msc"
+                            ) ||
+                            location.pathname.includes(
+                              "/avarna"
+                            ) ||
+                            location.pathname.includes(
+                              "/MSC-Detail"
+                            )
+                              ? theme.colors
+                                  .orange[5]
                               : "white",
 
                           fontWeight: 600,
+
                           fontSize: "15px",
-                          transition: "0.3s",
+
+                          transition:
+                            "0.3s",
                         }}
                       >
-                        Our Project
+                        Our Projects
                       </Text>
 
                       <FaChevronDown
@@ -329,42 +431,47 @@ function Navbar() {
                           location.pathname.includes(
                             "/Community-Resource-Centers"
                           ) ||
-                          location.pathname.includes("/Fellowship-Equality")
-                            ? theme.colors.orange[5]
+                          location.pathname.includes(
+                            "/Fellowship-Equality"
+                          ) ||
+                          location.pathname.includes(
+                            "/Fellowship-Program-app"
+                          ) ||
+                          location.pathname.includes(
+                            "/support-msc"
+                          ) ||
+                          location.pathname.includes(
+                            "/avarna"
+                          ) ||
+                          location.pathname.includes(
+                            "/MSC-Detail"
+                          )
+                            ? theme.colors
+                                .orange[5]
                             : "white"
                         }
                       />
                     </Group>
-
-                    {(location.pathname.includes(
-                      "/Community-Resource-Centers"
-                    ) ||
-                      location.pathname.includes("/Fellowship-Equality")) && (
-                      <motion.div
-                        layoutId="navbar-underline"
-                        style={{
-                          position: "absolute",
-                          left: 0,
-                          bottom: -7,
-                          width: "100%",
-                          height: "2px",
-                          background: theme.colors.orange[5],
-                          borderRadius: "10px",
-                        }}
-                      />
-                    )}
                   </Box>
                 </Menu.Target>
 
-                {/* DROPDOWN */}
                 <Menu.Dropdown
                   style={{
-                    background: "rgba(10, 18, 38, 0.96)",
-                    backdropFilter: "blur(14px)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    borderRadius: "18px",
-                    padding: "10px",
-                    boxShadow: "0 20px 50px rgba(0,0,0,0.35)",
+                    background:
+                      "rgba(10, 18, 38, 0.96)",
+
+                    backdropFilter:
+                      "blur(14px)",
+
+                    border:
+                      "1px solid rgba(255,255,255,0.08)",
+
+                    borderRadius: "24px",
+
+                    padding: "12px",
+
+                    boxShadow:
+                      "0 20px 50px rgba(0,0,0,0.35)",
                   }}
                 >
                   <Menu.Item
@@ -372,7 +479,7 @@ function Navbar() {
                     to="/Community-Resource-Centers"
                     className="navbar-dropdown-item"
                   >
-                    Community Resource Center
+                    Community Resource Centers
                   </Menu.Item>
 
                   <Menu.Item
@@ -382,37 +489,89 @@ function Navbar() {
                   >
                     Fellows For Equality
                   </Menu.Item>
+
+                  <Menu.Item
+                    component={Link}
+                    to="/Fellowship-Program-app"
+                    className="navbar-dropdown-item"
+                  >
+                    Fellowship Application
+                  </Menu.Item>
+
+                  <Menu.Item
+                    component={Link}
+                    to="/support-msc"
+                    className="navbar-dropdown-item"
+                  >
+                    Support MSC
+                  </Menu.Item>
+
+                  <Menu.Item
+                    component={Link}
+                    to="/avarna"
+                    className="navbar-dropdown-item"
+                  >
+                    AVARNA Foundation
+                  </Menu.Item>
+
+                  <Menu.Item
+                    component={Link}
+                    to="/MSC-Detail"
+                    className="navbar-dropdown-item"
+                  >
+                    Scavenger Communities
+                  </Menu.Item>
                 </Menu.Dropdown>
               </Menu>
 
               {/* CONTACT */}
-              <Box style={{ position: "relative" }}>
-                <Link to="/contact" style={navLinkStyle("/contact")}>
-                  Contact Us
+
+              <Box
+                style={{
+                  position: "relative",
+                }}
+              >
+                <Link
+                  to="/contact"
+                  style={navLinkStyle(
+                    "/contact"
+                  )}
+                >
+                  Contact
                 </Link>
 
                 {renderUnderline("/contact")}
               </Box>
-              {/* DONATE BUTTON */}
+
+              {/* BUTTON */}
+
               <Button
-                onClick={() => navigate("/contact")}
-                variant="gradient"
-                gradient={{
-                  from: "orange",
-                  to: "red",
-                }}
+                onClick={() =>
+                  navigate("/support-msc")
+                }
                 radius="xl"
                 px={24}
-                rightSection={<FaArrowRight size={13} />}
+                rightSection={
+                  <FaArrowRight size={13} />
+                }
                 style={{
-                  boxShadow: "0 10px 25px rgba(249,115,22,0.35)",
+                  background:
+                    "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+
+                  border: "none",
+
+                  cursor: "pointer",
+
+                  boxShadow:
+                    "0 10px 25px rgba(249,115,22,0.35)",
                 }}
               >
                 Donate Now
               </Button>
             </Group>
 
-            {/* 📱 MOBILE BURGER */}
+            {/* MOBILE BURGER */}
+
             <Burger
               opened={opened}
               onClick={toggle}
@@ -423,96 +582,332 @@ function Navbar() {
         </Container>
       </motion.div>
 
-      {/* 📱 MOBILE DRAWER */}
+      {/* MOBILE DRAWER */}
+
       <Drawer
         opened={opened}
         onClose={close}
         withCloseButton={false}
-        padding="lg"
-        size="75%"
+        padding={0}
+        size="85%"
         position="right"
         styles={{
           content: {
-            background: "linear-gradient(180deg,#071023,#0f172a)",
+            background:
+              "linear-gradient(180deg,#071120 0%, #0d1d36 100%)",
+
+            overflow: "hidden",
           },
         }}
       >
-        <Stack mt={50} gap="xl">
-          <Link to="/" onClick={close} style={navLinkStyle("/")}>
-            Home
-          </Link>
+        {/* HEADER */}
 
-          <Link to="/about" onClick={close} style={navLinkStyle("/about")}>
-            About
-          </Link>
+        <Box
+          px="lg"
+          py="md"
+          style={{
+            borderBottom:
+              "1px solid rgba(255,255,255,0.08)",
 
-          <Link to="/contact" onClick={close} style={navLinkStyle("/contact")}>
-            Contact
-          </Link>
+            background:
+              "rgba(255,255,255,0.03)",
 
-          <Link to="/blogs" onClick={close} style={navLinkStyle("/blogs")}>
-            News & Stories
-          </Link>
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <Group justify="space-between">
+            <Group gap={10}>
+              <Image
+                src={logo}
+                w={42}
+                h={42}
+                fit="contain"
+              />
 
-          {/* MOBILE SUB MENU */}
-          <Stack gap="sm">
-            <Text fw={700} c="orange" size="sm" tt="uppercase">
+              <Text
+                fw={800}
+                size="lg"
+              >
+                <span
+                  style={{
+                    color: "#ff7b00",
+                  }}
+                >
+                  IISJ
+                </span>
+
+                <span
+                  style={{
+                    color: "white",
+                  }}
+                >
+                  Collective
+                </span>
+              </Text>
+            </Group>
+
+            <Burger
+              opened={opened}
+              onClick={close}
+              color="white"
+            />
+          </Group>
+        </Box>
+
+        {/* MENU */}
+
+        <Stack
+          gap="xs"
+          p="lg"
+        >
+          {[
+            {
+              label: "Home",
+              path: "/",
+            },
+
+            {
+              label: "About",
+              path: "/about",
+            },
+
+            {
+              label: "Contact",
+              path: "/contact",
+            },
+
+            {
+              label: "News & Stories",
+              path: "/blogs",
+            },
+          ].map((item, index) => (
+            <Box
+              key={index}
+              component={Link}
+              to={item.path}
+              onClick={close}
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <motion.div
+                whileTap={{ scale: 0.98 }}
+              >
+                <Box
+                  px="lg"
+                  py="md"
+                  style={{
+                    borderRadius: "18px",
+
+                    background:
+                      location.pathname ===
+                      item.path
+                        ? "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)"
+                        : "rgba(255,255,255,0.04)",
+
+                    border:
+                      "1px solid rgba(255,255,255,0.06)",
+
+                    color: "white",
+
+                    fontWeight: 600,
+
+                    fontSize: "15px",
+                  }}
+                >
+                  {item.label}
+                </Box>
+              </motion.div>
+            </Box>
+          ))}
+
+          {/* INFORMATION */}
+
+          <Box mt="md">
+            <Text
+              c="orange"
+              fw={700}
+              size="sm"
+              tt="uppercase"
+              mb="sm"
+            >
               Information
             </Text>
 
-            <Link
-              to="/gallery"
-              onClick={close}
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              Gallery
-            </Link>
+            <Stack gap="xs">
+              {[
+                {
+                  label: "IISJ",
+                  path: "/iisj",
+                },
 
-            <Link
-              to="/events"
-              onClick={close}
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              Events
-            </Link>
+                {
+                  label: "Gallery",
+                  path: "/gallery",
+                },
 
-            <Link
-              to="/reports"
-              onClick={close}
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              Reports
-            </Link>
+                {
+                  label: "News & Stories",
+                  path: "/blogs",
+                },
 
-            <Link
-              to="/blogs"
-              onClick={close}
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
+                {
+                  label:
+                    "About Vimal Kumar",
+
+                  path: "/vimal-kumar",
+                },
+              ].map((item, index) => (
+                <Box
+                  key={index}
+                  component={Link}
+                  to={item.path}
+                  onClick={close}
+                  style={{
+                    textDecoration: "none",
+                  }}
+                >
+                  <Box
+                    px="md"
+                    py="sm"
+                    style={{
+                      borderRadius: "16px",
+
+                      background:
+                        "rgba(255,255,255,0.04)",
+
+                      border:
+                        "1px solid rgba(255,255,255,0.05)",
+
+                      color: "white",
+
+                      fontSize: "14px",
+
+                      fontWeight: 500,
+                    }}
+                  >
+                    {item.label}
+                  </Box>
+                </Box>
+              ))}
+            </Stack>
+          </Box>
+
+          {/* PROJECTS */}
+
+          <Box mt="md">
+            <Text
+              c="orange"
+              fw={700}
+              size="sm"
+              tt="uppercase"
+              mb="sm"
             >
-              News Articles
-            </Link>
-          </Stack>
+              Our Projects
+            </Text>
+
+            <Stack gap="xs">
+              {[
+                {
+                  label:
+                    "Community Resource Centers",
+
+                  path:
+                    "/Community-Resource-Centers",
+                },
+
+                {
+                  label:
+                    "Fellows For Equality",
+
+                  path:
+                    "/Fellowship-Equality",
+                },
+
+                {
+                  label:
+                    "Fellowship Application",
+
+                  path:
+                    "/Fellowship-Program-app",
+                },
+
+                {
+                  label: "Support MSC",
+
+                  path: "/support-msc",
+                },
+
+                {
+                  label:
+                    "AVARNA Foundation",
+
+                  path: "/avarna",
+                },
+
+                {
+                  label:
+                    "Scavenger Communities",
+
+                  path: "/MSC-Detail",
+                },
+              ].map((item, index) => (
+                <Box
+                  key={index}
+                  component={Link}
+                  to={item.path}
+                  onClick={close}
+                  style={{
+                    textDecoration: "none",
+                  }}
+                >
+                  <Box
+                    px="md"
+                    py="sm"
+                    style={{
+                      borderRadius: "16px",
+
+                      background:
+                        "rgba(255,255,255,0.04)",
+
+                      border:
+                        "1px solid rgba(255,255,255,0.05)",
+
+                      color: "white",
+
+                      fontSize: "14px",
+
+                      fontWeight: 500,
+                    }}
+                  >
+                    {item.label}
+                  </Box>
+                </Box>
+              ))}
+            </Stack>
+          </Box>
 
           {/* BUTTON */}
+
           <Button
             component={Link}
-            to="/contact"
-            color="orange"
+            to="/support-msc"
+            mt="xl"
+            size="lg"
             radius="xl"
-            rightSection={<FaArrowRight size={14} />}
+            rightSection={
+              <FaArrowRight size={14} />
+            }
             onClick={close}
+            style={{
+              background:
+                "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+
+              border: "none",
+
+              boxShadow:
+                "0 12px 30px rgba(255,123,0,0.28)",
+            }}
           >
             Donate Now
           </Button>

@@ -43,6 +43,11 @@ import { theme } from "../theme";
 import { Link } from "react-router-dom";
 
 import heroImg from "../assets/pages/VimalinAction-scaled.jpg";
+import contact2 from "../assets/pages/contact2.jpeg";
+import CA1 from "../assets/pages/CA1.JPG";
+import CA2 from "../assets/pages/CA2.JPG";
+import CA3 from "../assets/pages/CA3.JPG";
+import CA4 from "../assets/home/infoImg3.jpeg";
 
 function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -640,8 +645,7 @@ function ContactPage() {
         {(() => {
           const programs = [
             {
-              image:
-                "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+              image:CA1,
               title: "Community Leadership Program",
               description:
                 "Empowering youth and grassroots leaders through leadership workshops, civic participation, and community organizing initiatives.",
@@ -650,8 +654,7 @@ function ContactPage() {
             },
 
             {
-              image:
-                "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+              image:CA2,
               title: "Movement for Scavenger Community – MSC",
               description:
                 "Aim is equality, the same chances for everyone, no matter what caste, class they belong to. Goal is empowerment through education.",
@@ -659,8 +662,7 @@ function ContactPage() {
               link: "/MSC-Detail",
             },
             {
-              image:
-                "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+              image:CA3,
               title: "Fellowship Program",
               description:
                 "Our fellows live and work at different locations. Working hand in hand with the committee of the local Dr. B. R. Ambedkar Community Resource Centre.",
@@ -669,8 +671,7 @@ function ContactPage() {
             },
 
             {
-              image:
-                "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+              image:CA4,
               title: "Avarna Foundation",
               description:
                 "It represents a world beyond division—where identity is not defined by caste, gender, religion, or race, but by shared humanity and collective growth.",
@@ -771,7 +772,7 @@ function ContactPage() {
       <Box
         py={100}
         style={{
-          backgroundImage: `url(${heroImg})`,
+          backgroundImage: `url(${contact2})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",
@@ -803,6 +804,8 @@ function ContactPage() {
 
           <Group justify="center" mt={40}>
             <Button
+              component={Link}
+              to="/Fellowship-Program-app"
               color="orange"
               radius="xl"
               size="lg"
@@ -836,6 +839,8 @@ function ContactPage() {
             <Grid.Col span={{ base: 12, md: 4 }}>
               <Group justify="flex-end">
                 <Button
+                  component={Link}
+                  to="/Support-MSC"
                   size="lg"
                   radius="xl"
                   color="dark"

@@ -1,4 +1,5 @@
 import { Container, Title, Text, Button } from "@mantine/core";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -88,7 +89,6 @@ function HeroCarousel() {
                 }}
               >
                 <div style={{ maxWidth: "700px" }}>
-                  
                   <motion.div
                     initial={{ y: 60, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -115,6 +115,8 @@ function HeroCarousel() {
                     transition={{ delay: 0.4, duration: 0.6 }}
                   >
                     <Button
+                      component={Link}
+                      to="/about"
                       size="lg"
                       color="orange"
                       rightSection={<FaArrowRight />}
@@ -122,7 +124,6 @@ function HeroCarousel() {
                       Learn More
                     </Button>
                   </motion.div>
-
                 </div>
               </Container>
             </div>

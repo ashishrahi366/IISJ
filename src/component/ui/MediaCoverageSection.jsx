@@ -169,7 +169,7 @@ function MediaCoverageSection() {
                   </Title>
 
                   {/* SUBTITLE */}
-                  <Text c={item.textColor} mt={8} size="md">
+                  <Text c={item.textColor} mt={1} size="md">
                     {item.subtitle}
                   </Text>
                 </Box>

@@ -188,6 +188,8 @@ export default function MSCAboutPreview() {
                   </Button>
 
                   <Button
+                  component={Link}
+                    to="/Support-MSC"
                     size="lg"
                     radius="xl"
                     variant="light"

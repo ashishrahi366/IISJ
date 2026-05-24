@@ -9,6 +9,9 @@ import {
   Button,
   Stack,
   Group,
+  Box,
+  Badge,
+  ThemeIcon,
 } from "@mantine/core";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -66,63 +69,268 @@ export default function AboutUs() {
         </Grid>
       </Container>
 
-      {/* Mission & Vision */}
-      <div style={{ background: "linear-gradient(135deg, #eef2ff, #f0fdf4)" }}>
-        <Container size="lg" py={80}>
-          <Grid>
+      {/* MISSION & VISION SECTION */}
+
+      <Box
+        py={{ base: 80, md: 120 }}
+        style={{
+          background:
+            "linear-gradient(135deg, #071120 0%, #0d1d36 50%, #13284a 100%)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* BLUR EFFECTS */}
+
+        <Box
+          style={{
+            position: "absolute",
+            top: -120,
+            right: -120,
+            width: 320,
+            height: 320,
+            borderRadius: "50%",
+            background: "rgba(255,123,0,0.18)",
+            filter: "blur(120px)",
+          }}
+        />
+
+        <Box
+          style={{
+            position: "absolute",
+            bottom: -120,
+            left: -120,
+            width: 320,
+            height: 320,
+            borderRadius: "50%",
+            background: "rgba(255,180,0,0.12)",
+            filter: "blur(120px)",
+          }}
+        />
+
+        <Container size="xl" pos="relative">
+          {/* SECTION HEADING */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Stack align="center" gap="md" mb={60}>
+              <Badge size="lg" radius="xl" color="orange" variant="light">
+                Mission & Vision
+              </Badge>
+
+              <Title
+                order={2}
+                ta="center"
+                c="white"
+                fw={900}
+                style={{
+                  fontSize: "clamp(2.4rem, 5vw, 4.8rem)",
+                  lineHeight: 1.08,
+                }}
+              >
+                Building Equality,
+                <br />
+                Leadership & Dignity
+              </Title>
+
+              <Text
+                ta="center"
+                c="gray.4"
+                maw={720}
+                size="lg"
+                style={{
+                  lineHeight: 1.9,
+                }}
+              >
+                We work with marginalized communities to create opportunities
+                through education, leadership, social justice initiatives, and
+                sustainable community development.
+              </Text>
+            </Stack>
+          </motion.div>
+
+          {/* CARDS */}
+
+          <Grid gutter={30}>
+            {/* MISSION */}
+
             <Grid.Col span={{ base: 12, md: 6 }}>
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
               >
                 <Card
-                  radius="xl"
+                  radius={34}
                   p="xl"
-                  shadow="lg"
-                  style={{ background: "#ffffff" }}
+                  h="100%"
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    background: "rgba(255,255,255,0.06)",
+                    backdropFilter: "blur(18px)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
                 >
-                  <Group mb="md">
-                    <FaHandsHelping size={30} color="#4f46e5" />
-                    <Title order={3}>Our Mission</Title>
-                  </Group>
-                  <Text c="dimmed">
-                    To uplift underprivileged communities through education,
-                    healthcare, and sustainable development initiatives. We aim
-                    to provide equal opportunities and empower people to build
-                    better lives.
+                  {/* TOP BORDER */}
+
+                  <Box
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: 5,
+                      background:
+                        "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+                    }}
+                  />
+
+                  {/* ICON */}
+
+                  <ThemeIcon
+                    size={78}
+                    radius={26}
+                    variant="gradient"
+                    gradient={{
+                      from: "orange",
+                      to: "yellow",
+                    }}
+                    mb="xl"
+                  >
+                    <FaHandsHelping size={34} />
+                  </ThemeIcon>
+
+                  <Text
+                    c="orange.3"
+                    fw={700}
+                    tt="uppercase"
+                    size="sm"
+                    mb={10}
+                    style={{
+                      letterSpacing: 1,
+                    }}
+                  >
+                    Our Mission
+                  </Text>
+
+                  <Title order={2} c="white" fw={800} mb="md">
+                    Empower Communities
+                    <br />
+                    Through Education
+                  </Title>
+
+                  <Text
+                    c="gray.4"
+                    size="md"
+                    style={{
+                      lineHeight: 1.9,
+                    }}
+                  >
+                    Our mission is to uplift marginalized and historically
+                    excluded communities through education, leadership
+                    development, fellowships, grassroots organizing, and
+                    sustainable opportunities that create dignity, equality, and
+                    social justice.
                   </Text>
                 </Card>
               </motion.div>
             </Grid.Col>
 
+            {/* VISION */}
+
             <Grid.Col span={{ base: 12, md: 6 }}>
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
               >
                 <Card
-                  radius="xl"
+                  radius={34}
                   p="xl"
-                  shadow="lg"
-                  style={{ background: "#ffffff" }}
+                  h="100%"
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    background: "rgba(255,255,255,0.06)",
+                    backdropFilter: "blur(18px)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
                 >
-                  <Group mb="md">
-                    <FaHeartbeat size={30} color="#16a34a" />
-                    <Title order={3}>Our Vision</Title>
-                  </Group>
-                  <Text c="dimmed">
-                    A world where every individual has access to basic needs,
-                    education, and opportunities to thrive, regardless of their
-                    background.
+                  {/* TOP BORDER */}
+
+                  <Box
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: 5,
+                      background:
+                        "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+                    }}
+                  />
+
+                  {/* ICON */}
+
+                  <ThemeIcon
+                    size={78}
+                    radius={26}
+                    variant="gradient"
+                    gradient={{
+                      from: "orange",
+                      to: "yellow",
+                    }}
+                    mb="xl"
+                  >
+                    <FaHeartbeat size={34} />
+                  </ThemeIcon>
+
+                  <Text
+                    c="orange.3"
+                    fw={700}
+                    tt="uppercase"
+                    size="sm"
+                    mb={10}
+                    style={{
+                      letterSpacing: 1,
+                    }}
+                  >
+                    Our Vision
+                  </Text>
+
+                  <Title order={2} c="white" fw={800} mb="md">
+                    A Society Built
+                    <br />
+                    On Equality & Justice
+                  </Title>
+
+                  <Text
+                    c="gray.4"
+                    size="md"
+                    style={{
+                      lineHeight: 1.9,
+                    }}
+                  >
+                    We envision a world where every individual, regardless of
+                    caste, gender, or social background, has equal access to
+                    education, dignity, leadership opportunities, and the
+                    freedom to live with respect and justice.
                   </Text>
                 </Card>
               </motion.div>
             </Grid.Col>
           </Grid>
         </Container>
-      </div>
+      </Box>
 
       {/* What We Do */}
       <Container size="lg" py={80}>

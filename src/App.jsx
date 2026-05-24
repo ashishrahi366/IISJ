@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import "./app.css";
 import ScrollToTop from "./component/common/ScrollToTop";
 import Navbar from "./component/layout/Navbar";
 import Footer from "./component/layout/Footer";
@@ -32,9 +32,18 @@ function App() {
         <Route path="/MSC-Detail" element={<MSCPage />} />
         <Route path="/Avarna" element={<AvarnaPage />} />
         <Route path="/IISJ" element={<IISJPage />} />
-        <Route path="/Fellowship-Program-app" element={<FellowshipProgramPage />} />
-        <Route path="/Fellowship-Equality" element={<FellowsForEqualityPage />} />
-        <Route path="/Community-Resource-Centers" element={<CommunityResourceCenters />} />
+        <Route
+          path="/Fellowship-Program-app"
+          element={<FellowshipProgramPage />}
+        />
+        <Route
+          path="/Fellowship-Equality"
+          element={<FellowsForEqualityPage />}
+        />
+        <Route
+          path="/Community-Resource-Centers"
+          element={<CommunityResourceCenters />}
+        />
         <Route path="/Vimal-Kumar" element={<VimalKumarLeaderSection />} />
         <Route path="/Support-MSC" element={<SupportMSCPage />} />
         <Route path="*" element={<NotFound />} />

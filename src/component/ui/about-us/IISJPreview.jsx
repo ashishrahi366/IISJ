@@ -179,7 +179,14 @@ export default function IISJPreview() {
                     Explore IISJ
                   </Button>
 
-                  <Button size="lg" radius="xl" variant="light" color="orange">
+                  <Button
+                    component={Link}
+                    to="/Community-Resource-Centers"
+                    size="lg"
+                    radius="xl"
+                    variant="light"
+                    color="orange"
+                  >
                     Our Programs
                   </Button>
                 </Group>

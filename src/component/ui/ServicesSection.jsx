@@ -1,132 +1,283 @@
 import {
+  Badge,
+  Box,
+  Button,
+  Card,
   Container,
   Grid,
-  Card,
-  Text,
-  Title,
-  Button,
-  Badge,
   Group,
+  Overlay,
+  Stack,
+  Text,
+  ThemeIcon,
+  Title,
 } from "@mantine/core";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaBookOpen, FaHeartbeat, FaTint } from "react-icons/fa";
-import { theme } from "../../theme";
+import {
+  FaArrowRight,
+  FaBookOpen,
+  FaHandsHelping,
+  FaUsers,
+} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+const MotionCard = motion(Card);
 
 const services = [
   {
-    icon: <FaBookOpen size={40} />,
-    title: "IISJ - Institute for Inclusive Social Justice",
-    desc: "IISJ empowers marginalized communities through education, leadership development, research, advocacy, and grassroots social justice initiatives that promote dignity, equality, and inclusive growth.",
+    icon: <FaBookOpen size={28} />,
+    title: "International Institute for Social Justice",
+    short: "Education • Leadership • Research",
+    desc: "IISJ empowers marginalized communities through leadership development, fellowships, research, education, and grassroots social justice initiatives that promote equality and dignity.",
+    path: "/IISJ",
+    gradient: "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
   },
 
   {
-    icon: <FaHeartbeat size={40} />,
+    icon: <FaHandsHelping size={28} />,
     title: "Movement for Scavenger Community",
-    desc: "MSC works to eradicate manual scavenging and uplift sanitation worker communities through education, community leadership, livelihood support, legal awareness, and human dignity campaigns.",
+    short: "Grassroots • Equality • Empowerment",
+    desc: "MSC works to eradicate manual scavenging and strengthen sanitation worker communities through education, livelihood support, leadership programs, and community resource centers.",
+    path: "/MSC-Detail",
+    gradient: "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
   },
 
   {
-    icon: <FaTint size={40} />,
-    title: "Avarna - Foundation Community",
-    desc: "Millions of Dalits, tribal communities, and marginalized groups face systemic discrimination, exclusion, and violence.Barriers in education, healthcare, and employment prevent full participation in society.",
+    icon: <FaUsers size={28} />,
+    title: "Avarna Education & Training Foundation",
+    short: "Opportunity • Inclusion • Change",
+    desc: "AVARNA supports Dalit, tribal, and marginalized communities through entrepreneurship, policy advocacy, education, and social empowerment initiatives.",
+    path: "/Avarna",
+    gradient: "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
   },
 ];
 
 function ServicesSection() {
+  const navigate = useNavigate();
+
   return (
-    <Container size="lg" py={{ base: 50, md: 80 }}>
-      {/* 🔥 Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        style={{ textAlign: "center", maxWidth: 500, margin: "0 auto" }}
-      >
-        <Badge size="lg" radius="xl" color="orange" variant="light" mb="md">
-          What We Do
-        </Badge>
+    <Box
+      py={{ base: 80, md: 120 }}
+      pos="relative"
+      style={{
+        overflow: "hidden",
+        background:
+          "linear-gradient(135deg, #071120 0%, #0d1d36 50%, #13284a 100%)",
+      }}
+    >
+      {/* BACKGROUND BLUR */}
 
-        <Title
-          order={2}
-          mb="xl"
-          style={{
-            fontSize: "clamp(24px, 4vw, 36px)",
-            lineHeight: 1.3,
-          }}
+      <Box
+        style={{
+          position: "absolute",
+          top: -120,
+          right: -120,
+          width: 320,
+          height: 320,
+          borderRadius: "50%",
+          background: "rgba(255,123,0,0.22)",
+          filter: "blur(120px)",
+        }}
+      />
+
+      <Box
+        style={{
+          position: "absolute",
+          bottom: -120,
+          left: -120,
+          width: 320,
+          height: 320,
+          borderRadius: "50%",
+          background: "rgba(255,180,0,0.15)",
+          filter: "blur(120px)",
+        }}
+      />
+
+      <Container size="xl" pos="relative">
+        {/* HEADING */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
         >
-          Learn More What We Do And Get Involved
-        </Title>
-      </motion.div>
+          <Stack align="center" gap="lg" mb={70}>
+            <Badge size="lg" radius="xl" color="orange" variant="light">
+              What We Do
+            </Badge>
 
-      {/* 🧩 Cards */}
-      <Grid gutter="xl" justify="center">
-        {services.map((item, index) => (
-          <Grid.Col key={index} span={{ base: 12, sm: 6, md: 4 }}>
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
+            <Title
+              order={2}
+              ta="center"
+              c="white"
+              fw={900}
+              maw={850}
+              style={{
+                fontSize: "clamp(2.5rem, 5vw, 5rem)",
+                lineHeight: 1.08,
+              }}
             >
-              <Card
-                shadow="md"
-                radius="lg"
+              Building Social Justice
+              <br />
+              Through Education,
+              <br />
+              Leadership & Community
+            </Title>
+
+            <Text
+              ta="center"
+              c="gray.4"
+              maw={760}
+              size="lg"
+              style={{
+                lineHeight: 1.9,
+              }}
+            >
+              Our initiatives focus on empowering marginalized communities
+              through education, advocacy, leadership development, and
+              sustainable social transformation programs.
+            </Text>
+          </Stack>
+        </motion.div>
+
+        {/* CARDS */}
+
+        <Grid gutter={30}>
+          {services.map((item, index) => (
+            <Grid.Col key={index} span={{ base: 12, md: 4 }}>
+              <MotionCard
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                }}
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -10,
+                }}
+                radius={34}
                 p="xl"
+                h="100%"
                 style={{
-                  textAlign: "center",
-                  height: "100%",
-                  transition: "0.3s",
-                  border: "1px solid #eee",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-8px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 15px 40px rgba(0,0,0,0.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "";
+                  position: "relative",
+                  overflow: "hidden",
+                  background: "rgba(255,255,255,0.06)",
+                  backdropFilter: "blur(18px)",
+                  border: "1px solid rgba(255,255,255,0.08)",
                 }}
               >
-                {/* Icon */}
-                <Group justify="center" mb="md">
-                  <div
-                    style={{
-                      background: theme.colors.orange[0],
-                      color: theme.colors.orange[6],
-                      padding: "16px",
-                      borderRadius: "50%",
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-                </Group>
+                {/* TOP GRADIENT */}
 
-                {/* Title */}
-                <Title order={4} mb="sm">
+                <Box
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 6,
+                    background: item.gradient,
+                  }}
+                />
+
+                {/* ICON */}
+
+                <ThemeIcon
+                  size={74}
+                  radius={24}
+                  variant="gradient"
+                  gradient={{
+                    from: "orange",
+                    to: "yellow",
+                  }}
+                  mb="xl"
+                >
+                  {item.icon}
+                </ThemeIcon>
+
+                {/* CONTENT */}
+
+                <Text
+                  c="orange.3"
+                  fw={700}
+                  size="sm"
+                  tt="uppercase"
+                  mb={10}
+                  style={{
+                    letterSpacing: 1,
+                  }}
+                >
+                  {item.short}
+                </Text>
+
+                <Title
+                  order={3}
+                  c="white"
+                  fw={800}
+                  mb="md"
+                  style={{
+                    lineHeight: 1.3,
+                  }}
+                >
                   {item.title}
                 </Title>
 
-                {/* Description */}
-                <Text size="sm" c="dimmed" mb="md">
+                <Text
+                  c="gray.4"
+                  mb="xl"
+                  style={{
+                    lineHeight: 1.9,
+                  }}
+                >
                   {item.desc}
                 </Text>
 
-                {/* Button */}
+                {/* BUTTON */}
+
                 <Button
-                  variant="light"
-                  color="orange"
+                  component="button"
+                  type="button"
+                  radius="xl"
+                  size="md"
                   rightSection={<FaArrowRight size={14} />}
+                  onClick={() => navigate(item.path)}
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "0.3s",
+                    boxShadow: "0 10px 25px rgba(255,123,0,0.25)",
+                  }}
+                  styles={{
+                    root: {
+                      cursor: "pointer",
+                    },
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                    e.currentTarget.style.boxShadow =
+                      "0 18px 40px rgba(255,123,0,0.35)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow =
+                      "0 10px 25px rgba(255,123,0,0.25)";
+                  }}
                 >
-                  Learn More
+                  Explore More
                 </Button>
-              </Card>
-            </motion.div>
-          </Grid.Col>
-        ))}
-      </Grid>
-    </Container>
+
+                {/* FLOATING GLOW */}
+
+                <Overlay opacity={0.04} color="#fff" />
+              </MotionCard>
+            </Grid.Col>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }
 

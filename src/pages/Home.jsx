@@ -25,8 +25,8 @@ const Home = () => {
             <HeroSection/>  
             <MediaCoverageSection/>
             <ServicesSection/>
-            <StatsSection/>
             <DRBRAAni/>
+            <StatsSection/>
             <DonateSection/>
             <LeaderSection/>
             <VideoSection/>

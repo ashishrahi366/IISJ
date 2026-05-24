@@ -39,7 +39,7 @@ const cards = [
       "Explore our initiatives, stories, reports, research, and community-driven impact across India.",
     image: infoImg,
     icon: <FaFolderOpen size={24} />,
-    link: "/msc",
+    link: "/MSC-Detail",
     color: "#2563eb",
   },
   {
