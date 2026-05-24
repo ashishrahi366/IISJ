@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   Container,
   Title,
@@ -10,6 +10,10 @@ import {
   Modal,
   ActionIcon,
   Group,
+  Badge,
+  Box,
+  Button,
+  Tabs,
 } from "@mantine/core";
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,35 +22,198 @@ import {
   FaTimes,
   FaChevronLeft,
   FaChevronRight,
+  FaImages,
+  FaPlay,
+  FaArrowRight,
 } from "react-icons/fa";
+
+import heroImg from "../assets/home/about-1.jpg";
 
 export default function GalleryPage() {
   const [opened, setOpened] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [activeGallery, setActiveGallery] = useState("community");
 
-  const galleryImages = Array.from({ length: 25 }, (_, index) => ({
-    id: index + 1,
-    title: `Community Impact ${index + 1}`,
-    image: `https://picsum.photos/900/1200?random=${index + 1}`,
-  }));
+  /* =========================================
+      DIFFERENT GALLERY ARRAYS
+  ========================================= */
 
-  // OPEN MODAL
+  const communityGallery = [
+    {
+      id: 1,
+      title: "Community Leadership Training",
+      image: "https://picsum.photos/800/1000?random=1",
+      type: "image",
+      category: "community",
+    },
+    {
+      id: 2,
+      title: "Grassroots Awareness Program",
+      image: "https://picsum.photos/800/1200?random=2",
+      type: "image",
+      category: "community",
+    },
+    {
+      id: 3,
+      title: "Youth Empowerment Workshop",
+      image: "https://picsum.photos/800/900?random=3",
+      type: "image",
+      category: "community",
+    },
+    {
+      id: 4,
+      title: "Women Leadership Circle",
+      image: "https://picsum.photos/800/1100?random=4",
+      type: "image",
+      category: "community",
+    },
+    {
+      id: 5,
+      title: "Youth Empowerment Workshop",
+      image: "https://picsum.photos/800/900?random=3",
+      type: "image",
+      category: "community",
+    },
+    {
+      id: 6,
+      title: "Women Leadership Circle",
+      image: "https://picsum.photos/800/1100?random=4",
+      type: "image",
+      category: "community",
+    },
+  ];
+
+  const educationGallery = [
+    {
+      id: 5,
+      title: "Digital Learning Session",
+      image: "https://picsum.photos/800/1000?random=5",
+      type: "image",
+      category: "education",
+    },
+    {
+      id: 6,
+      title: "Scholarship Orientation",
+      image: "https://picsum.photos/800/1200?random=6",
+      type: "image",
+      category: "education",
+    },
+    {
+      id: 7,
+      title: "Children Learning Centre",
+      image: "https://picsum.photos/800/1000?random=7",
+      type: "image",
+      category: "education",
+    },
+    {
+      id: 8,
+      title: "Community Library",
+      image: "https://picsum.photos/800/1100?random=8",
+      type: "image",
+      category: "education",
+    },
+  ];
+
+  const eventGallery = [
+    {
+      id: 9,
+      title: "National Youth Summit",
+      image: "https://picsum.photos/800/1000?random=9",
+      type: "image",
+      category: "events",
+    },
+    {
+      id: 10,
+      title: "Social Justice Conference",
+      image: "https://picsum.photos/800/1200?random=10",
+      type: "image",
+      category: "events",
+    },
+    {
+      id: 11,
+      title: "Public Awareness Rally",
+      image: "https://picsum.photos/800/1100?random=11",
+      type: "image",
+      category: "events",
+    },
+    {
+      id: 12,
+      title: "Volunteer Meetup",
+      image: "https://picsum.photos/800/1000?random=12",
+      type: "image",
+      category: "events",
+    },
+  ];
+
+  const impactGallery = [
+    {
+      id: 13,
+      title: "Community Transformation",
+      image: "https://picsum.photos/800/1200?random=13",
+      type: "image",
+      category: "impact",
+    },
+    {
+      id: 14,
+      title: "Youth Leadership Journey",
+      image: "https://picsum.photos/800/1000?random=14",
+      type: "image",
+      category: "impact",
+    },
+    {
+      id: 15,
+      title: "Grassroots Innovation",
+      image: "https://picsum.photos/800/1100?random=15",
+      type: "image",
+      category: "impact",
+    },
+    {
+      id: 16,
+      title: "Community Success Story",
+      image: "https://picsum.photos/800/1000?random=16",
+      type: "image",
+      category: "impact",
+    },
+  ];
+
+  /* =========================================
+      ACTIVE GALLERY
+  ========================================= */
+
+  const activeImages = useMemo(() => {
+    switch (activeGallery) {
+      case "education":
+        return educationGallery;
+
+      case "events":
+        return eventGallery;
+
+      case "impact":
+        return impactGallery;
+
+      default:
+        return communityGallery;
+    }
+  }, [activeGallery]);
+
+  /* =========================================
+      MODAL FUNCTIONS
+  ========================================= */
+
   const openImage = (index) => {
     setSelectedIndex(index);
     setOpened(true);
   };
 
-  // NEXT IMAGE
   const nextImage = () => {
     setSelectedIndex((prev) =>
-      prev === galleryImages.length - 1 ? 0 : prev + 1
+      prev === activeImages.length - 1 ? 0 : prev + 1
     );
   };
 
-  // PREVIOUS IMAGE
   const prevImage = () => {
     setSelectedIndex((prev) =>
-      prev === 0 ? galleryImages.length - 1 : prev - 1
+      prev === 0 ? activeImages.length - 1 : prev - 1
     );
   };
 
@@ -54,11 +221,436 @@ export default function GalleryPage() {
     <div
       style={{
         background: "#f8fafc",
-        minHeight: "100vh",
-        padding: "80px 0",
+        overflow: "hidden",
       }}
     >
-      {/* MODAL */}
+      {/* =========================================
+            HERO SECTION
+      ========================================= */}
+
+      <Box
+        style={{
+          position: "relative",
+          minHeight: "80vh",
+          display: "flex",
+          alignItems: "center",
+          overflow: "hidden",
+        }}
+      >
+        {/* BACKGROUND IMAGE */}
+        <img
+          src={heroImg}
+          alt="Gallery Hero"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+
+        {/* OVERLAY */}
+        <Box
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.6) 100%)",
+          }}
+        />
+
+        {/* CONTENT */}
+        <Container size="lg" style={{ position: "relative", zIndex: 2 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 70 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Stack align="center" gap="xl">
+              <Badge
+                size="xl"
+                radius="xl"
+                variant="filled"
+                color="orange"
+                leftSection={<FaImages size={14} />}
+              >
+                Our Journey in Pictures
+              </Badge>
+
+              <Title
+                ta="center"
+                c="white"
+                fw={900}
+                style={{
+                  fontSize: "clamp(42px, 7vw, 90px)",
+                  lineHeight: 1.05,
+                  maxWidth: "1000px",
+                }}
+              >
+                Stories of
+                <br />
+                Change & Empowerment
+              </Title>
+
+              <Text
+                ta="center"
+                c="rgba(255,255,255,0.82)"
+                size="xl"
+                maw={850}
+                lh={1.9}
+              >
+                Explore powerful moments from our grassroots movements,
+                leadership programs, education initiatives, community events,
+                and social transformation campaigns.
+              </Text>
+
+              <Group mt="md">
+                <Button
+                  size="lg"
+                  radius="xl"
+                  color="orange"
+                  rightSection={<FaArrowRight size={14} />}
+                >
+                  Explore Gallery
+                </Button>
+
+                <Button
+                  size="lg"
+                  radius="xl"
+                  variant="white"
+                  leftSection={<FaPlay size={12} />}
+                >
+                  Watch Stories
+                </Button>
+              </Group>
+            </Stack>
+          </motion.div>
+        </Container>
+      </Box>
+
+      {/* =========================================
+            STATS SECTION
+      ========================================= */}
+
+      <Container size="xl" py={90}>
+        <SimpleGrid cols={{ base: 2, md: 4 }} spacing="xl">
+          {[
+            {
+              number: "500+",
+              label: "Photos",
+            },
+            {
+              number: "25+",
+              label: "Programs",
+            },
+            {
+              number: "12+",
+              label: "States Reached",
+            },
+            {
+              number: "50K+",
+              label: "Lives Impacted",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card
+                radius="32px"
+                p="xl"
+                shadow="lg"
+                style={{
+                  textAlign: "center",
+                  background: "white",
+                }}
+              >
+                <Title
+                  order={2}
+                  fw={900}
+                  style={{
+                    fontSize: "52px",
+                    color: "#f97316",
+                  }}
+                >
+                  {item.number}
+                </Title>
+
+                <Text mt={5} fw={600} c="dimmed">
+                  {item.label}
+                </Text>
+              </Card>
+            </motion.div>
+          ))}
+        </SimpleGrid>
+      </Container>
+
+      {/* =========================================
+            GALLERY TABS
+      ========================================= */}
+
+      <Container size="xl" py={20}>
+        <Tabs
+          value={activeGallery}
+          onChange={setActiveGallery}
+          radius="xl"
+        >
+          <Tabs.List grow>
+            <Tabs.Tab value="community">
+              Community
+            </Tabs.Tab>
+
+            <Tabs.Tab value="education">
+              Education
+            </Tabs.Tab>
+
+            <Tabs.Tab value="events">
+              Events
+            </Tabs.Tab>
+
+            <Tabs.Tab value="impact">
+              Impact
+            </Tabs.Tab>
+          </Tabs.List>
+        </Tabs>
+      </Container>
+
+      {/* =========================================
+            GALLERY SECTION
+      ========================================= */}
+
+      <Container size="xl" py={80}>
+        <Group justify="space-between" mb={40}>
+          <div>
+            <Text
+              c="orange"
+              fw={700}
+              tt="uppercase"
+              size="sm"
+              mb={6}
+            >
+              Photo Collection
+            </Text>
+
+            <Title
+              order={2}
+              fw={900}
+              style={{
+                fontSize: "clamp(34px, 5vw, 56px)",
+              }}
+            >
+              Featured Gallery
+            </Title>
+          </div>
+
+          <Badge
+            size="xl"
+            radius="xl"
+            variant="light"
+            color="orange"
+          >
+            {activeImages.length} Photos
+          </Badge>
+        </Group>
+
+        {/* GALLERY GRID */}
+        <SimpleGrid
+          cols={{ base: 1, xs: 2, md: 3, lg: 4 }}
+          spacing="xl"
+          verticalSpacing="xl"
+        >
+          {activeImages.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.05,
+              }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+            >
+              <Card
+                radius="32px"
+                p={0}
+                shadow="xl"
+                onClick={() => openImage(index)}
+                style={{
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  background: "white",
+                  border: "1px solid rgba(0,0,0,0.05)",
+                }}
+              >
+                <Box
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    height: index % 5 === 0 ? 460 : 340,
+                  }}
+                >
+                  {/* IMAGE */}
+                  <motion.img
+                    src={item.image}
+                    alt={item.title}
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.5 }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+
+                  {/* OVERLAY */}
+                  <Overlay
+                    gradient="linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.85) 100%)"
+                    opacity={1}
+                  />
+
+                  {/* CATEGORY */}
+                  <Badge
+                    radius="xl"
+                    color="orange"
+                    variant="filled"
+                    style={{
+                      position: "absolute",
+                      top: 18,
+                      left: 18,
+                      zIndex: 5,
+                    }}
+                  >
+                    {item.category}
+                  </Badge>
+
+                  {/* CONTENT */}
+                  <Box
+                    style={{
+                      position: "absolute",
+                      bottom: 20,
+                      left: 20,
+                      right: 20,
+                      zIndex: 5,
+                    }}
+                  >
+                    <Title
+                      order={3}
+                      c="white"
+                      style={{
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {item.title}
+                    </Title>
+
+                    <Text
+                      mt={8}
+                      size="sm"
+                      c="rgba(255,255,255,0.82)"
+                      lh={1.7}
+                    >
+                      Inspiring moments captured from our social impact
+                      initiatives and community transformation programs.
+                    </Text>
+                  </Box>
+                </Box>
+              </Card>
+            </motion.div>
+          ))}
+        </SimpleGrid>
+      </Container>
+
+      {/* =========================================
+            CTA SECTION
+      ========================================= */}
+
+      <Container size="lg" py={100}>
+        <Card
+          radius="40px"
+          p={50}
+          shadow="xl"
+          style={{
+            background:
+              "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+            color: "white",
+            textAlign: "center",
+            overflow: "hidden",
+            position: "relative",
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Badge
+              size="xl"
+              radius="xl"
+              variant="white"
+              color="dark"
+            >
+              Join The Movement
+            </Badge>
+
+            <Title
+              order={2}
+              mt={25}
+              fw={900}
+              style={{
+                fontSize: "clamp(32px, 5vw, 58px)",
+              }}
+            >
+              Every Photo Represents
+              <br />
+              A Story of Change
+            </Title>
+
+            <Text
+              mt="xl"
+              size="lg"
+              maw={700}
+              mx="auto"
+              style={{
+                color: "rgba(255,255,255,0.88)",
+                lineHeight: 1.9,
+              }}
+            >
+              Become part of a growing movement dedicated to dignity,
+              equality, education, and grassroots empowerment.
+            </Text>
+
+            <Group justify="center" mt={35}>
+              <Button
+                size="lg"
+                radius="xl"
+                variant="white"
+                color="dark"
+              >
+                Become a Volunteer
+              </Button>
+
+              <Button
+                size="lg"
+                radius="xl"
+                variant="outline"
+                color="white"
+              >
+                Donate Now
+              </Button>
+            </Group>
+          </motion.div>
+        </Card>
+      </Container>
+
+      {/* =========================================
+            MODAL
+      ========================================= */}
+
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
@@ -67,7 +659,7 @@ export default function GalleryPage() {
         withCloseButton={false}
         overlayProps={{
           blur: 12,
-          backgroundOpacity: 0.8,
+          backgroundOpacity: 0.85,
         }}
         styles={{
           content: {
@@ -79,28 +671,28 @@ export default function GalleryPage() {
           },
         }}
       >
-        {/* CLOSE BUTTON */}
+        {/* CLOSE */}
         <ActionIcon
           onClick={() => setOpened(false)}
           radius="xl"
-          size={45}
+          size={48}
           variant="filled"
           color="dark"
           style={{
             position: "absolute",
             top: 20,
             right: 20,
-            zIndex: 100,
+            zIndex: 200,
           }}
         >
           <FaTimes size={18} />
         </ActionIcon>
 
-        {/* PREVIOUS BUTTON */}
+        {/* PREV */}
         <ActionIcon
           onClick={prevImage}
           radius="xl"
-          size={50}
+          size={52}
           variant="filled"
           color="dark"
           style={{
@@ -108,17 +700,17 @@ export default function GalleryPage() {
             top: "50%",
             left: 20,
             transform: "translateY(-50%)",
-            zIndex: 100,
+            zIndex: 200,
           }}
         >
           <FaChevronLeft size={18} />
         </ActionIcon>
 
-        {/* NEXT BUTTON */}
+        {/* NEXT */}
         <ActionIcon
           onClick={nextImage}
           radius="xl"
-          size={50}
+          size={52}
           variant="filled"
           color="dark"
           style={{
@@ -126,13 +718,13 @@ export default function GalleryPage() {
             top: "50%",
             right: 20,
             transform: "translateY(-50%)",
-            zIndex: 100,
+            zIndex: 200,
           }}
         >
           <FaChevronRight size={18} />
         </ActionIcon>
 
-        {/* IMAGE SLIDER */}
+        {/* IMAGE */}
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedIndex}
@@ -145,168 +737,59 @@ export default function GalleryPage() {
             }}
           >
             <img
-              src={galleryImages[selectedIndex].image}
-              alt={galleryImages[selectedIndex].title}
+              src={activeImages[selectedIndex]?.image}
+              alt={activeImages[selectedIndex]?.title}
               style={{
                 width: "100%",
                 maxHeight: "88vh",
                 objectFit: "contain",
-                borderRadius: "22px",
+                borderRadius: "24px",
               }}
             />
 
-            {/* IMAGE INFO */}
-            <div
+            {/* INFO */}
+            <Box
               style={{
                 position: "absolute",
                 left: 30,
                 bottom: 30,
                 color: "white",
-                zIndex: 10,
-                maxWidth: "600px",
+                maxWidth: "650px",
               }}
             >
-              <Title order={2}>
-                {galleryImages[selectedIndex].title}
+              <Badge
+                radius="xl"
+                color="orange"
+                variant="filled"
+                mb={15}
+              >
+                {activeImages[selectedIndex]?.category}
+              </Badge>
+
+              <Title
+                order={2}
+                style={{
+                  fontSize: "clamp(28px, 4vw, 52px)",
+                }}
+              >
+                {activeImages[selectedIndex]?.title}
               </Title>
 
               <Text
-                mt={8}
+                mt={12}
+                size="lg"
                 style={{
-                  color: "rgba(255,255,255,0.85)",
-                  lineHeight: 1.7,
+                  color: "rgba(255,255,255,0.82)",
+                  lineHeight: 1.8,
                 }}
               >
-                Empowering communities through leadership, education,
-                grassroots initiatives, and social transformation.
+                Capturing moments of dignity, leadership, education,
+                and social transformation from our grassroots work.
               </Text>
-            </div>
+            </Box>
           </motion.div>
         </AnimatePresence>
       </Modal>
-
-      <Container size="xl">
-        {/* PAGE HEADER */}
-        <Stack align="center" mb={60}>
-          <Title
-            order={1}
-            ta="center"
-            style={{
-              fontSize: "48px",
-              fontWeight: 800,
-            }}
-          >
-            Our Gallery
-          </Title>
-
-          <Text
-            ta="center"
-            c="dimmed"
-            maw={800}
-            size="lg"
-            style={{
-              lineHeight: 1.9,
-            }}
-          >
-            Explore moments of empowerment, leadership, education,
-            and community transformation through our initiatives.
-          </Text>
-        </Stack>
-
-        {/* GALLERY GRID */}
-        <SimpleGrid
-          cols={{ base: 1, xs: 2, md: 3, lg: 4 }}
-          spacing="xl"
-          verticalSpacing="xl"
-        >
-          {galleryImages.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.03,
-              }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-            >
-              <Card
-                radius="28px"
-                p={0}
-                shadow="lg"
-                onClick={() => openImage(index)}
-                style={{
-                  overflow: "hidden",
-                  cursor: "pointer",
-                  background: "white",
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    height: index % 5 === 0 ? "420px" : "320px",
-                  }}
-                >
-                  {/* IMAGE */}
-                  <motion.img
-                    src={item.image}
-                    alt={item.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.4 }}
-                  />
-
-                  {/* DARK OVERLAY */}
-                  <Overlay
-                    gradient="linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)"
-                    opacity={1}
-                  />
-
-                  {/* TEXT */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: 20,
-                      left: 20,
-                      right: 20,
-                      color: "white",
-                      zIndex: 2,
-                    }}
-                  >
-                    <Title order={4}>
-                      {item.title}
-                    </Title>
-
-                    <Text
-                      size="sm"
-                      mt={6}
-                      style={{
-                        color: "rgba(255,255,255,0.85)",
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      Community development and empowerment initiatives.
-                    </Text>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </SimpleGrid>
-
-        {/* OPTIONAL IMAGE COUNTER */}
-        <Group justify="center" mt={50}>
-          <Text c="dimmed">
-            Showing {galleryImages.length} gallery items
-          </Text>
-        </Group>
-      </Container>
     </div>
   );
 }

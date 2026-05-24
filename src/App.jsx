@@ -18,6 +18,10 @@ import FellowsForEqualityPage from "./pages/FellowsForEqualityPage";
 import CommunityResourceCenters from "./pages/CommunityResourceCenters";
 import VimalKumarLeaderSection from "./pages/VimalKumarLeaderSection";
 import SupportMSCPage from "./pages/SupportMSCPage";
+import WhatWeDoPage from "./pages/WhatWeDoPage";
+import TeamPage from "./pages/TeamPage";
+import EventsPage from "./pages/EventsPage";
+import BlogsPage from "./pages/BlogsPage";
 
 function App() {
   return (
@@ -29,9 +33,13 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/MSC-Detail" element={<MSCPage />} />
         <Route path="/Avarna" element={<AvarnaPage />} />
         <Route path="/IISJ" element={<IISJPage />} />
+        <Route path="/What-We-Do" element={<WhatWeDoPage />} />
+        <Route path="/Team" element={<TeamPage />} />
+        <Route path="/Events" element={<EventsPage />} />
         <Route
           path="/Fellowship-Program-app"
           element={<FellowshipProgramPage />}

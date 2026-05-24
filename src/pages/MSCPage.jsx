@@ -30,20 +30,24 @@ import {
   FaTrophy,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-import centerImg from "../assets/MSC/MSC_Back.jpg";
-import impactImg from "../assets/MSC/MSC_Back.jpg";
-import youthImg from "../assets/MSC/MSC_Back.jpg";
-import volunteerImg from "../assets/MSC/MSC_Back.jpg";
-import awardImg from "../assets/MSC/MSC_Back.jpg";
+
+import centerImg from "../assets/pages/mscCenter.jpg";
+import impactImg from "../assets/MSC/imapcted.JPG";
+import youthImg from "../assets/pages/FS3.jpg";
+import volunteerImg from "../assets/home/infoImg2.JPG";
+import awardImg from "../assets/home/homeHero1.JPG";
 
 import HomeRecentNews from "../component/ui/HomeRecentNews";
+
 import heroImg from "../assets/MSC/MSC_Back.jpg";
+import MSCoverview from "../assets/MSC/MSCoverview.jpg";
 import HowrahImg from "../assets/MSC/Howrah-2.jpg";
 import BoyatGarbage from "../assets/MSC/BoyatGarbage.jpg";
 import MSCChart from "../assets/MSC/MSCChart.png";
 import InheritedImg from "../assets/home/Inherited-Biographies.jpg";
-import problemImg from "../assets/home/about-1.jpg";
-import projectImg from "../assets/home/about-1.jpg";
+import problemImg from "../assets/MSC/mscCenterProb.JPG";
+import projectImg from "../assets/MSC/mscCenter1.JPG";
+
 import g1 from "../assets/home/about-1.jpg";
 import g2 from "../assets/home/about-1.jpg";
 import g3 from "../assets/home/about-1.jpg";
@@ -115,6 +119,7 @@ export default function MSCPage() {
           </Stack>
         </div>
       </div>
+
       {/* ABOUT */}
       <Container size="lg" py={80}>
         <Title order={2}>About MSC</Title>
@@ -1120,166 +1125,138 @@ export default function MSCPage() {
         </Card>
       </Container>
 
-{/* 🔥 ABOUT MSC IMPACT SECTION */}
-<Box
-  py={100}
-  style={{
-    background:
-      "linear-gradient(180deg, #fff7ed 0%, #ffffff 100%)",
-    position: "relative",
-    overflow: "hidden",
-  }}
->
-  <Container size="lg">
-    <Grid gutter={60} align="center">
-      
-      {/* 🖼 IMAGE */}
-      <Grid.Col span={{ base: 12, md: 6 }}>
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-          <Box
-            style={{
-              position: "relative",
-              overflow: "hidden",
-              borderRadius: "30px",
-            }}
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
-              radius="30px"
-              h={520}
-              fit="cover"
-            />
+      {/* 🔥 ABOUT MSC IMPACT SECTION */}
+      <Box
+        py={100}
+        style={{
+          background: "linear-gradient(180deg, #fff7ed 0%, #ffffff 100%)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <Container size="lg">
+          <Grid gutter={60} align="center">
+            {/* 🖼 IMAGE */}
+            <Grid.Col span={{ base: 12, md: 6 }}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+              >
+                <Box
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                    borderRadius: "30px",
+                  }}
+                >
+                  <Image src={MSCoverview} radius="30px" h={650} fit="cover" />
 
-            {/* OVERLAY */}
-            <Box
-              style={{
-                position: "absolute",
-                inset: 0,
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,0.45), transparent)",
-              }}
-            />
-          </Box>
+                  {/* OVERLAY */}
+                  <Box
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.45), transparent)",
+                    }}
+                  />
+                </Box>
 
-          {/* IMAGE CAPTION */}
-          <Text
-            ta="center"
-            mt="md"
-            size="sm"
-            c="dimmed"
-            fs="italic"
-          >
-            Building leadership, dignity, and opportunities within
-            scavenger communities across India.
-          </Text>
-        </motion.div>
-      </Grid.Col>
+                {/* IMAGE CAPTION */}
+                <Text ta="center" mt="md" size="sm" c="dimmed" fs="italic">
+                  Building leadership, dignity, and opportunities within
+                  scavenger communities across India.
+                </Text>
+              </motion.div>
+            </Grid.Col>
 
-      {/* 📝 CONTENT */}
-      <Grid.Col span={{ base: 12, md: 6 }}>
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-        >
-          <Text
-            c="orange"
-            fw={700}
-            tt="uppercase"
-            size="sm"
-            mb={10}
-            style={{ letterSpacing: "1px" }}
-          >
-            About Our Movement
-          </Text>
+            {/* 📝 CONTENT */}
+            <Grid.Col span={{ base: 12, md: 6 }}>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+              >
+                <Text
+                  c="orange"
+                  fw={700}
+                  tt="uppercase"
+                  size="sm"
+                  mb={10}
+                  style={{ letterSpacing: "1px" }}
+                >
+                  About Our Movement
+                </Text>
 
-          <Title
-            order={2}
-            fw={800}
-            style={{
-              fontSize: "clamp(32px, 4vw, 50px)",
-              lineHeight: 1.2,
-            }}
-          >
-            Movement for Scavenger Community (MSC)
-          </Title>
+                <Title
+                  order={2}
+                  fw={800}
+                  style={{
+                    fontSize: "clamp(32px, 4vw, 50px)",
+                    lineHeight: 1.2,
+                  }}
+                >
+                  Movement for Scavenger Community (MSC)
+                </Title>
 
-          <Text
-            mt="xl"
-            size="lg"
-            c="dimmed"
-            lh={2}
-          >
-            Movement for Scavenger Community (MSC) is committed to
-            improving the lives and dignity of members of scavenger
-            communities across India.
-          </Text>
+                <Text mt="xl" size="lg" c="dimmed" lh={2}>
+                  Movement for Scavenger Community (MSC) is committed to
+                  improving the lives and dignity of members of scavenger
+                  communities across India.
+                </Text>
 
-          <Text
-            mt="md"
-            size="lg"
-            c="dimmed"
-            lh={2}
-          >
-            Through access to education, leadership development,
-            alternative career opportunities, and community support,
-            MSC works to break generational cycles of exclusion and
-            discrimination.
-          </Text>
+                <Text mt="md" size="lg" c="dimmed" lh={2}>
+                  Through access to education, leadership development,
+                  alternative career opportunities, and community support, MSC
+                  works to break generational cycles of exclusion and
+                  discrimination.
+                </Text>
 
-          <Text
-            mt="md"
-            size="lg"
-            c="dimmed"
-            lh={2}
-          >
-            By connecting grassroots leaders, youth activists,
-            educators, and local organizations, we are building a
-            people-powered movement rooted in dignity, equality,
-            justice, and social transformation.
-          </Text>
+                <Text mt="md" size="lg" c="dimmed" lh={2}>
+                  By connecting grassroots leaders, youth activists, educators,
+                  and local organizations, we are building a people-powered
+                  movement rooted in dignity, equality, justice, and social
+                  transformation.
+                </Text>
 
-          {/* HIGHLIGHT BOX */}
-          <Box
-            mt={35}
-            p="lg"
-            style={{
-              background: "#fff",
-              borderRadius: "20px",
-              border: "1px solid rgba(249,115,22,0.15)",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
-            }}
-          >
-            <Text fw={700} size="lg">
-              “From the people, for the people — creating pathways
-              toward justice and empowerment.”
-            </Text>
-          </Box>
+                {/* HIGHLIGHT BOX */}
+                <Box
+                  mt={35}
+                  p="lg"
+                  style={{
+                    background: "#fff",
+                    borderRadius: "20px",
+                    border: "1px solid rgba(249,115,22,0.15)",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+                  }}
+                >
+                  <Text fw={700} size="lg">
+                    “From the people, for the people — creating pathways toward
+                    justice and empowerment.”
+                  </Text>
+                </Box>
 
-          {/* CTA BUTTON */}
-          <Group mt={35}>
-            <Button
-              component={Link}
-              to="/https://scavenger-movement.org/thoughts/about-scavenger-communities"
-              size="md"
-              radius="xl"
-              color="orange"
-              rightSection={<FaArrowRight size={14} />}
-            >
-              Find Out More About Our Organization
-            </Button>
-          </Group>
-        </motion.div>
-      </Grid.Col>
-    </Grid>
-  </Container>
-</Box>
+                {/* CTA BUTTON */}
+                <Group mt={35}>
+                  <Button
+                    component={Link}
+                    to="/https://scavenger-movement.org/thoughts/about-scavenger-communities"
+                    size="md"
+                    radius="xl"
+                    color="orange"
+                    rightSection={<FaArrowRight size={14} />}
+                  >
+                    Find Out More About Our Organization
+                  </Button>
+                </Group>
+              </motion.div>
+            </Grid.Col>
+          </Grid>
+        </Container>
+      </Box>
 
       {/* OBJECTIVES */}
       <Container size="lg" py={80}>
@@ -1384,18 +1361,145 @@ export default function MSCPage() {
           </Grid.Col>
         </Grid>
       </Container>
-      {/* QUOTE */}
-      <Container size="lg" py={80}>
-        <Card radius="xl" p="xl" shadow="lg" style={{ textAlign: "center" }}>
-          <Text size="lg" fw={500}>
-            “We are not just ending manual scavenging — we are building a
-            movement of leaders.”
-          </Text>
-          <Text mt="sm" c="dimmed">
-            — Vimal Kumar
-          </Text>
-        </Card>
-      </Container>
+
+      {/* 🔥 QUOTE / FOUNDER MESSAGE SECTION */}
+      <Box
+        py={120}
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          background:
+            "linear-gradient(135deg, #111827 0%, #0f172a 50%, #1e293b 100%)",
+        }}
+      >
+        {/* BACKGROUND GLOW */}
+        <Box
+          style={{
+            position: "absolute",
+            width: 500,
+            height: 500,
+            borderRadius: "50%",
+            background: "rgba(249,115,22,0.12)",
+            filter: "blur(120px)",
+            top: -200,
+            right: -100,
+          }}
+        />
+
+        <Container size="md" style={{ position: "relative", zIndex: 2 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <Card
+              radius="36px"
+              p={{ base: "xl", md: 60 }}
+              shadow="xl"
+              style={{
+                background: "rgba(255,255,255,0.06)",
+                backdropFilter: "blur(18px)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                textAlign: "center",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
+              {/* QUOTE ICON */}
+              <Text
+                style={{
+                  fontSize: "120px",
+                  lineHeight: 1,
+                  position: "absolute",
+                  top: -20,
+                  left: 30,
+                  color: "rgba(249,115,22,0.12)",
+                  fontWeight: 900,
+                }}
+              >
+                “
+              </Text>
+
+              {/* BADGE */}
+              <Badge
+                size="lg"
+                radius="xl"
+                color="orange"
+                variant="light"
+                mb={30}
+              >
+                Founder’s Message
+              </Badge>
+
+              {/* MAIN QUOTE */}
+              <Title
+                order={2}
+                c="white"
+                fw={800}
+                style={{
+                  fontSize: "clamp(28px, 4vw, 48px)",
+                  lineHeight: 1.4,
+                  maxWidth: 850,
+                  margin: "0 auto",
+                }}
+              >
+                We are not just ending
+                <span style={{ color: "#fb923c" }}> manual scavenging</span> —
+                <br />
+                we are building a
+                <span style={{ color: "#fb923c" }}> movement of leaders.</span>
+              </Title>
+
+              {/* SMALL DESCRIPTION */}
+              <Text
+                c="rgba(255,255,255,0.68)"
+                size="lg"
+                mt={30}
+                maw={700}
+                mx="auto"
+                lh={1.9}
+              >
+                Our mission is not only to fight injustice, but to create
+                pathways for dignity, education, leadership, and lasting
+                transformation within marginalized communities.
+              </Text>
+
+              {/* AUTHOR */}
+              <Group justify="center" mt={45}>
+                <Box
+                  style={{
+                    width: 70,
+                    height: 70,
+                    borderRadius: "50%",
+                    background:
+                      "linear-gradient(135deg, #f97316 0%, #fb923c 100%)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "white",
+                    fontSize: "28px",
+                    fontWeight: 800,
+                    boxShadow: "0 10px 30px rgba(249,115,22,0.35)",
+                  }}
+                >
+                  VK
+                </Box>
+
+                <div style={{ textAlign: "left" }}>
+                  <Text c="white" fw={700} size="lg">
+                    Vimal Kumar
+                  </Text>
+
+                  <Text c="rgba(255,255,255,0.55)" size="sm">
+                    Founder, Movement for Scavenger Community
+                  </Text>
+                </div>
+              </Group>
+            </Card>
+          </motion.div>
+        </Container>
+      </Box>
       <HomeRecentNews />
     </div>
   );

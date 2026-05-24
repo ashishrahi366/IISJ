@@ -11,16 +11,9 @@ import {
   Box,
 } from "@mantine/core";
 
-import {
-  useDisclosure,
-  useWindowScroll,
-} from "@mantine/hooks";
+import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 
-import {
-  Link,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
@@ -42,8 +35,7 @@ import { theme } from "../../theme";
 function Navbar() {
   const navigate = useNavigate();
 
-  const [opened, { toggle, close }] =
-    useDisclosure(false);
+  const [opened, { toggle, close }] = useDisclosure(false);
 
   const [scroll] = useWindowScroll();
 
@@ -55,16 +47,13 @@ function Navbar() {
 
   // ACTIVE ROUTE
 
-  const isActive = (path) =>
-    location.pathname === path;
+  const isActive = (path) => location.pathname === path;
 
   // NAV STYLE
 
   const navLinkStyle = (path) => ({
     position: "relative",
-    color: isActive(path)
-      ? theme.colors.orange[5]
-      : "white",
+    color: isActive(path) ? theme.colors.orange[5] : "white",
 
     textDecoration: "none",
 
@@ -89,8 +78,7 @@ function Navbar() {
           bottom: -2,
           width: "100%",
           height: "2px",
-          background:
-            theme.colors.orange[5],
+          background: theme.colors.orange[5],
           borderRadius: "10px",
         }}
       />
@@ -105,13 +93,9 @@ function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
         style={{
-          background: isScrolled
-            ? "rgba(7, 16, 35, 0.95)"
-            : "transparent",
+          background: isScrolled ? "rgba(7, 16, 35, 0.95)" : "transparent",
 
-          backdropFilter: isScrolled
-            ? "blur(12px)"
-            : "none",
+          backdropFilter: isScrolled ? "blur(12px)" : "none",
 
           borderBottom: isScrolled
             ? "1px solid rgba(255,255,255,0.08)"
@@ -129,10 +113,7 @@ function Navbar() {
         }}
       >
         <Container size="xl">
-          <Group
-            justify="space-between"
-            py="md"
-          >
+          <Group justify="space-between" py="md">
             {/* LOGO */}
 
             <Box
@@ -142,13 +123,8 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-              >
-                <Group
-                  gap={10}
-                  align="center"
-                >
+              <motion.div whileHover={{ scale: 1.03 }}>
+                <Group gap={10} align="center">
                   <Image
                     src={logo}
                     alt="IISJ Logo"
@@ -157,11 +133,8 @@ function Navbar() {
                     fit="contain"
                   />
 
-                  <Text
-                    fw={800}
-                    size="xl"
-                  >
-                    <span
+                  <Text fw={800} size="xl">
+                    {/* <span
                       style={{
                         color:
                           theme.colors.orange[5],
@@ -176,7 +149,7 @@ function Navbar() {
                       }}
                     >
                       Collective
-                    </span>
+                    </span> */}
                   </Text>
                 </Group>
               </motion.div>
@@ -184,10 +157,7 @@ function Navbar() {
 
             {/* DESKTOP MENU */}
 
-            <Group
-              gap={30}
-              visibleFrom="md"
-            >
+            <Group gap={30} visibleFrom="md">
               {/* HOME */}
 
               <Box
@@ -195,10 +165,7 @@ function Navbar() {
                   position: "relative",
                 }}
               >
-                <Link
-                  to="/"
-                  style={navLinkStyle("/")}
-                >
+                <Link to="/" style={navLinkStyle("/")}>
                   Home
                 </Link>
 
@@ -212,12 +179,7 @@ function Navbar() {
                   position: "relative",
                 }}
               >
-                <Link
-                  to="/about"
-                  style={navLinkStyle(
-                    "/about"
-                  )}
-                >
+                <Link to="/about" style={navLinkStyle("/about")}>
                   About
                 </Link>
 
@@ -233,8 +195,7 @@ function Navbar() {
                 shadow="xl"
                 width={260}
                 transitionProps={{
-                  transition:
-                    "pop-top-right",
+                  transition: "pop-top-right",
 
                   duration: 250,
                 }}
@@ -250,28 +211,18 @@ function Navbar() {
                       <Text
                         style={{
                           color:
-                            location.pathname.includes(
-                              "/iisj"
-                            ) ||
-                            location.pathname.includes(
-                              "/gallery"
-                            ) ||
-                            location.pathname.includes(
-                              "/blogs"
-                            ) ||
-                            location.pathname.includes(
-                              "/vimal-kumar"
-                            )
-                              ? theme.colors
-                                  .orange[5]
+                            location.pathname.includes("/iisj") ||
+                            location.pathname.includes("/gallery") ||
+                            location.pathname.includes("/blogs") ||
+                            location.pathname.includes("/vimal-kumar")
+                              ? theme.colors.orange[5]
                               : "white",
 
                           fontWeight: 600,
 
                           fontSize: "15px",
 
-                          transition:
-                            "0.3s",
+                          transition: "0.3s",
                         }}
                       >
                         Information
@@ -280,20 +231,11 @@ function Navbar() {
                       <FaChevronDown
                         size={12}
                         color={
-                          location.pathname.includes(
-                            "/iisj"
-                          ) ||
-                          location.pathname.includes(
-                            "/gallery"
-                          ) ||
-                          location.pathname.includes(
-                            "/blogs"
-                          ) ||
-                          location.pathname.includes(
-                            "/vimal-kumar"
-                          )
-                            ? theme.colors
-                                .orange[5]
+                          location.pathname.includes("/iisj") ||
+                          location.pathname.includes("/gallery") ||
+                          location.pathname.includes("/blogs") ||
+                          location.pathname.includes("/vimal-kumar")
+                            ? theme.colors.orange[5]
                             : "white"
                         }
                       />
@@ -303,30 +245,24 @@ function Navbar() {
 
                 <Menu.Dropdown
                   style={{
-                    background:
-                      "rgba(10, 18, 38, 0.96)",
+                    background: "rgba(10, 18, 38, 0.96)",
 
-                    backdropFilter:
-                      "blur(14px)",
+                    backdropFilter: "blur(14px)",
 
-                    border:
-                      "1px solid rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.08)",
 
                     borderRadius: "24px",
 
                     padding: "12px",
 
-                    boxShadow:
-                      "0 20px 50px rgba(0,0,0,0.35)",
+                    boxShadow: "0 20px 50px rgba(0,0,0,0.35)",
                   }}
                 >
                   <Menu.Item
                     component={Link}
                     to="/iisj"
                     className="navbar-dropdown-item"
-                    leftSection={
-                      <FaFileAlt size={14} />
-                    }
+                    leftSection={<FaFileAlt size={14} />}
                   >
                     IISJ
                   </Menu.Item>
@@ -335,9 +271,7 @@ function Navbar() {
                     component={Link}
                     to="/gallery"
                     className="navbar-dropdown-item"
-                    leftSection={
-                      <FaImages size={14} />
-                    }
+                    leftSection={<FaImages size={14} />}
                   >
                     Gallery
                   </Menu.Item>
@@ -346,9 +280,7 @@ function Navbar() {
                     component={Link}
                     to="/blogs"
                     className="navbar-dropdown-item"
-                    leftSection={
-                      <FaNewspaper size={14} />
-                    }
+                    leftSection={<FaNewspaper size={14} />}
                   >
                     News & Stories
                   </Menu.Item>
@@ -357,9 +289,7 @@ function Navbar() {
                     component={Link}
                     to="/vimal-kumar"
                     className="navbar-dropdown-item"
-                    leftSection={
-                      <FaCalendarAlt size={14} />
-                    }
+                    leftSection={<FaCalendarAlt size={14} />}
                   >
                     About Vimal Kumar
                   </Menu.Item>
@@ -375,8 +305,7 @@ function Navbar() {
                 shadow="xl"
                 width={280}
                 transitionProps={{
-                  transition:
-                    "pop-top-right",
+                  transition: "pop-top-right",
 
                   duration: 250,
                 }}
@@ -401,25 +330,17 @@ function Navbar() {
                             location.pathname.includes(
                               "/Fellowship-Program-app"
                             ) ||
-                            location.pathname.includes(
-                              "/support-msc"
-                            ) ||
-                            location.pathname.includes(
-                              "/avarna"
-                            ) ||
-                            location.pathname.includes(
-                              "/MSC-Detail"
-                            )
-                              ? theme.colors
-                                  .orange[5]
+                            location.pathname.includes("/support-msc") ||
+                            location.pathname.includes("/avarna") ||
+                            location.pathname.includes("/MSC-Detail")
+                              ? theme.colors.orange[5]
                               : "white",
 
                           fontWeight: 600,
 
                           fontSize: "15px",
 
-                          transition:
-                            "0.3s",
+                          transition: "0.3s",
                         }}
                       >
                         Our Projects
@@ -431,23 +352,14 @@ function Navbar() {
                           location.pathname.includes(
                             "/Community-Resource-Centers"
                           ) ||
-                          location.pathname.includes(
-                            "/Fellowship-Equality"
-                          ) ||
+                          location.pathname.includes("/Fellowship-Equality") ||
                           location.pathname.includes(
                             "/Fellowship-Program-app"
                           ) ||
-                          location.pathname.includes(
-                            "/support-msc"
-                          ) ||
-                          location.pathname.includes(
-                            "/avarna"
-                          ) ||
-                          location.pathname.includes(
-                            "/MSC-Detail"
-                          )
-                            ? theme.colors
-                                .orange[5]
+                          location.pathname.includes("/support-msc") ||
+                          location.pathname.includes("/avarna") ||
+                          location.pathname.includes("/MSC-Detail")
+                            ? theme.colors.orange[5]
                             : "white"
                         }
                       />
@@ -457,21 +369,17 @@ function Navbar() {
 
                 <Menu.Dropdown
                   style={{
-                    background:
-                      "rgba(10, 18, 38, 0.96)",
+                    background: "rgba(10, 18, 38, 0.96)",
 
-                    backdropFilter:
-                      "blur(14px)",
+                    backdropFilter: "blur(14px)",
 
-                    border:
-                      "1px solid rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.08)",
 
                     borderRadius: "24px",
 
                     padding: "12px",
 
-                    boxShadow:
-                      "0 20px 50px rgba(0,0,0,0.35)",
+                    boxShadow: "0 20px 50px rgba(0,0,0,0.35)",
                   }}
                 >
                   <Menu.Item
@@ -531,12 +439,7 @@ function Navbar() {
                   position: "relative",
                 }}
               >
-                <Link
-                  to="/contact"
-                  style={navLinkStyle(
-                    "/contact"
-                  )}
-                >
+                <Link to="/contact" style={navLinkStyle("/contact")}>
                   Contact
                 </Link>
 
@@ -546,14 +449,10 @@ function Navbar() {
               {/* BUTTON */}
 
               <Button
-                onClick={() =>
-                  navigate("/support-msc")
-                }
+                onClick={() => navigate("/support-msc")}
                 radius="xl"
                 px={24}
-                rightSection={
-                  <FaArrowRight size={13} />
-                }
+                rightSection={<FaArrowRight size={13} />}
                 style={{
                   background:
                     "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
@@ -562,8 +461,7 @@ function Navbar() {
 
                   cursor: "pointer",
 
-                  boxShadow:
-                    "0 10px 25px rgba(249,115,22,0.35)",
+                  boxShadow: "0 10px 25px rgba(249,115,22,0.35)",
                 }}
               >
                 Donate Now
@@ -593,8 +491,7 @@ function Navbar() {
         position="right"
         styles={{
           content: {
-            background:
-              "linear-gradient(180deg,#071120 0%, #0d1d36 100%)",
+            background: "linear-gradient(180deg,#071120 0%, #0d1d36 100%)",
 
             overflow: "hidden",
           },
@@ -606,28 +503,18 @@ function Navbar() {
           px="lg"
           py="md"
           style={{
-            borderBottom:
-              "1px solid rgba(255,255,255,0.08)",
+            borderBottom: "1px solid rgba(255,255,255,0.08)",
 
-            background:
-              "rgba(255,255,255,0.03)",
+            background: "rgba(255,255,255,0.03)",
 
             backdropFilter: "blur(10px)",
           }}
         >
           <Group justify="space-between">
             <Group gap={10}>
-              <Image
-                src={logo}
-                w={42}
-                h={42}
-                fit="contain"
-              />
+              <Image src={logo} w={42} h={42} fit="contain" />
 
-              <Text
-                fw={800}
-                size="lg"
-              >
+              <Text fw={800} size="lg">
                 <span
                   style={{
                     color: "#ff7b00",
@@ -646,20 +533,13 @@ function Navbar() {
               </Text>
             </Group>
 
-            <Burger
-              opened={opened}
-              onClick={close}
-              color="white"
-            />
+            <Burger opened={opened} onClick={close} color="white" />
           </Group>
         </Box>
 
         {/* MENU */}
 
-        <Stack
-          gap="xs"
-          p="lg"
-        >
+        <Stack gap="xs" p="lg">
           {[
             {
               label: "Home",
@@ -690,9 +570,7 @@ function Navbar() {
                 textDecoration: "none",
               }}
             >
-              <motion.div
-                whileTap={{ scale: 0.98 }}
-              >
+              <motion.div whileTap={{ scale: 0.98 }}>
                 <Box
                   px="lg"
                   py="md"
@@ -700,13 +578,11 @@ function Navbar() {
                     borderRadius: "18px",
 
                     background:
-                      location.pathname ===
-                      item.path
+                      location.pathname === item.path
                         ? "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)"
                         : "rgba(255,255,255,0.04)",
 
-                    border:
-                      "1px solid rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.06)",
 
                     color: "white",
 
@@ -724,13 +600,7 @@ function Navbar() {
           {/* INFORMATION */}
 
           <Box mt="md">
-            <Text
-              c="orange"
-              fw={700}
-              size="sm"
-              tt="uppercase"
-              mb="sm"
-            >
+            <Text c="orange" fw={700} size="sm" tt="uppercase" mb="sm">
               Information
             </Text>
 
@@ -752,8 +622,7 @@ function Navbar() {
                 },
 
                 {
-                  label:
-                    "About Vimal Kumar",
+                  label: "About Vimal Kumar",
 
                   path: "/vimal-kumar",
                 },
@@ -773,11 +642,9 @@ function Navbar() {
                     style={{
                       borderRadius: "16px",
 
-                      background:
-                        "rgba(255,255,255,0.04)",
+                      background: "rgba(255,255,255,0.04)",
 
-                      border:
-                        "1px solid rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.05)",
 
                       color: "white",
 
@@ -796,40 +663,28 @@ function Navbar() {
           {/* PROJECTS */}
 
           <Box mt="md">
-            <Text
-              c="orange"
-              fw={700}
-              size="sm"
-              tt="uppercase"
-              mb="sm"
-            >
+            <Text c="orange" fw={700} size="sm" tt="uppercase" mb="sm">
               Our Projects
             </Text>
 
             <Stack gap="xs">
               {[
                 {
-                  label:
-                    "Community Resource Centers",
+                  label: "Community Resource Centers",
 
-                  path:
-                    "/Community-Resource-Centers",
+                  path: "/Community-Resource-Centers",
                 },
 
                 {
-                  label:
-                    "Fellows For Equality",
+                  label: "Fellows For Equality",
 
-                  path:
-                    "/Fellowship-Equality",
+                  path: "/Fellowship-Equality",
                 },
 
                 {
-                  label:
-                    "Fellowship Application",
+                  label: "Fellowship Application",
 
-                  path:
-                    "/Fellowship-Program-app",
+                  path: "/Fellowship-Program-app",
                 },
 
                 {
@@ -839,15 +694,13 @@ function Navbar() {
                 },
 
                 {
-                  label:
-                    "AVARNA Foundation",
+                  label: "AVARNA Foundation",
 
                   path: "/avarna",
                 },
 
                 {
-                  label:
-                    "Scavenger Communities",
+                  label: "Scavenger Communities",
 
                   path: "/MSC-Detail",
                 },
@@ -867,11 +720,9 @@ function Navbar() {
                     style={{
                       borderRadius: "16px",
 
-                      background:
-                        "rgba(255,255,255,0.04)",
+                      background: "rgba(255,255,255,0.04)",
 
-                      border:
-                        "1px solid rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.05)",
 
                       color: "white",
 
@@ -895,18 +746,14 @@ function Navbar() {
             mt="xl"
             size="lg"
             radius="xl"
-            rightSection={
-              <FaArrowRight size={14} />
-            }
+            rightSection={<FaArrowRight size={14} />}
             onClick={close}
             style={{
-              background:
-                "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+              background: "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
 
               border: "none",
 
-              boxShadow:
-                "0 12px 30px rgba(255,123,0,0.28)",
+              boxShadow: "0 12px 30px rgba(255,123,0,0.28)",
             }}
           >
             Donate Now

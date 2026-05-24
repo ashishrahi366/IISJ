@@ -1,4 +1,25 @@
 import {
+  Container,
+  Title,
+  Text,
+  Grid,
+  Card,
+  Image,
+  Stack,
+  Badge,
+  Button,
+  Box,
+  Group,
+  Overlay,
+  ThemeIcon,
+  Paper,
+  Divider,
+  List,
+} from "@mantine/core";
+
+import { motion } from "framer-motion";
+
+import {
   FaUsers,
   FaBook,
   FaLightbulb,
@@ -9,244 +30,742 @@ import {
   FaUniversity,
   FaNetworkWired,
   FaShieldAlt,
+  FaArrowRight,
+  FaCheckCircle,
+  FaGlobe,
+  FaBalanceScale,
+  FaGraduationCap,
 } from "react-icons/fa";
-// import {
-//   Container,
-//   Title,
-//   Text,
-//   Grid,
-//   Card,
-//   Image,
-//   Stack,
-//   Badge,
-// } from "@mantine/core";
-import {
-  Container,
-  Title,
-  Text,
-  Grid,
-  Card,
-  Image,
-  Stack,
-  Badge,
-  Button,
-} from "@mantine/core";
 
-import heroImg from "../assets/home/about-1.jpg";
-import sectionImg from "../assets/home/about-1.jpg";
+import { Link } from "react-router-dom";
 
-export default function AvarnaPage() {
+import heroImg from "../assets/home/heroHome2.jpeg";
+import sectionImg from "../assets/home/leader2.JPG";
+
+const actionAreas = [
+  {
+    icon: <FaChalkboardTeacher size={28} />,
+    title: "Leadership Institute",
+    desc: "Training grassroots leaders and strengthening community-led organizations.",
+  },
+
+  {
+    icon: <FaBook size={28} />,
+    title: "Community Learning Centres",
+    desc: "Providing free education, digital literacy, and career guidance.",
+  },
+
+  {
+    icon: <FaHandsHelping size={28} />,
+    title: "Safe Community Spaces",
+    desc: "Creating inclusive environments for youth, artists, and marginalized voices.",
+  },
+
+  {
+    icon: <FaUsers size={28} />,
+    title: "Fellowship Programs",
+    desc: "Mentoring and supporting emerging leaders from marginalized communities.",
+  },
+
+  {
+    icon: <FaLightbulb size={28} />,
+    title: "Entrepreneurship",
+    desc: "Helping individuals start and grow sustainable businesses.",
+  },
+
+  {
+    icon: <FaNetworkWired size={28} />,
+    title: "Economic Empowerment",
+    desc: "Providing training, networking, and financial independence opportunities.",
+  },
+
+  {
+    icon: <FaHeartbeat size={28} />,
+    title: "Health Initiatives",
+    desc: "Improving healthcare access and awareness in underserved communities.",
+  },
+
+  {
+    icon: <FaGavel size={28} />,
+    title: "Policy Advocacy",
+    desc: "Driving reforms and campaigns for equality and social justice.",
+  },
+
+  {
+    icon: <FaUniversity size={28} />,
+    title: "Grassroots Network",
+    desc: "Building strong community-based partnerships across regions.",
+  },
+];
+
+const stats = [
+  {
+    number: "10+",
+    label: "Action Areas",
+  },
+
+  {
+    number: "5000+",
+    label: "Lives Reached",
+  },
+
+  {
+    number: "100+",
+    label: "Grassroots Leaders",
+  },
+
+  {
+    number: "25+",
+    label: "Community Programs",
+  },
+];
+
+function AvarnaPage() {
   return (
-    <div style={{ background: "#f9fafb" }}>
-      {/* HERO */}
-      <div style={{ position: "relative", height: "60vh" }}>
-        <Image src={heroImg} h="100%" fit="cover" />
-        <div
+    <Box
+      style={{
+        background: "#f8fafc",
+        overflow: "hidden",
+      }}
+    >
+      {/* HERO SECTION */}
+
+      <Box
+        style={{
+          position: "relative",
+          minHeight: "100vh",
+          overflow: "hidden",
+        }}
+      >
+        <Image
+          src={heroImg}
+          h="100%"
+          fit="cover"
           style={{
             position: "absolute",
             inset: 0,
-            background: "rgba(0,0,0,0.6)",
+          }}
+        />
+
+        <Overlay
+          color="#000"
+          opacity={0.68}
+          zIndex={1}
+        />
+
+        {/* GRADIENT GLOW */}
+
+        <Box
+          style={{
+            position: "absolute",
+            width: "600px",
+            height: "600px",
+            borderRadius: "100%",
+            background: "rgba(255,123,0,0.18)",
+            filter: "blur(120px)",
+            top: "-120px",
+            right: "-150px",
+            zIndex: 2,
+          }}
+        />
+
+        <Container
+          size="xl"
+          style={{
+            position: "relative",
+            zIndex: 5,
+            minHeight: "100vh",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-            padding: "20px",
           }}
         >
-          <Stack align="center">
-            <Title order={1} ta="center">
-              Avarna Foundation
-            </Title>
-            <Text size="lg" ta="center">
-              A movement for dignity, equality, and justice beyond all
-              boundaries
-            </Text>
-          </Stack>
-        </div>
-      </div>
-
-      {/* AVARNA MEANING */}
-      <Container size="lg" py={80}>
-        <Card radius="xl" p="xl" shadow="md" style={{ background: "#ede9fe" }}>
-          <Title order={2}>What “Avarna” Means</Title>
-          <Text mt="sm">
-            Traditionally, “Avarna” referred to those outside rigid caste
-            systems. We reclaim it as a symbol of unity, dignity, and human
-            equality.
-          </Text>
-          <Text mt="sm">
-            It represents a world beyond division—where identity is not defined
-            by caste, gender, religion, or race, but by shared humanity and
-            collective growth.
-          </Text>
-        </Card>
-      </Container>
-
-      {/* INTRO */}
-      <Container size="lg" py={80}>
-        <Grid align="center">
-          <Grid.Col span={{ base: 12, md: 6 }}>
-            <Image src={sectionImg} radius="xl" />
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 6 }}>
-            <Title order={2}>Introduction</Title>
-            <Text c="dimmed" mt="sm">
-              Avarna Education and Training Foundation is committed to
-              dismantling systemic oppression rooted in caste, race, gender,
-              occupation, and religion. It stands for unity, dignity, and human
-              equality.
-            </Text>
-            <Text c="dimmed" mt="sm">
-              Avarna redefines identity beyond imposed divisions and empowers
-              marginalized communities to co-create a future built on justice,
-              inclusion, and collective growth.
-            </Text>
-          </Grid.Col>
-        </Grid>
-      </Container>
-
-      {/* WHY AVARNA */}
-      <Container size="lg" py={80}>
-        <Card radius="xl" p="xl" shadow="md" style={{ background: "#eef2ff" }}>
-          <Title order={2}>Why Avarna Was Created</Title>
-          <Text mt="sm">
-            Avarna emerged from MSC’s deep grassroots experience. It recognizes
-            that marginalization is interconnected across caste, tribe, gender,
-            and geography.
-          </Text>
-          <Text mt="sm">
-            It was created to expand impact, build long-term systems of
-            empowerment, and create a community-led platform for sustainable
-            change.
-          </Text>
-        </Card>
-      </Container>
-
-      {/* PROBLEM */}
-      <Container size="lg" py={80}>
-        <Grid align="center">
-          <Grid.Col span={{ base: 12, md: 6 }}>
-            <Title order={2}>Problem Statement</Title>
-            <Text c="dimmed" mt="sm">
-              Millions of Dalits, tribal communities, and marginalized groups
-              face systemic discrimination, exclusion, and violence.
-            </Text>
-            <Text c="dimmed" mt="sm">
-              Barriers in education, healthcare, and employment prevent full
-              participation in society. Intersectional inequalities deepen this
-              crisis.
-            </Text>
-          </Grid.Col>
-          <Grid.Col span={{ base: 12, md: 6 }}>
-            <Image src={sectionImg} radius="xl" />
-          </Grid.Col>
-        </Grid>
-      </Container>
-
-      {/* ACTION PLAN */}
-      <Container size="lg" py={80}>
-        <Title order={2} ta="center" mb={40}>
-          10 Key Action Areas
-        </Title>
-
-        <Grid>
-          {[
-            {
-              icon: <FaChalkboardTeacher color="#4f46e5" size={26} />,
-              title: "Leadership Institute",
-              desc: "Training grassroots leaders and strengthening community-led organizations.",
-            },
-            {
-              icon: <FaBook color="#16a34a" size={26} />,
-              title: "Community Learning Centres",
-              desc: "Providing free education, digital literacy, and career guidance.",
-            },
-            {
-              icon: <FaHandsHelping color="#f59e0b" size={26} />,
-              title: "Safe Spaces",
-              desc: "Creating inclusive environments for Dalit and tribal thinkers, artists, and youth.",
-            },
-            {
-              icon: <FaUsers color="#0ea5e9" size={26} />,
-              title: "Fellowship Programs",
-              desc: "Mentoring and supporting emerging leaders from marginalized communities.",
-            },
-            {
-              icon: <FaLightbulb color="#f97316" size={26} />,
-              title: "Entrepreneurship",
-              desc: "Helping individuals start and grow sustainable businesses.",
-            },
-            {
-              icon: <FaNetworkWired color="#22c55e" size={26} />,
-              title: "Economic Empowerment",
-              desc: "Providing training, networking, and market access for financial independence.",
-            },
-            {
-              icon: <FaHeartbeat color="#ef4444" size={26} />,
-              title: "Health Initiatives",
-              desc: "Improving healthcare access and spreading awareness in underserved areas.",
-            },
-            {
-              icon: <FaGavel color="#3b82f6" size={26} />,
-              title: "Policy Advocacy",
-              desc: "Driving systemic reforms for equality and social justice.",
-            },
-            {
-              icon: <FaUniversity color="#a855f7" size={26} />,
-              title: "Grassroots Network",
-              desc: "Building a strong ecosystem of community organizations under Avarna.",
-            },
-            {
-              icon: <FaShieldAlt color="#14b8a6" size={26} />,
-              title: "Comprehensive Support",
-              desc: "Integrating education, health, and economic programs for lasting impact.",
-            },
-          ].map((item, i) => (
-            <Grid.Col key={i} span={{ base: 12, sm: 6, md: 4 }}>
-              <Card
+          <motion.div
+            initial={{ opacity: 0, y: 70 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{ width: "100%" }}
+          >
+            <Paper
+              radius="36px"
+              p="clamp(24px,5vw,60px)"
+              style={{
+                background: "rgba(255,255,255,0.08)",
+                backdropFilter: "blur(18px)",
+                border: "1px solid rgba(255,255,255,0.12)",
+                maxWidth: "850px",
+              }}
+            >
+              <Badge
+                size="lg"
                 radius="xl"
-                p="lg"
-                shadow="md"
+                variant="light"
+                color="orange"
+                mb="xl"
+              >
+                Avarna Education & Training Foundation
+              </Badge>
+
+              <Title
+                c="white"
                 style={{
-                  height: "100%",
-                  transition: "0.3s",
+                  fontSize: "clamp(42px,7vw,88px)",
+                  lineHeight: 1.02,
+                  fontWeight: 900,
                 }}
               >
-                <Stack align="center" gap="sm">
-                  {item.icon}
+                Beyond
+                <br />
+                Boundaries.
+              </Title>
 
-                  <Text fw={700} ta="center">
-                    {item.title}
-                  </Text>
+              <Text
+                c="rgba(255,255,255,0.78)"
+                mt={30}
+                maw={720}
+                style={{
+                  fontSize: "clamp(16px,2vw,21px)",
+                  lineHeight: 1.9,
+                }}
+              >
+                Avarna is a movement for dignity, equality, and collective
+                empowerment beyond caste, gender, religion, and social
+                exclusion. We build leadership, education, advocacy, and
+                community-driven systems for lasting social transformation.
+              </Text>
 
-                  <Text size="sm" c="dimmed" ta="center">
-                    {item.desc}
+              <Group
+                mt={40}
+                gap="md"
+                wrap="wrap"
+              >
+                <Button
+                  size="xl"
+                  radius="xl"
+                  component={Link}
+                  to="/contact"
+                  rightSection={<FaArrowRight size={14} />}
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+
+                    boxShadow: "0 18px 45px rgba(255,123,0,0.35)",
+                  }}
+                >
+                  Join The Movement
+                </Button>
+
+                <Button
+                  size="xl"
+                  radius="xl"
+                  variant="white"
+                  color="dark"
+                  component={Link}
+                  to="/Support-MSC"
+                >
+                  Support Our Work
+                </Button>
+              </Group>
+            </Paper>
+          </motion.div>
+        </Container>
+      </Box>
+
+      {/* WHAT IS AVARNA */}
+
+      <Container
+        size="xl"
+        py={120}
+      >
+        <Grid
+          gutter={60}
+          align="center"
+        >
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <Image
+                src={sectionImg}
+                radius="36px"
+              />
+            </motion.div>
+          </Grid.Col>
+
+          <Grid.Col span={{ base: 12, md: 6 }}>
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <Badge
+                color="orange"
+                variant="light"
+                size="lg"
+                radius="xl"
+                mb="lg"
+              >
+                What “Avarna” Means
+              </Badge>
+
+              <Title
+                style={{
+                  fontSize: "clamp(32px,5vw,58px)",
+                  lineHeight: 1.1,
+                }}
+              >
+                Reclaiming Identity
+                <br />
+                Beyond Division
+              </Title>
+
+              <Text
+                c="dimmed"
+                mt={25}
+                style={{
+                  lineHeight: 1.9,
+                  fontSize: "17px",
+                }}
+              >
+                Traditionally, “Avarna” referred to people excluded from rigid
+                caste systems. Today, we reclaim the term as a symbol of
+                equality, unity, dignity, and liberation.
+              </Text>
+
+              <Text
+                c="dimmed"
+                mt="md"
+                style={{
+                  lineHeight: 1.9,
+                  fontSize: "17px",
+                }}
+              >
+                Avarna stands for a future where identity is not shaped by
+                oppression, discrimination, or hierarchy — but by shared
+                humanity, leadership, and collective progress.
+              </Text>
+
+              <List
+                mt={30}
+                spacing="md"
+                icon={
+                  <ThemeIcon
+                    color="orange"
+                    radius="xl"
+                    size={24}
+                  >
+                    <FaCheckCircle size={12} />
+                  </ThemeIcon>
+                }
+              >
+                <List.Item>Dignity beyond caste and exclusion</List.Item>
+
+                <List.Item>Education and leadership for all</List.Item>
+
+                <List.Item>Grassroots empowerment and justice</List.Item>
+
+                <List.Item>Community-led sustainable transformation</List.Item>
+              </List>
+            </motion.div>
+          </Grid.Col>
+        </Grid>
+      </Container>
+
+      {/* STATS */}
+
+      <Container
+        size="xl"
+        pb={120}
+      >
+        <Grid gutter="xl">
+          {stats.map((item, index) => (
+            <Grid.Col
+              key={index}
+              span={{ base: 6, md: 3 }}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
+                viewport={{ once: true }}
+              >
+                <Card
+                  radius="32px"
+                  p="xl"
+                  style={{
+                    background: "white",
+                    border: "1px solid #eee",
+                    textAlign: "center",
+                    height: "100%",
+                  }}
+                >
+                  <Title
+                    style={{
+                      fontSize: "clamp(34px,5vw,58px)",
+                    }}
+                  >
+                    {item.number}
+                  </Title>
+
+                  <Text
+                    c="dimmed"
+                    mt="sm"
+                  >
+                    {item.label}
                   </Text>
-                </Stack>
-              </Card>
+                </Card>
+              </motion.div>
             </Grid.Col>
           ))}
         </Grid>
       </Container>
 
-      {/* VISION MISSION */}
-      <Container size="lg" py={80}>
-        <Grid>
+      {/* WHY AVARNA */}
+
+      <Container
+        size="xl"
+        pb={120}
+      >
+        <Card
+          radius="40px"
+          p="clamp(30px,5vw,70px)"
+          style={{
+            background:
+              "linear-gradient(135deg, #0f172a 0%, #111827 100%)",
+
+            color: "white",
+
+            overflow: "hidden",
+
+            position: "relative",
+          }}
+        >
+          <Box
+            style={{
+              position: "absolute",
+              width: "450px",
+              height: "450px",
+              borderRadius: "100%",
+              background: "rgba(255,123,0,0.15)",
+              filter: "blur(120px)",
+              top: "-120px",
+              right: "-100px",
+            }}
+          />
+
+          <Grid align="center">
+            <Grid.Col span={{ base: 12, md: 7 }}>
+              <Badge
+                color="orange"
+                variant="filled"
+                size="lg"
+                radius="xl"
+                mb="lg"
+              >
+                Why Avarna Was Created
+              </Badge>
+
+              <Title
+                c="white"
+                style={{
+                  fontSize: "clamp(34px,5vw,60px)",
+                  lineHeight: 1.1,
+                }}
+              >
+                From Grassroots
+                <br />
+                Experience To
+                <br />
+                Collective Action
+              </Title>
+
+              <Text
+                c="rgba(255,255,255,0.78)"
+                mt={30}
+                maw={720}
+                style={{
+                  lineHeight: 1.9,
+                }}
+              >
+                Avarna emerged from years of grassroots engagement through MSC
+                and community-led activism. It recognizes that exclusion and
+                marginalization are deeply interconnected across caste, tribe,
+                gender, occupation, and geography.
+              </Text>
+
+              <Text
+                c="rgba(255,255,255,0.78)"
+                mt="md"
+                maw={720}
+                style={{
+                  lineHeight: 1.9,
+                }}
+              >
+                The foundation was created to expand impact, strengthen
+                leadership ecosystems, and create long-term structures for
+                education, dignity, justice, and economic empowerment.
+              </Text>
+            </Grid.Col>
+
+            <Grid.Col span={{ base: 12, md: 5 }}>
+              <Stack gap="lg">
+                {[
+                  "Grassroots leadership development",
+                  "Community-owned transformation",
+                  "Education and economic empowerment",
+                  "Social justice and policy advocacy",
+                ].map((item, index) => (
+                  <Paper
+                    key={index}
+                    radius="24px"
+                    p="lg"
+                    style={{
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.08)",
+                    }}
+                  >
+                    <Group>
+                      <ThemeIcon
+                        size={50}
+                        radius="xl"
+                        color="orange"
+                      >
+                        <FaCheckCircle size={18} />
+                      </ThemeIcon>
+
+                      <Text
+                        c="white"
+                        fw={600}
+                      >
+                        {item}
+                      </Text>
+                    </Group>
+                  </Paper>
+                ))}
+              </Stack>
+            </Grid.Col>
+          </Grid>
+        </Card>
+      </Container>
+
+      {/* ACTION AREAS */}
+
+      <Container
+        size="xl"
+        pb={120}
+      >
+        <Box
+          ta="center"
+          mb={70}
+        >
+          <Badge
+            size="lg"
+            radius="xl"
+            color="orange"
+            variant="light"
+            mb="lg"
+          >
+            10 Key Action Areas
+          </Badge>
+
+          <Title
+            style={{
+              fontSize: "clamp(34px,5vw,60px)",
+            }}
+          >
+            Building Systems
+            <br />
+            Of Long-Term Change
+          </Title>
+
+          <Text
+            c="dimmed"
+            mt={20}
+            maw={760}
+            mx="auto"
+            style={{
+              lineHeight: 1.9,
+            }}
+          >
+            Avarna combines education, leadership, advocacy, healthcare,
+            entrepreneurship, and grassroots organizing into one integrated
+            movement for justice and empowerment.
+          </Text>
+        </Box>
+
+        <Grid gutter="xl">
+          {actionAreas.map((item, index) => (
+            <Grid.Col
+              key={index}
+              span={{ base: 12, sm: 6, lg: 4 }}
+            >
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.08,
+                }}
+                viewport={{ once: true }}
+              >
+                <Card
+                  radius="32px"
+                  p="xl"
+                  style={{
+                    height: "100%",
+                    background: "white",
+                    border: "1px solid #eee",
+                    transition: "0.35s",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(-10px)";
+                    e.currentTarget.style.boxShadow =
+                      "0 25px 60px rgba(0,0,0,0.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform =
+                      "translateY(0px)";
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  <ThemeIcon
+                    size={70}
+                    radius="24px"
+                    mb="lg"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+                    }}
+                  >
+                    {item.icon}
+                  </ThemeIcon>
+
+                  <Title
+                    order={3}
+                    mb="md"
+                  >
+                    {item.title}
+                  </Title>
+
+                  <Text
+                    c="dimmed"
+                    style={{
+                      lineHeight: 1.9,
+                    }}
+                  >
+                    {item.desc}
+                  </Text>
+                </Card>
+              </motion.div>
+            </Grid.Col>
+          ))}
+        </Grid>
+      </Container>
+
+      {/* VISION & MISSION */}
+
+      <Container
+        size="xl"
+        pb={120}
+      >
+        <Grid gutter="xl">
           <Grid.Col span={{ base: 12, md: 6 }}>
-            <Card p="xl" radius="xl" style={{ background: "#ecfeff" }}>
-              <Badge>Vision</Badge>
-              <Text mt="sm">
-                A world where every individual lives with dignity, equality, and
-                freedom beyond caste and discrimination.
+            <Card
+              radius="36px"
+              p="clamp(28px,4vw,50px)"
+              style={{
+                background: "#eff6ff",
+                height: "100%",
+              }}
+            >
+              <ThemeIcon
+                size={70}
+                radius="24px"
+                color="blue"
+                mb="xl"
+              >
+                <FaGlobe size={28} />
+              </ThemeIcon>
+
+              <Badge
+                color="blue"
+                variant="light"
+                mb="lg"
+              >
+                Our Vision
+              </Badge>
+
+              <Title order={2}>
+                A World Beyond
+                <br />
+                Discrimination
+              </Title>
+
+              <Text
+                mt={25}
+                c="dimmed"
+                style={{
+                  lineHeight: 1.9,
+                }}
+              >
+                Avarna envisions a society where every individual lives with
+                dignity, equality, freedom, and opportunity beyond caste,
+                religion, gender, race, or occupation.
               </Text>
             </Card>
           </Grid.Col>
+
           <Grid.Col span={{ base: 12, md: 6 }}>
-            <Card p="xl" radius="xl" style={{ background: "#fef9c3" }}>
-              <Badge>Mission</Badge>
-              <Text mt="sm">
-                Empower marginalized communities through education, leadership,
-                and economic empowerment.
+            <Card
+              radius="36px"
+              p="clamp(28px,4vw,50px)"
+              style={{
+                background: "#fff7ed",
+                height: "100%",
+              }}
+            >
+              <ThemeIcon
+                size={70}
+                radius="24px"
+                color="orange"
+                mb="xl"
+              >
+                <FaBalanceScale size={28} />
+              </ThemeIcon>
+
+              <Badge
+                color="orange"
+                variant="light"
+                mb="lg"
+              >
+                Our Mission
+              </Badge>
+
+              <Title order={2}>
+                Empowering Communities
+                <br />
+                Through Action
+              </Title>
+
+              <Text
+                mt={25}
+                c="dimmed"
+                style={{
+                  lineHeight: 1.9,
+                }}
+              >
+                We empower marginalized communities through education,
+                leadership development, advocacy, entrepreneurship, health
+                initiatives, and grassroots organizing for long-term social
+                transformation.
               </Text>
             </Card>
           </Grid.Col>
@@ -254,64 +773,278 @@ export default function AvarnaPage() {
       </Container>
 
       {/* LEGAL */}
-      <Container size="lg" py={80}>
-        <Title order={2} ta="center" mb={30}>
-          Legal & Compliance
-        </Title>
-        <Grid>
-          {["12A Registered", "80G Certified", "CSR-1 Eligible"].map(
-            (item, i) => (
-              <Grid.Col key={i} span={{ base: 12, md: 4 }}>
-                <Card
-                  radius="xl"
-                  p="lg"
-                  shadow="md"
-                  style={{ textAlign: "center", background: "#ecfeff" }}
+
+      <Container
+        size="xl"
+        pb={120}
+      >
+        <Box
+          ta="center"
+          mb={50}
+        >
+          <Badge
+            color="green"
+            variant="light"
+            size="lg"
+            radius="xl"
+            mb="lg"
+          >
+            Legal & Compliance
+          </Badge>
+
+          <Title
+            style={{
+              fontSize: "clamp(30px,5vw,54px)",
+            }}
+          >
+            Transparent &
+            <br />
+            Accountable Operations
+          </Title>
+        </Box>
+
+        <Grid gutter="xl">
+          {[
+            "12A Registered",
+            "80G Certified",
+            "CSR-1 Eligible",
+          ].map((item, index) => (
+            <Grid.Col
+              key={index}
+              span={{ base: 12, md: 4 }}
+            >
+              <Card
+                radius="28px"
+                p="xl"
+                style={{
+                  background: "white",
+                  textAlign: "center",
+                  border: "1px solid #eee",
+                }}
+              >
+                <ThemeIcon
+                  size={70}
+                  radius="100%"
+                  color="green"
+                  mx="auto"
+                  mb="lg"
                 >
-                  <Text fw={600}>{item}</Text>
-                </Card>
-              </Grid.Col>
-            )
-          )}
+                  <FaShieldAlt size={28} />
+                </ThemeIcon>
+
+                <Text
+                  fw={700}
+                  size="lg"
+                >
+                  {item}
+                </Text>
+              </Card>
+            </Grid.Col>
+          ))}
         </Grid>
       </Container>
-      {/* FOUNDER */}
-      <Container size="lg" py={80}>
+
+      {/* FOUNDER MESSAGE */}
+
+      <Container
+        size="xl"
+        pb={120}
+      >
         <Card
-          radius="xl"
-          p="xl"
-          shadow="lg"
-          style={{ background: "#111827", color: "white" }}
+          radius="40px"
+          p="clamp(30px,5vw,70px)"
+          style={{
+            background:
+              "linear-gradient(135deg, #111827 0%, #1f2937 100%)",
+
+            color: "white",
+
+            position: "relative",
+
+            overflow: "hidden",
+          }}
         >
-          <Text size="lg">
-            “Avarna was born from lived experience and a deep conviction to
-            create a just and equal society. It is a platform for voices that
-            were once silenced.”
-          </Text>
-          <Text mt="sm" c="gray">
-            — Dr. Vimal Kumar
-          </Text>
+          <Box
+            style={{
+              position: "absolute",
+              width: "450px",
+              height: "450px",
+              background: "rgba(255,123,0,0.18)",
+              filter: "blur(120px)",
+              borderRadius: "100%",
+              top: "-150px",
+              right: "-100px",
+            }}
+          />
+
+          <Grid align="center">
+            <Grid.Col span={{ base: 12, md: 8 }}>
+              <Badge
+                color="orange"
+                variant="filled"
+                size="lg"
+                radius="xl"
+                mb="lg"
+              >
+                Founder’s Vision
+              </Badge>
+
+              <Title
+                c="white"
+                style={{
+                  fontSize: "clamp(34px,5vw,58px)",
+                  lineHeight: 1.15,
+                }}
+              >
+                “Avarna Was Born
+                <br />
+                From Lived Experience”
+              </Title>
+
+              <Text
+                c="rgba(255,255,255,0.8)"
+                mt={30}
+                maw={760}
+                style={{
+                  lineHeight: 2,
+                  fontSize: "17px",
+                }}
+              >
+                “Avarna was born from lived experience and a deep conviction to
+                create a just and equal society. It is a platform for voices
+                that were once silenced — and a movement for people to reclaim
+                dignity, leadership, and opportunity.”
+              </Text>
+
+              <Divider
+                my="xl"
+                color="rgba(255,255,255,0.1)"
+              />
+
+              <Group>
+                <ThemeIcon
+                  size={65}
+                  radius="100%"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+                  }}
+                >
+                  <FaGraduationCap size={26} />
+                </ThemeIcon>
+
+                <div>
+                  <Text
+                    fw={700}
+                    c="white"
+                    size="lg"
+                  >
+                    Dr. Vimal Kumar
+                  </Text>
+
+                  <Text c="rgba(255,255,255,0.65)">
+                    Founder & Social Justice Leader
+                  </Text>
+                </div>
+              </Group>
+            </Grid.Col>
+          </Grid>
         </Card>
       </Container>
 
-      {/* CONCLUSION CTA */}
-      <Container size="lg" py={80}>
+      {/* CTA */}
+
+      <Container
+        size="xl"
+        pb={120}
+      >
         <Card
-          radius="xl"
-          p="xl"
-          shadow="lg"
-          style={{ textAlign: "center", background: "#4f46e5", color: "white" }}
+          radius="40px"
+          p="clamp(30px,5vw,70px)"
+          style={{
+            background:
+              "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
+
+            textAlign: "center",
+
+            color: "white",
+
+            overflow: "hidden",
+
+            position: "relative",
+          }}
         >
-          <Title order={2}>Be Part of the Change</Title>
-          <Text mt="sm">
-            Avarna is more than an initiative—it is a movement for justice,
-            dignity, and equality.
+          <Box
+            style={{
+              position: "absolute",
+              width: "500px",
+              height: "500px",
+              borderRadius: "100%",
+              background: "rgba(255,255,255,0.1)",
+              filter: "blur(120px)",
+              top: "-200px",
+              right: "-150px",
+            }}
+          />
+
+          <Title
+            style={{
+              fontSize: "clamp(38px,6vw,72px)",
+              lineHeight: 1.05,
+            }}
+          >
+            Be Part Of
+            <br />
+            The Change
+          </Title>
+
+          <Text
+            mt={25}
+            maw={760}
+            mx="auto"
+            style={{
+              lineHeight: 1.9,
+              fontSize: "18px",
+            }}
+          >
+            Avarna is more than an organization — it is a movement for dignity,
+            equality, justice, and collective transformation. Join us in
+            building a future beyond exclusion and discrimination.
           </Text>
-          <Button mt={20} radius="xl" color="dark">
-            Join the Movement
-          </Button>
+
+          <Group
+            justify="center"
+            mt={40}
+            gap="md"
+            wrap="wrap"
+          >
+            <Button
+              size="xl"
+              radius="xl"
+              variant="white"
+              color="dark"
+              component={Link}
+              to="/contact"
+              rightSection={<FaArrowRight size={14} />}
+            >
+              Join The Movement
+            </Button>
+
+            <Button
+              size="xl"
+              radius="xl"
+              variant="outline"
+              color="white"
+              component={Link}
+              to="/Support-MSC"
+            >
+              Support Avarna
+            </Button>
+          </Group>
         </Card>
       </Container>
-    </div>
+    </Box>
   );
 }
+
+export default AvarnaPage;

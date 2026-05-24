@@ -17,7 +17,6 @@ import {
   Title,
   Notification,
 } from "@mantine/core";
-import { motion } from "framer-motion";
 import {
   FaArrowRight,
   FaEnvelope,
@@ -25,7 +24,14 @@ import {
   FaHeart,
   FaUsers,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
+
+import heroHome5 from "../assets/home/heroHome5.JPG";
+import mvv3 from "../assets/pages/mvv3.JPG";
+import partner from "../assets/pages/partner.JPG";
+import volunteer from "../assets/pages/volunteer.JPG";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
@@ -96,8 +102,7 @@ export default function SupportMSCPage() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1800&auto=format&fit=crop')",
+            backgroundImage: `url(${heroHome5})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.16,
@@ -175,16 +180,18 @@ export default function SupportMSCPage() {
                 </Text>
 
                 <Group mt={35}>
-                  <Button
-                    size="lg"
-                    radius="xl"
-                    color="orange"
-                    rightSection={<FaArrowRight size={14} />}
-                  >
+                  <Button size="lg" radius="xl" color="orange">
                     Support The Mission
                   </Button>
 
-                  <Button size="lg" radius="xl" variant="white" color="dark">
+                  <Button
+                    component={Link}
+                    to="/contact"
+                    size="lg"
+                    radius="xl"
+                    variant="white"
+                    color="dark"
+                  >
                     Become A Volunteer
                   </Button>
                 </Group>
@@ -216,11 +223,7 @@ export default function SupportMSCPage() {
                       border: "1px solid rgba(255,255,255,0.08)",
                     }}
                   >
-                    <Image
-                      src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop"
-                      h={560}
-                      fit="cover"
-                    />
+                    <Image src={heroHome5} h={560} fit="cover" />
                   </Card>
 
                   {/* FLOATING CARD */}
@@ -301,12 +304,7 @@ export default function SupportMSCPage() {
         <Card radius={36} p={{ base: "xl", md: 50 }} shadow="xl">
           <Grid align="center" gutter={50}>
             <Grid.Col span={{ base: 12, md: 6 }}>
-              <Image
-                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1400&auto=format&fit=crop"
-                radius={28}
-                h={500}
-                fit="cover"
-              />
+              <Image src={mvv3} radius={28} h={500} fit="cover" />
 
               <Text ta="center" mt="md" c="dimmed" fs="italic">
                 Supporting communities through education, dignity, and
@@ -469,12 +467,7 @@ export default function SupportMSCPage() {
             </Grid.Col>
 
             <Grid.Col span={{ base: 12, md: 6 }}>
-              <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop"
-                radius={34}
-                h={600}
-                fit="cover"
-              />
+              <Image src={partner} radius={34} h={600} fit="cover" />
 
               <Text ta="center" mt="md" c="gray.4" fs="italic">
                 Community collaboration and partnership initiatives led by MSC.
@@ -489,12 +482,7 @@ export default function SupportMSCPage() {
       <Container size="xl" py={120}>
         <Grid gutter={70} align="center">
           <Grid.Col span={{ base: 12, md: 6 }}>
-            <Image
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop"
-              radius={34}
-              h={580}
-              fit="cover"
-            />
+            <Image src={volunteer} radius={34} h={580} fit="cover" />
 
             <Text ta="center" mt="md" c="dimmed" fs="italic">
               Volunteers and fellows supporting community workshops and
@@ -535,6 +523,8 @@ export default function SupportMSCPage() {
             </Text>
 
             <Button
+              component={Link}
+              to="/contact"
               mt={35}
               size="lg"
               radius="xl"

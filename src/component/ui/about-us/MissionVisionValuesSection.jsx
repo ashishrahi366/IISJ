@@ -5,7 +5,6 @@ import {
   Grid,
   Group,
   Image,
-  Overlay,
   Stack,
   Text,
   ThemeIcon,
@@ -24,9 +23,6 @@ import {
 import mvv3 from "../../../assets/pages/mvv1.JPG";
 import mvv2 from "../../../assets/pages/mvv2.jpg";
 import mvv1 from "../../../assets/pages/mvv3.JPG";
-
-import wwd1 from "../../../assets/home/heroHome4.JPG";
-
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
@@ -35,21 +31,18 @@ const missionCards = [
     title: "Our Mission",
     icon: FaHandsHelping,
     image: mvv1,
-    // "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
     desc: "To empower marginalized communities through education, leadership, equality, and sustainable social transformation.",
   },
   {
     title: "Our Vision",
     icon: FaLightbulb,
-    image:mvv2,
-      // "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop",
+    image: mvv2,
     desc: "A society where every individual lives with dignity, equal opportunity, and freedom from caste discrimination.",
   },
   {
     title: "Our Values",
     icon: FaHeart,
-    image:mvv3,
-      // "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop",
+    image: mvv3,
     desc: "Community leadership, inclusion, empathy, justice, and collective action are at the core of everything we do.",
   },
 ];
@@ -86,8 +79,7 @@ export default function MissionVisionValuesSection() {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=1800&auto=format&fit=crop')",
+          backgroundImage: `url(${mvv1})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.06,
