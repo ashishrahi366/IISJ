@@ -88,7 +88,7 @@ export default function HomeHeroSection() {
                     tt="uppercase"
                     style={{ letterSpacing: 1 }}
                   >
-                    Indian Institute of Social Justice
+                    Indian Institute for Social Justice
                   </Text>
 
                   <Text c="gray.4" size="sm">

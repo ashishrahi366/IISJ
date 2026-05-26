@@ -10,170 +10,393 @@ import {
   Group,
   Anchor,
   Divider,
+  Badge,
+  Button,
+  Box,
+  Overlay,
+  ActionIcon,
+  ThemeIcon,
 } from "@mantine/core";
+
 import { motion } from "framer-motion";
-import { FaArrowRight, FaCalendarAlt, FaUser } from "react-icons/fa";
+
+import {
+  FaArrowRight,
+  FaCalendarAlt,
+  FaUser,
+  FaClock,
+  FaNewspaper,
+} from "react-icons/fa";
+
+import { Link } from "react-router-dom";
+
 import blogMain from "../../assets/home/about-1.jpg";
 
-export default function HomeRecentNews() {
-  const blogs = [
-    {
-      title: "Empowering Communities Through Education",
-      desc: "How grassroots education programs are transforming lives in underserved regions.",
-    },
-    {
-      title: "Women Leadership & Social Change",
-      desc: "Creating opportunities for women to lead community transformation initiatives.",
-    },
-    {
-      title: "Youth Fellowship Program Launch",
-      desc: "Supporting young changemakers through mentorship and leadership training.",
-    },
-    {
-      title: "Building Inclusive Rural Development",
-      desc: "A sustainable model focused on equality, dignity, and local participation.",
-    },
-  ];
+/* 🔥 FEATURED BLOG */
+const featuredBlog = {
+  id: 1,
+  title: "Empowering Marginalized Communities Through Education & Leadership",
+  desc: "Discover how community-driven initiatives are creating sustainable opportunities for youth, women, and underserved populations through education, leadership training, and grassroots empowerment programs.",
+  image: blogMain,
+  author: "Admin",
+  date: "May 08, 2026",
+  readTime: "6 min read",
+  category: "Leadership",
+};
 
+/* 🔥 SIDE BLOGS */
+const recentBlogs = [
+  {
+    id: 2,
+    title: "Women Leadership & Social Change",
+    desc: "Creating opportunities for women to lead community transformation initiatives.",
+    date: "May 12, 2026",
+    category: "Women Empowerment",
+  },
+
+  {
+    id: 3,
+    title: "Youth Fellowship Program Launch",
+    desc: "Supporting young changemakers through mentorship and leadership training.",
+    date: "May 15, 2026",
+    category: "Youth",
+  },
+
+  {
+    id: 4,
+    title: "Building Inclusive Rural Development",
+    desc: "A sustainable model focused on equality, dignity, and local participation.",
+    date: "May 18, 2026",
+    category: "Development",
+  },
+
+  {
+    id: 5,
+    title: "Grassroots Leadership for Social Justice",
+    desc: "Strengthening community-driven movements across marginalized regions.",
+    date: "May 20, 2026",
+    category: "Justice",
+  },
+];
+
+export default function HomeRecentNews() {
   return (
-    <div
+    <Box
+      py={100}
       style={{
-        background: "#f8fafc",
-        padding: "80px 0",
+        background: "linear-gradient(180deg, #ffffff 0%, #fff7ed 100%)",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       <Container size="xl">
+        {/* 🔥 SECTION HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          style={{
+            textAlign: "center",
+            marginBottom: "70px",
+          }}
+        >
+          <Badge size="lg" radius="xl" color="orange" variant="light" mb={18}>
+            Latest Updates
+          </Badge>
+
+          <Title
+            order={2}
+            fw={900}
+            style={{
+              fontSize: "clamp(34px, 5vw, 60px)",
+              lineHeight: 1.1,
+            }}
+          >
+            Stories, News &
+            <br />
+            Community Impact
+          </Title>
+
+          <Text c="dimmed" size="lg" maw={760} mx="auto" mt="xl" lh={2}>
+            Explore inspiring stories, leadership journeys, grassroots
+            initiatives, and transformative community movements.
+          </Text>
+        </motion.div>
+
         <Grid gutter={40}>
+          {/* 🔥 FEATURED BLOG */}
           <Grid.Col span={{ base: 12, lg: 7 }}>
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true }}
+              whileHover={{ y: -8 }}
             >
               <Card
-                radius="24px"
+                radius="34px"
                 p={0}
-                shadow="lg"
+                shadow="xl"
+                component={Link}
+                to={`/blogs/${featuredBlog.id}`}
                 style={{
                   overflow: "hidden",
-                  background: "white",
+                  background: "#111827",
+                  textDecoration: "none",
+                  border: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
-                <div style={{ overflow: "hidden" }}>
-                  <motion.div whileHover={{ scale: 1.03 }}>
+                {/* IMAGE */}
+                <Box
+                  style={{
+                    position: "relative",
+                    overflow: "hidden",
+                  }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <Image
-                      src={blogMain}
-                      h={{ base: 260, sm: 350, md: 420 }}
+                      src={featuredBlog.image}
+                      h={{ base: 300, md: 480 }}
                       fit="cover"
                     />
                   </motion.div>
-                </div>
 
-                <Stack p="xl" gap="md">
-                  <Group gap="lg">
-                    <Group gap={6}>
-                      <FaCalendarAlt color="orange" size={14} />
-                      <Text size="sm" c="dimmed">
-                        May 08, 2026
-                      </Text>
-                    </Group>
+                  <Overlay
+                    gradient="linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.75) 100%)"
+                    opacity={1}
+                  />
 
-                    <Group gap={6}>
-                      <FaUser color="orange" size={14} />
-                      <Text size="sm" c="dimmed">
-                        Admin
-                      </Text>
-                    </Group>
-                  </Group>
-                  <Title
-                    order={2}
+                  {/* CATEGORY */}
+                  <Badge
+                    size="lg"
+                    radius="xl"
+                    color="orange"
+                    variant="filled"
                     style={{
-                      lineHeight: 1.3,
+                      position: "absolute",
+                      top: 25,
+                      left: 25,
+                      zIndex: 5,
                     }}
                   >
-                    Empowering Marginalized Communities Through Education &
-                    Leadership
-                  </Title>
-                  <Text
-                    c="dimmed"
-                    size="md"
-                    style={{
-                      lineHeight: 1.8,
-                    }}
-                  >
-                    Discover how community-driven initiatives are creating
-                    sustainable opportunities for youth, women, and underserved
-                    populations through education, leadership training, and
-                    grassroots empowerment programs.
-                  </Text>
-                </Stack>
+                    {featuredBlog.category}
+                  </Badge>
+                </Box>
+
+                {/* CONTENT */}
+                <Box p={{ base: 25, md: 40 }}>
+                  <Stack gap="lg">
+                    {/* META */}
+                    <Group gap="lg">
+                      <Group gap={6}>
+                        <FaCalendarAlt color="#f97316" size={13} />
+
+                        <Text size="sm" c="rgba(255,255,255,0.7)">
+                          {featuredBlog.date}
+                        </Text>
+                      </Group>
+
+                      <Group gap={6}>
+                        <FaUser color="#f97316" size={13} />
+
+                        <Text size="sm" c="rgba(255,255,255,0.7)">
+                          {featuredBlog.author}
+                        </Text>
+                      </Group>
+
+                      <Group gap={6}>
+                        <FaClock color="#f97316" size={13} />
+
+                        <Text size="sm" c="rgba(255,255,255,0.7)">
+                          {featuredBlog.readTime}
+                        </Text>
+                      </Group>
+                    </Group>
+
+                    {/* TITLE */}
+                    <Title
+                      order={2}
+                      c="white"
+                      fw={900}
+                      style={{
+                        lineHeight: 1.2,
+                        fontSize: "clamp(30px, 4vw, 48px)",
+                      }}
+                    >
+                      {featuredBlog.title}
+                    </Title>
+
+                    {/* DESC */}
+                    <Text c="rgba(255,255,255,0.72)" size="lg" lh={2}>
+                      {featuredBlog.desc}
+                    </Text>
+
+                    {/* CTA */}
+                    <Button
+                      component="a"
+                      href="https://communication.ucf.edu/global-reach-mills-documentary-son-of-a-sweeper/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      radius="xl"
+                      size="md"
+                      color="orange"
+                      rightSection={<FaArrowRight size={14} />}
+                      style={{
+                        width: "fit-content",
+                        boxShadow: "0 12px 30px rgba(249,115,22,0.25)",
+                      }}
+                    >
+                      Read Full Article
+                    </Button>
+                  </Stack>
+                </Box>
               </Card>
             </motion.div>
           </Grid.Col>
+
+          {/* 🔥 RECENT NEWS SIDEBAR */}
           <Grid.Col span={{ base: 12, lg: 5 }}>
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               viewport={{ once: true }}
             >
               <Card
-                radius="24px"
+                radius="34px"
                 p="xl"
-                shadow="md"
+                shadow="xl"
                 style={{
                   height: "100%",
-                  background: "white",
-                  border: "1px solid #eef2ff",
+                  background: "#ffffff",
+                  border: "1px solid rgba(0,0,0,0.06)",
                 }}
               >
-                <Group justify="space-between" mb="lg">
-                  <Title order={3}>Recent News</Title>
+                {/* HEADER */}
+                <Group justify="space-between" mb={30}>
+                  <Group>
+                    <ThemeIcon
+                      size={52}
+                      radius="xl"
+                      color="orange"
+                      variant="light"
+                    >
+                      <FaNewspaper size={22} />
+                    </ThemeIcon>
 
-                  <Anchor href="/blogs" underline="never" fw={600} c="#4f46e5">
-                    <Group gap={6}>
-                      <Text size="sm" color="orange">
-                        View All
+                    <div>
+                      <Title order={3}>Recent News</Title>
+
+                      <Text size="sm" c="dimmed">
+                        Latest updates & stories
                       </Text>
+                    </div>
+                  </Group>
+
+                  <Anchor
+                    component={Link}
+                    to="/blogs"
+                    underline="never"
+                    fw={700}
+                    c="orange"
+                  >
+                    <Group gap={6}>
+                      <Text size="sm">View All</Text>
+
                       <FaArrowRight size={12} />
                     </Group>
                   </Anchor>
                 </Group>
 
+                {/* BLOG LIST */}
                 <Stack gap="md">
-                  {blogs.map((blog, index) => (
-                    <div key={index}>
-                      <motion.div whileHover={{ x: 5 }}>
-                        <div
+                  {recentBlogs.map((blog, index) => (
+                    <div key={blog.id}>
+                      <motion.div
+                        whileHover={{
+                          x: 8,
+                        }}
+                        transition={{
+                          duration: 0.25,
+                        }}
+                      >
+                        <Card
+                          component={Link}
+                          to={`/blogs/${blog.id}`}
+                          radius="24px"
+                          p="lg"
+                          shadow="sm"
                           style={{
-                            cursor: "pointer",
+                            textDecoration: "none",
+                            border: "1px solid rgba(0,0,0,0.05)",
+                            background:
+                              "linear-gradient(135deg, #fff7ed 0%, #ffffff 100%)",
                           }}
                         >
-                          <Title
-                            order={5}
-                            style={{
-                              lineHeight: 1.5,
-                              marginBottom: "8px",
-                            }}
-                          >
-                            {blog.title}
-                          </Title>
+                          <Stack gap="sm">
+                            {/* CATEGORY */}
+                            <Badge
+                              radius="xl"
+                              color="orange"
+                              variant="light"
+                              style={{
+                                width: "fit-content",
+                              }}
+                            >
+                              {blog.category}
+                            </Badge>
 
-                          <Text
-                            size="sm"
-                            c="dimmed"
-                            style={{
-                              lineHeight: 1.7,
-                            }}
-                          >
-                            {blog.desc}
-                          </Text>
-                        </div>
+                            {/* TITLE */}
+                            <Title
+                              order={5}
+                              fw={800}
+                              style={{
+                                lineHeight: 1.5,
+                              }}
+                            >
+                              {blog.title}
+                            </Title>
+
+                            {/* DESC */}
+                            <Text size="sm" c="dimmed" lh={1.8} lineClamp={2}>
+                              {blog.desc}
+                            </Text>
+
+                            {/* FOOTER */}
+                            <Group justify="space-between" mt="xs">
+                              <Group gap={5}>
+                                <FaCalendarAlt size={11} color="#f97316" />
+
+                                <Text size="xs" c="dimmed">
+                                  {blog.date}
+                                </Text>
+                              </Group>
+
+                              <Group gap={6}>
+                                <Text size="xs" fw={700} c="orange">
+                                  Read More
+                                </Text>
+
+                                <ActionIcon
+                                  size={28}
+                                  radius="xl"
+                                  color="orange"
+                                  variant="light"
+                                >
+                                  <FaArrowRight size={10} />
+                                </ActionIcon>
+                              </Group>
+                            </Group>
+                          </Stack>
+                        </Card>
                       </motion.div>
 
-                      {index !== blogs.length - 1 && (
-                        <Divider my="lg" color="#e2e8f0" />
+                      {index !== recentBlogs.length - 1 && (
+                        <Divider my="md" color="#f1f5f9" />
                       )}
                     </div>
                   ))}
@@ -183,6 +406,6 @@ export default function HomeRecentNews() {
           </Grid.Col>
         </Grid>
       </Container>
-    </div>
+    </Box>
   );
 }

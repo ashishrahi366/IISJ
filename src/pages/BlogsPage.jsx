@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import MediaCoverageSection from "../component/ui/MediaCoverageSection";
 import {
   Container,
   Title,
@@ -41,7 +41,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import heroImg from "../assets/home/about-1.jpg";
+import heroImg from "../assets/pages/blogHero1.JPG";
+
 import g1 from "../assets/home/about-1.jpg";
 import g2 from "../assets/home/about-1.jpg";
 import g3 from "../assets/home/about-1.jpg";
@@ -247,11 +248,7 @@ export default function BlogsPage() {
                 Explore Blogs
               </Button>
 
-              <Button
-                radius="xl"
-                size="lg"
-                variant="white"
-              >
+              <Button radius="xl" size="lg" variant="white">
                 Watch Stories
               </Button>
             </Group>
@@ -560,12 +557,7 @@ export default function BlogsPage() {
                 That Matter
               </Title>
 
-              <Text
-                c="rgba(255,255,255,0.75)"
-                mt="xl"
-                size="lg"
-                lh={1.9}
-              >
+              <Text c="rgba(255,255,255,0.75)" mt="xl" size="lg" lh={1.9}>
                 Real stories from grassroots leaders, youth changemakers,
                 educators, and communities driving social transformation.
               </Text>
@@ -612,6 +604,8 @@ export default function BlogsPage() {
         </Container>
       </Box>
 
+      <MediaCoverageSection />
+
       {/* QUOTE SECTION */}
 
       <Container size="md" py={100}>
@@ -650,11 +644,7 @@ export default function BlogsPage() {
             awareness creates change.”
           </Title>
 
-          <Text
-            mt="xl"
-            size="lg"
-            style={{ opacity: 0.9 }}
-          >
+          <Text mt="xl" size="lg" style={{ opacity: 0.9 }}>
             Through storytelling, we amplify unheard voices and inspire action.
           </Text>
 
@@ -714,18 +704,12 @@ export default function BlogsPage() {
           radius="40px"
           p={70}
           style={{
-            background:
-              "linear-gradient(135deg, #111827 0%, #1e293b 100%)",
+            background: "linear-gradient(135deg, #111827 0%, #1e293b 100%)",
             color: "white",
             textAlign: "center",
           }}
         >
-          <ThemeIcon
-            size={90}
-            radius="xl"
-            color="orange"
-            mx="auto"
-          >
+          <ThemeIcon size={90} radius="xl" color="orange" mx="auto">
             <FaNewspaper size={34} />
           </ThemeIcon>
 
@@ -761,11 +745,7 @@ export default function BlogsPage() {
               Submit Blog
             </Button>
 
-            <Button
-              size="lg"
-              radius="xl"
-              variant="white"
-            >
+            <Button size="lg" radius="xl" variant="white">
               Contact Editorial Team
             </Button>
           </Group>

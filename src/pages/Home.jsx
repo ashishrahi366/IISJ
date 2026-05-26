@@ -14,6 +14,7 @@ import HomeGallery from '../component/ui/HomeGallery';
 import HomeQuickAccess from '../component/ui/HomeQuickAccess';
 import MediaCoverageSection from '../component/ui/MediaCoverageSection';
 import HomeHeroSection from '../component/ui/HomeHeroSection';
+import MartinLutherKingQuote from '../component/ui/MartinLutherKingQuote';
 
 const Home = () => {
     return (
@@ -32,6 +33,7 @@ const Home = () => {
             <VideoSection/>
             <HomeRecentNews/>
             <BlogSection/>
+            <MartinLutherKingQuote/>
             <HomeGallery/>
         </div>
     );

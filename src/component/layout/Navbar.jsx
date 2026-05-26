@@ -28,6 +28,7 @@ import {
   FaNewspaper,
   FaCalendarAlt,
   FaFileAlt,
+  FaUser,
 } from "react-icons/fa";
 
 import { theme } from "../../theme";
@@ -214,7 +215,10 @@ function Navbar() {
                             location.pathname.includes("/iisj") ||
                             location.pathname.includes("/gallery") ||
                             location.pathname.includes("/blogs") ||
-                            location.pathname.includes("/vimal-kumar")
+                            location.pathname.includes("/Vimal-Kumar") ||
+                            location.pathname.includes("/What-We-Do") ||
+                            location.pathname.includes("/Team") ||
+                            location.pathname.includes("/Events")
                               ? theme.colors.orange[5]
                               : "white",
 
@@ -234,7 +238,10 @@ function Navbar() {
                           location.pathname.includes("/iisj") ||
                           location.pathname.includes("/gallery") ||
                           location.pathname.includes("/blogs") ||
-                          location.pathname.includes("/vimal-kumar")
+                          location.pathname.includes("/Vimal-Kumar") ||
+                          location.pathname.includes("/What-We-Do") ||
+                          location.pathname.includes("/Team") ||
+                          location.pathname.includes("/Events")
                             ? theme.colors.orange[5]
                             : "white"
                         }
@@ -260,7 +267,7 @@ function Navbar() {
                 >
                   <Menu.Item
                     component={Link}
-                    to="/iisj"
+                    to="/IISJ"
                     className="navbar-dropdown-item"
                     leftSection={<FaFileAlt size={14} />}
                   >
@@ -287,11 +294,38 @@ function Navbar() {
 
                   <Menu.Item
                     component={Link}
-                    to="/vimal-kumar"
+                    to="/Vimal-Kumar"
                     className="navbar-dropdown-item"
                     leftSection={<FaCalendarAlt size={14} />}
                   >
                     About Vimal Kumar
+                  </Menu.Item>
+
+                  <Menu.Item
+                    component={Link}
+                    to="/What-We-Do"
+                    className="navbar-dropdown-item"
+                    leftSection={<FaFileAlt size={14} />}
+                  >
+                    What We Do
+                  </Menu.Item>
+
+                  <Menu.Item
+                    component={Link}
+                    to="/Team"
+                    className="navbar-dropdown-item"
+                    leftSection={<FaUser size={14} />}
+                  >
+                    Team
+                  </Menu.Item>
+
+                  <Menu.Item
+                    component={Link}
+                    to="/Events"
+                    className="navbar-dropdown-item"
+                    leftSection={<FaCalendarAlt size={14} />}
+                  >
+                    Events
                   </Menu.Item>
                 </Menu.Dropdown>
               </Menu>
@@ -608,7 +642,7 @@ function Navbar() {
               {[
                 {
                   label: "IISJ",
-                  path: "/iisj",
+                  path: "/IISJ  ",
                 },
 
                 {
@@ -623,8 +657,22 @@ function Navbar() {
 
                 {
                   label: "About Vimal Kumar",
+                  path: "/Vimal-Kumar",
+                },
+                {
+                  label: "What We Do",
+                  path: "/What-We-Do",
+                  
+                },
 
-                  path: "/vimal-kumar",
+                {
+                  label: "Team",
+                  path: "/Team",
+                },
+
+                {
+                  label: "Events",
+                  path: "/Events",
                 },
               ].map((item, index) => (
                 <Box
