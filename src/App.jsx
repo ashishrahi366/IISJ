@@ -22,6 +22,7 @@ import WhatWeDoPage from "./pages/WhatWeDoPage";
 import TeamPage from "./pages/TeamPage";
 import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
+import BlogDetails from "./pages/BlogDetails";
 
 function App() {
   return (
@@ -40,6 +41,10 @@ function App() {
         <Route path="/What-We-Do" element={<WhatWeDoPage />} />
         <Route path="/Team" element={<TeamPage />} />
         <Route path="/Events" element={<EventsPage />} />
+        <Route path="/blogs/:slug" element={<BlogDetails />} />
+        <Route path="/Vimal-Kumar" element={<VimalKumarLeaderSection />} />
+        <Route path="/Support-MSC" element={<SupportMSCPage />} />
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/Fellowship-Program-app"
           element={<FellowshipProgramPage />}
@@ -52,9 +57,6 @@ function App() {
           path="/Community-Resource-Centers"
           element={<CommunityResourceCenters />}
         />
-        <Route path="/Vimal-Kumar" element={<VimalKumarLeaderSection />} />
-        <Route path="/Support-MSC" element={<SupportMSCPage />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
