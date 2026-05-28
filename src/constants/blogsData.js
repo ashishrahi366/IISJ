@@ -1,4 +1,5 @@
-import blogCover from "../assets/home/about-1.jpg";
+// import blogCover from "../assets/home/about-1.jpg";
+// https://www.mccaininstitute.org/resources/blog/coronavirus-social-distancing-and-untouchable-sanitation-workers/
 import FFE_B from "../assets/Blogs/FFE-B.JPG";
 import FCRNA_B from "../assets/Blogs/FCRNA_B.jpg";
 import FCRNA_1_B from "../assets/Blogs/FCRNA_1_B.jpg";
@@ -11,6 +12,18 @@ import NEWFellow from "../assets/Blogs/NEWFellow.jpg";
 import JNBlog from "../assets/Blogs/JNBlog.jpg";
 import GDBlog from "../assets/Blogs/GDBlog.jpg";
 import BSBlog from "../assets/Blogs/BSBlog.jpg";
+
+import HWPO from "../assets/Blogs/HWPO.jpg";
+import HWPO1jpg from "../assets/Blogs/HWPO1jpg.jpg";
+import HWPO2 from "../assets/Blogs/HWPO2.jpg";
+import HWPO4 from "../assets/Blogs/HWPO4.jpg";
+import HWPO3 from "../assets/Blogs/HWPO3.jpg";
+
+import CRNA_11 from "../assets/Blogs/CRNA-11.jpg";
+import founder22 from "../assets/pages/founder22.JPG";
+import CRNA_22 from "../assets/Blogs/CRNA_22.webp";
+import CRNA_33 from "../assets/Blogs/CRNA_33.jpg";
+
 
 import CA3 from "../assets/Pages/CA3.jpg";
 import FS1 from "../assets/Pages/FS1.png";
@@ -487,6 +500,246 @@ export const blogsData = [
                   towards equality, you can easily get in touch with us.
                 `,
             }
+        ],
+    },
+    {
+        id: 5,
+        slug: "Hard-Work-Pays-Off",
+        category: "Leadership",
+        tags: [
+            "Fellowship",
+            "Youth Leaders",
+            "Community",
+            "Equality",
+        ],
+        title: "Hard Work Pays Off: New MSC-Center in Bhiwani",
+        shortDescription: "Good work comes from within. Our Fellows for Equality and other volunteers don’t stop working for a better world. They even managed to open a new Community Center in Bhiwani.",
+        author: "MSC Editorial Team",
+        date: "February 29, 2026",
+        readTime: "5 min read",
+        featured: false,
+        coverImage: HWPO,
+        coverImageAlt:
+            "MSC fellows and leadership participants group photo",
+
+        content: [
+
+
+            {
+                type: "image",
+                image: HWPO1jpg,
+                caption:
+                    "Fellows participating in national workshops and leadership activities.",
+            },
+            {
+                type: "heading",
+                text: "New Community Center in Haryana",
+            },
+            {
+                type: "paragraph",
+                text: `
+                    Every state of India is affected by caste discrimination and violence, but Haryana is quite popular for violence 
+                    and crime. Our community members point towards a different truth and engage in education and a better future for the 
+                    scavenger community.
+                `
+            },
+            {
+                type: "image",
+                image: HWPO2,
+                caption:
+                    "Our fellow Sanjeev at the opening ceremony.",
+            },
+            {
+                type: "paragraph",
+                text: `
+                On November 22nd we could happily announce that another MSC-Center has been opened in Kacchi Line, Bhiwani, Haryana. 
+                Many people were involved in organizing and convincing the local community to join the movement for equality. Sanjiv 
+                Rose, our former Fellow for Equality, Preeit Kangra and Rajat Kangra showed outstanding engagement, but definitely weren’t 
+                the only ones who helped us make this happen.
+                `
+            },
+
+            {
+                type: "heading",
+                text: "Opening Ceremony With Special Guests",
+            },
+
+            {
+                type: "image",
+                image: HWPO4,
+                caption:
+                    "MSC’s founder Vimal with guests from Solan",
+            },
+            {
+                type: "paragraph",
+                text: `
+                Bhiwani lines up in a row of successfully running community centers for the scavenger community. The principle behind 
+                these education hubs is not only selfhelp amongst the local community but also the connection to a nationwide network of 
+                scavenger communities.
+                `,
+            },
+            {
+                type: "image",
+                image: HWPO3,
+                caption:
+                    "Sagar came from Ladwa with love.",
+            },
+
+            {
+                type: "paragraph",
+                text: `
+                Hence, the opening ceremony was joined by guests from the Dr. B. R. Ambedkar Community Resource Center in Solan, 
+                Himachal Pradesh and Ladwa, Haryana. The guests shared their own experience of social work and also reminded the recently 
+                joined community that there is still a lot of work to do.
+                `,
+            },
+            {
+                type: "paragraph",
+                text: `
+                Together, we can make the world a better place! Thanks for joinging us, Bhiwani.
+                `,
+            }
+        ],
+    },
+    {
+        id: 6,
+        slug: "Coronavirus-Social-Distancing",
+        category: "Community",
+        tags: [
+            "Fellowship",
+            "Youth Leaders",
+            "Community",
+            "Equality",
+        ],
+        title: "Coronavirus, Social Distancing and Untouchable Sanitation Workers",
+        shortDescription: "The brutality of coronavirus and COVID-19 has captured the world’s attention",
+        author: "MSC Editorial Team",
+        date: "February 29, 2026",
+        readTime: "5 min read",
+        featured: false,
+        coverImage: CRNA_11,
+        coverImageAlt:
+            "MSC fellows and leadership participants group photo",
+
+        content: [
+
+
+            {
+                type: "image",
+                image: founder22,
+            },
+            {
+                type: "paragraph",
+                text: `
+                Vimal Kumar, Founder of Movement of Scavenger Community explains why social distancing is a problem especially for sanitation workers 
+                in India. As a mirror of the general inequality, sanitation workers are exposed to the dangers of being infected on a daily basis. 
+                The access to protectional gear has always been a demand of MSC and other organizations for the rights of sanitation workers in India. 
+                Too often, the problem has been ignored. The priviledge of staying clean during work is limited to those, who don’t belong to the 
+                lower castes of Indian society..
+                `
+            },
+            {
+                type: "image",
+                image: CRNA_22
+            },
+            {
+                type: "paragraph",
+                text: `
+                    The choice to practice social distancing is a great privilege that is not possible for those who cannot say “no” to 
+                    work for their livelihood: an old woman sitting at the roadside at 8:30 at night, hoping people will buy the toys she 
+                    sells, the house painter climbing scaffolding to paint walls, the construction worker paying house visits so people 
+                    can live comfortably and safely within their walls. These workers have no option to stop their work and stay home. I 
+                    am seeing all of this in the U.S. and thinking about my people, the sanitation workers in India. Sanitation workers 
+                    also cannot refuse to work. They have to pick through filthy, raw garbage with bare hands on the streets all day. 
+                    Meanwhile, the whole of society around them practices cleanliness and social distancing to protect themselves from 
+                    COVID-19.
+                `
+            },
+            {
+                type: "image",
+                image: CRNA_33
+            },
+            {
+                type: "paragraph",
+                text: `
+                    A recent World Health Organization report reveals that only 45%, or 3.4 billion people, of the world’s population have 
+                    access to safely managed sanitation, with raw sewage safely removed and treated far away from households. This means that 
+                    the majority of global households rely on informal and infrequent waste removal by sanitation workers or “scavengers” who 
+                    often lack basic safety equipment and face social stigma due to the disgracefulness of the task. Manual scavenging is one 
+                    of the occupations performed by particular castes in Indian society playing a crucial role in maintaining hygiene and 
+                    sanitation. Sanitation workers clean roads, streets, sewage, animal dung, toilets and even human excreta. Even before 
+                    COVID-19, they put their lives on the line daily, especially in developing countries. They face a multitude of hazardous 
+                    health risks, including disease, drowning and suffocation. Furthermore, in South Asian countries – especially in India – 
+                    they face “untouchability” and stigmatized identity due to their caste position and forced occupation. Even without 
+                    COVID-19, sanitation workers were already dying day after day due to their hazardous work, cant safety equipment and apathy 
+                    from the government. In India alone, one sanitation worker dies every five days performing their work inside sewers with 
+                    little or no safety equipment.
+                `,
+            },
+            {
+                type: "paragraph",
+                text: `
+                       India’s Prime Minister Narendra Modi appealed to India’s 1.3 billion population on Thursday to observe a one-day 
+                       curfew. Modi strongly stressed the need for social distancing, a point also made by India’s health minister 
+                       earlier in the day. According to the health minister, “There are, as the prime minister keeps mentioning, 1.3 
+                       billion people in India. So many of them, 80%, work in what is called the informal and disorganized sector. We 
+                       spoke to street vendors who told us that if they do not leave their homes, their families would die of hunger.” 
+                       The India government does not have any plan for people who live a hand-to-mouth life. The question is how will 
+                       people like sanitation workers survive in this critical situation? They are already dying and suffering from 
+                       forced social distancing by upper caste members and have been treated as untouchables for generations. COVID-19 
+                       will further exacerbate this injustice and inequity.
+                `,
+            },
+            {
+                type: "paragraph",
+                text: `
+                Remarkably, sanitation workers have strict instructions from the government to continue their work—and even to spend extra working 
+                hours. This is well-known, though not officially acknowledged. Capitalizing on this, shopkeepers in India are selling facemasks and 
+                hand sanitizer at a mark-up of 20 to 30 times the actual price, making safety gear even more unaffordable for poor people. Sanitation 
+                workers are bound to work regardless lest their families starve. They are forced to put their lives at great risk to save the life of 
+                other, more fortunate people. The government should understand that if sanitation workers get infected by COVID-19, it is dangerous 
+                to society and can play a large role in spreading the virus.
+                `,
+            },
+
+            {
+                type: "paragraph",
+                text: `
+                     Amidst this difficult situation, I saw a video on social media about Shankar, a sanitation worker who is trying to 
+                     raise these issues. Shankar is a team volunteer for our organization, Movement for Scavenger Community, in India. We 
+                     had a phone conversation the other day. He said, “We always work without safety gear. The government doesn’t care about 
+                     our safety. But this time, the virus is dangerous, not only for us as sanitation workers, but also for our families. We 
+                     cannot stand to see our families in danger. I know this it’s a risk for me to raise my voice for our rights against the 
+                     government, but someone has to take a risk. I am happy, because, due to my standing against injustice, all the sanitation 
+                     workers in my city have facemasks and hand gloves.”
+                `,
+            },
+            {
+                type: "paragraph",
+                text: `
+                     As a sanitation worker, Shankar earn US$110 per month – with which he has to manage his family of six people living 
+                     in the ghetto on the utskirts of the city. Almost everyone in this ghetto works as a sanitation worker. They live in 
+                     tiny houses in tight spaces, sharing beds with two or three family members. In these conditions, the practice of 
+                     social distancing is a joke. They do not have the privilege to work from home because they do not even have a place 
+                     to sit at their workplace. Shankar’s small act of leadership resulted in facemasks and hand gloves for all the 
+                     sanitation workers in his city. Other sanitation workers started to call him a leader and a ray of hope for them. 
+                     Conversely, government officials have taken his leadership as a threat to their unjust system. No doubt his job is 
+                     now at risk due to him voicing the basic right of hand gloves and masks.
+                `,
+            },
+            {
+                type: "paragraph",
+                text: `
+                     Right now, I am sitting in the U.S. watching people distribute hand sanitizer and face masks free to the people. 
+                     Back home in India, though, sanitation workers struggle to get the same, putting their jobs and lives at risk daily. 
+                     If getting safety gear after such a struggle as Shankar’s simply to be able to perform your only available job – to 
+                     pick up garbage – is an achievement for human beings in this world, then we need to think, where are we going as a 
+                     society? This is not the time to learn social distancing, but to stand with people in need and struggling for 
+                     survival. This is the time to fill the gap between the oppressed and privileged. We need to fight the virus. We also 
+                     need more love and humanity to kill the virus of casteism and racism in our society.
+                `,
+            },
+            
         ],
     },
 ];

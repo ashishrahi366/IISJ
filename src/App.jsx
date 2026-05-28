@@ -23,6 +23,7 @@ import TeamPage from "./pages/TeamPage";
 import EventsPage from "./pages/EventsPage";
 import BlogsPage from "./pages/BlogsPage";
 import BlogDetails from "./pages/BlogDetails";
+import OurProjectsPage from "./pages/OurProjectsPage";
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
         <Route path="/Avarna" element={<AvarnaPage />} />
         <Route path="/IISJ" element={<IISJPage />} />
         <Route path="/What-We-Do" element={<WhatWeDoPage />} />
+        <Route path="/Our-Projects" element={<OurProjectsPage />} />
+        <Route path="/Team" element={<TeamPage />} />
         <Route path="/Team" element={<TeamPage />} />
         <Route path="/Events" element={<EventsPage />} />
         <Route path="/blogs/:slug" element={<BlogDetails />} />
