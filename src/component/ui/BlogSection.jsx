@@ -15,15 +15,10 @@ import {
 } from "@mantine/core";
 
 import { motion } from "framer-motion";
-import {
-  FaUser,
-  FaCalendarAlt,
-  FaArrowRight,
-  FaClock,
-} from "react-icons/fa";
+import { FaUser, FaCalendarAlt, FaArrowRight, FaClock } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
-
+import { blogsData } from "../../constants/blogsData";
 import leaderImg from "../../assets/home/about-1.jpg";
 
 /* 🔥 BLOG DATA */
@@ -76,14 +71,16 @@ const featuredBlogs = [
     readTime: "3 min read",
   },
 ];
+const featuredBlog = blogsData.find((blog) => blog.featured) || blogsData[0];
+
+const otherBlogs = blogsData.filter((blog) => blog.id !== featuredBlog.id);
 
 function BlogSection() {
   return (
     <Box
       py={100}
       style={{
-        background:
-          "linear-gradient(180deg, #fff7ed 0%, #ffffff 100%)",
+        background: "linear-gradient(180deg, #fff7ed 0%, #ffffff 100%)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -100,13 +97,7 @@ function BlogSection() {
             marginBottom: "70px",
           }}
         >
-          <Badge
-            size="lg"
-            radius="xl"
-            color="orange"
-            variant="light"
-            mb={18}
-          >
+          <Badge size="lg" radius="xl" color="orange" variant="light" mb={18}>
             Latest Stories
           </Badge>
 
@@ -123,17 +114,9 @@ function BlogSection() {
             Community Voices
           </Title>
 
-          <Text
-            c="dimmed"
-            size="lg"
-            maw={760}
-            mx="auto"
-            mt="xl"
-            lh={2}
-          >
-            Explore inspiring stories, grassroots impact,
-            leadership journeys, and transformative initiatives
-            shaping communities across India.
+          <Text c="dimmed" size="lg" maw={760} mx="auto" mt="xl" lh={2}>
+            Explore inspiring stories, grassroots impact, leadership journeys,
+            and transformative initiatives shaping communities across India.
           </Text>
         </motion.div>
 
@@ -150,7 +133,7 @@ function BlogSection() {
             mb={60}
             shadow="xl"
             component={Link}
-            to={`/blogs/${featuredBlogs[0].id}`}
+            to={`/blogs/${featuredBlog.slug}`}
             style={{
               overflow: "hidden",
               background: "#111827",
@@ -167,11 +150,7 @@ function BlogSection() {
                     overflow: "hidden",
                   }}
                 >
-                  <Image
-                    src={featuredBlogs[0].image}
-                    h={520}
-                    fit="cover"
-                  />
+                  <Image src={featuredBlog.coverImage} h={520} fit="cover" />
 
                   <Overlay
                     gradient="linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.65) 100%)"
@@ -191,7 +170,7 @@ function BlogSection() {
                       zIndex: 5,
                     }}
                   >
-                    {featuredBlogs[0].category}
+                    {featuredBlogs.category}
                   </Badge>
                 </Box>
               </Grid.Col>
@@ -204,35 +183,24 @@ function BlogSection() {
                       c="white"
                       fw={900}
                       style={{
-                        fontSize:
-                          "clamp(32px, 4vw, 52px)",
+                        fontSize: "clamp(32px, 4vw, 52px)",
                         lineHeight: 1.15,
                       }}
                     >
-                      {featuredBlogs[0].title}
+                      {featuredBlogs.title}
                     </Title>
 
-                    <Text
-                      c="rgba(255,255,255,0.72)"
-                      size="lg"
-                      lh={2}
-                    >
-                      {featuredBlogs[0].description}
+                    <Text c="rgba(255,255,255,0.72)" size="lg" lh={2}>
+                      {featuredBlogs.shortDescription}
                     </Text>
 
                     {/* META */}
                     <Group mt="sm">
                       <Group gap={6}>
-                        <FaUser
-                          size={13}
-                          color="rgba(255,255,255,0.7)"
-                        />
+                        <FaUser size={13} color="rgba(255,255,255,0.7)" />
 
-                        <Text
-                          c="rgba(255,255,255,0.7)"
-                          size="sm"
-                        >
-                          {featuredBlogs[0].author}
+                        <Text c="rgba(255,255,255,0.7)" size="sm">
+                          {featuredBlogs.author}
                         </Text>
                       </Group>
 
@@ -242,25 +210,16 @@ function BlogSection() {
                           color="rgba(255,255,255,0.7)"
                         />
 
-                        <Text
-                          c="rgba(255,255,255,0.7)"
-                          size="sm"
-                        >
-                          {featuredBlogs[0].date}
+                        <Text c="rgba(255,255,255,0.7)" size="sm">
+                          {featuredBlogs.date}
                         </Text>
                       </Group>
 
                       <Group gap={6}>
-                        <FaClock
-                          size={13}
-                          color="rgba(255,255,255,0.7)"
-                        />
+                        <FaClock size={13} color="rgba(255,255,255,0.7)" />
 
-                        <Text
-                          c="rgba(255,255,255,0.7)"
-                          size="sm"
-                        >
-                          {featuredBlogs[0].readTime}
+                        <Text c="rgba(255,255,255,0.7)" size="sm">
+                          {featuredBlogs.readTime}
                         </Text>
                       </Group>
                     </Group>
@@ -271,13 +230,10 @@ function BlogSection() {
                       radius="xl"
                       size="md"
                       color="orange"
-                      rightSection={
-                        <FaArrowRight size={14} />
-                      }
+                      rightSection={<FaArrowRight size={14} />}
                       style={{
                         width: "fit-content",
-                        boxShadow:
-                          "0 10px 30px rgba(249,115,22,0.25)",
+                        boxShadow: "0 10px 30px rgba(249,115,22,0.25)",
                       }}
                     >
                       Read Full Story
@@ -291,11 +247,9 @@ function BlogSection() {
 
         {/* 🔥 BLOG GRID */}
         <Grid gutter="xl">
-          {featuredBlogs.slice(1).map((blog, index) => (
-            <Grid.Col
-              key={blog.id}
-              span={{ base: 12, md: 4 }}
-            >
+          {/* {featuredBlogs.slice(1).map((blog, index) => ( */}
+          {otherBlogs.slice(0, 3).map((blog, index) => (
+            <Grid.Col key={blog.id} span={{ base: 12, md: 4 }}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -314,14 +268,13 @@ function BlogSection() {
                   p={0}
                   shadow="xl"
                   component={Link}
-                  to={`/blogs/${blog.id}`}
+                  to={`/blogs/${blog.slug}`}
                   style={{
                     height: "100%",
                     overflow: "hidden",
                     background: "#fff",
                     textDecoration: "none",
-                    border:
-                      "1px solid rgba(0,0,0,0.06)",
+                    border: "1px solid rgba(0,0,0,0.06)",
                   }}
                 >
                   {/* IMAGE */}
@@ -339,11 +292,7 @@ function BlogSection() {
                         duration: 0.4,
                       }}
                     >
-                      <Image
-                        src={blog.image}
-                        h={260}
-                        fit="cover"
-                      />
+                      <Image src={blog.coverImage} h={260} fit="cover" />
                     </motion.div>
 
                     {/* CATEGORY */}
@@ -376,64 +325,34 @@ function BlogSection() {
                         {blog.title}
                       </Title>
 
-                      <Text
-                        c="dimmed"
-                        size="sm"
-                        lineClamp={3}
-                        lh={1.8}
-                      >
-                        {blog.description}
+                      <Text c="dimmed" size="sm" lineClamp={3} lh={1.8}>
+                        {blog.shortDescription}
                       </Text>
 
                       {/* META */}
-                      <Group
-                        justify="space-between"
-                        mt="sm"
-                      >
+                      <Group justify="space-between" mt="sm">
                         <Group gap={6}>
-                          <FaUser
-                            size={12}
-                            color="#f97316"
-                          />
+                          <FaUser size={12} color="#f97316" />
 
-                          <Text
-                            size="xs"
-                            fw={600}
-                          >
+                          <Text size="xs" fw={600}>
                             {blog.author}
                           </Text>
                         </Group>
 
                         <Group gap={6}>
-                          <FaCalendarAlt
-                            size={12}
-                            color="#f97316"
-                          />
+                          <FaCalendarAlt size={12} color="#f97316" />
 
-                          <Text size="xs">
-                            {blog.date}
-                          </Text>
+                          <Text size="xs">{blog.date}</Text>
                         </Group>
                       </Group>
 
                       {/* READ MORE */}
-                      <Group
-                        justify="space-between"
-                        mt="sm"
-                      >
-                        <Text
-                          fw={700}
-                          c="orange"
-                          size="sm"
-                        >
+                      <Group justify="space-between" mt="sm">
+                        <Text fw={700} c="orange" size="sm">
                           Read More
                         </Text>
 
-                        <ActionIcon
-                          radius="xl"
-                          color="orange"
-                          variant="light"
-                        >
+                        <ActionIcon radius="xl" color="orange" variant="light">
                           <FaArrowRight size={13} />
                         </ActionIcon>
                       </Group>
