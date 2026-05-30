@@ -14,35 +14,19 @@ import {
   Text,
   ThemeIcon,
   Title,
-  //   Carousel,
   Badge,
 } from "@mantine/core";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
-
 import { motion } from "framer-motion";
+import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
-import {
-  FaArrowRight,
-  FaCalendarAlt,
-  FaMapMarkerAlt,
-  FaUsers,
-} from "react-icons/fa";
-
+import { getBlogsByIds } from "../utils/methods";
 import heroImg from "../assets/home/heroHome4.JPG";
-
-import event1 from "../assets/home/about-1.jpg";
-import event2 from "../assets/home/about-2.jpg";
-import event3 from "../assets/home/homeAbt1.jpeg";
-
-//    UPCOMING EVENTS ARRAY
-
 const upcomingEvents = [
   //   {
   //     title: "National Leadership Workshop 2026",
@@ -51,55 +35,9 @@ const upcomingEvents = [
   //     image: event1,
   //     desc: "A national gathering empowering youth leaders, grassroots activists, and community organizers through leadership training and social justice dialogue.",
   //   },
-  //   {
-  //     title: "Community Education Summit",
-  //     date: "28 July 2026",
-  //     location: "Kurukshetra, Haryana",
-  //     image: event2,
-  //     desc: "Bringing educators, volunteers, and fellows together to discuss inclusive education and grassroots transformation.",
-  //   },
-  //   {
-  //     title: "Fellowship Orientation Program",
-  //     date: "18 August 2026",
-  //     location: "Chennai, Tamil Nadu",
-  //     image: event3,
-  //     desc: "Introducing future fellows to leadership, equality, and community-building programs through workshops and mentoring.",
-  //   },
 ];
 
-//    PAST EVENTS / BLOGS
-
-const pastEvents = [
-  {
-    title: "Youth Equality Conference",
-
-    image: event1,
-
-    date: "March 2026",
-
-    desc: "Young leaders and activists gathered to discuss caste equality, education, and inclusive leadership models.",
-  },
-
-  {
-    title: "Women Leadership Workshop",
-
-    image: event2,
-
-    date: "January 2026",
-
-    desc: "A workshop focused on empowering women leaders from marginalized communities through skill-building and mentorship.",
-  },
-
-  {
-    title: "Community Resource Center Launch",
-
-    image: event3,
-
-    date: "December 2025",
-
-    desc: "MSC launched a new Dr. B. R. Ambedkar Community Resource Center supporting education and leadership initiatives.",
-  },
-];
+const pastEvents = getBlogsByIds([1, 2, 3]);
 
 function EventsPage() {
   return (
@@ -414,7 +352,7 @@ function EventsPage() {
                   height: "100%",
                 }}
               >
-                <Image src={event.image} h={250} fit="cover" />
+                <Image src={event.coverImage} h={250} fit="cover" />
 
                 <Stack p="xl" gap="sm">
                   <Badge
@@ -434,10 +372,12 @@ function EventsPage() {
                       lineHeight: 1.8,
                     }}
                   >
-                    {event.desc}
+                    {event.shortDescription}
                   </Text>
 
                   <Button
+                    component={Link}
+                    to={`/blogs/${event.slug}`}
                     mt="sm"
                     variant="light"
                     color="orange"

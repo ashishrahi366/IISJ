@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
+// import from "react";
 import {
   Container,
   Grid,
@@ -29,57 +30,66 @@ import {
 } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
-
+import { blogsData } from "../../constants/blogsData";
 import blogMain from "../../assets/home/about-1.jpg";
 
-/* 🔥 FEATURED BLOG */
-const featuredBlog = {
-  id: 1,
-  title: "Empowering Marginalized Communities Through Education & Leadership",
-  desc: "Discover how community-driven initiatives are creating sustainable opportunities for youth, women, and underserved populations through education, leadership training, and grassroots empowerment programs.",
-  image: blogMain,
-  author: "Admin",
-  date: "May 08, 2026",
-  readTime: "6 min read",
-  category: "Leadership",
-};
+// /* 🔥 FEATURED BLOG */
+// const featuredBlog = {
+//   id: 1,
+//   title: "Empowering Marginalized Communities Through Education & Leadership",
+//   desc: "Discover how community-driven initiatives are creating sustainable opportunities for youth, women, and underserved populations through education, leadership training, and grassroots empowerment programs.",
+//   image: blogMain,
+//   author: "Admin",
+//   date: "May 08, 2026",
+//   readTime: "6 min read",
+//   category: "Leadership",
+// };
 
 /* 🔥 SIDE BLOGS */
-const recentBlogs = [
-  {
-    id: 2,
-    title: "Women Leadership & Social Change",
-    desc: "Creating opportunities for women to lead community transformation initiatives.",
-    date: "May 12, 2026",
-    category: "Women Empowerment",
-  },
+// const recentBlogs = [
+//   {
+//     id: 2,
+//     title: "Women Leadership & Social Change",
+//     desc: "Creating opportunities for women to lead community transformation initiatives.",
+//     date: "May 12, 2026",
+//     category: "Women Empowerment",
+//   },
 
-  {
-    id: 3,
-    title: "Youth Fellowship Program Launch",
-    desc: "Supporting young changemakers through mentorship and leadership training.",
-    date: "May 15, 2026",
-    category: "Youth",
-  },
+//   {
+//     id: 3,
+//     title: "Youth Fellowship Program Launch",
+//     desc: "Supporting young changemakers through mentorship and leadership training.",
+//     date: "May 15, 2026",
+//     category: "Youth",
+//   },
 
-  {
-    id: 4,
-    title: "Building Inclusive Rural Development",
-    desc: "A sustainable model focused on equality, dignity, and local participation.",
-    date: "May 18, 2026",
-    category: "Development",
-  },
+//   {
+//     id: 4,
+//     title: "Building Inclusive Rural Development",
+//     desc: "A sustainable model focused on equality, dignity, and local participation.",
+//     date: "May 18, 2026",
+//     category: "Development",
+//   },
 
-  {
-    id: 5,
-    title: "Grassroots Leadership for Social Justice",
-    desc: "Strengthening community-driven movements across marginalized regions.",
-    date: "May 20, 2026",
-    category: "Justice",
-  },
-];
+//   {
+//     id: 5,
+//     title: "Grassroots Leadership for Social Justice",
+//     desc: "Strengthening community-driven movements across marginalized regions.",
+//     date: "May 20, 2026",
+//     category: "Justice",
+//   },
+// ];
 
 export default function HomeRecentNews() {
+  const featuredBlog = blogsData.find((blog) => blog.featured) || blogsData[0];
+
+  const recentBlogs = useMemo(() => {
+    return [...blogsData]
+      .filter((blog) => blog.id !== featuredBlog.id)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 4);
+  }, []);
+
   return (
     <Box
       py={100}
@@ -139,7 +149,7 @@ export default function HomeRecentNews() {
                 p={0}
                 shadow="xl"
                 component={Link}
-                to={`/blogs/${featuredBlog.id}`}
+                to={`/blogs/${featuredBlog.slug}`}
                 style={{
                   overflow: "hidden",
                   background: "#111827",
@@ -159,7 +169,7 @@ export default function HomeRecentNews() {
                     transition={{ duration: 0.5 }}
                   >
                     <Image
-                      src={featuredBlog.image}
+                      src={featuredBlog.coverImage}
                       h={{ base: 300, md: 480 }}
                       fit="cover"
                     />
@@ -237,18 +247,12 @@ export default function HomeRecentNews() {
 
                     {/* CTA */}
                     <Button
-                      component="a"
-                      href="https://communication.ucf.edu/global-reach-mills-documentary-son-of-a-sweeper/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      component={Link}
+                      to={`/blogs/${featuredBlog.slug}`}
                       radius="xl"
                       size="md"
                       color="orange"
                       rightSection={<FaArrowRight size={14} />}
-                      style={{
-                        width: "fit-content",
-                        boxShadow: "0 12px 30px rgba(249,115,22,0.25)",
-                      }}
                     >
                       Read Full Article
                     </Button>
@@ -326,7 +330,7 @@ export default function HomeRecentNews() {
                       >
                         <Card
                           component={Link}
-                          to={`/blogs/${blog.id}`}
+                          to={`/blogs/${blog.slug}`}
                           radius="24px"
                           p="lg"
                           shadow="sm"
@@ -363,7 +367,7 @@ export default function HomeRecentNews() {
 
                             {/* DESC */}
                             <Text size="sm" c="dimmed" lh={1.8} lineClamp={2}>
-                              {blog.desc}
+                              {blog.shortDescription}
                             </Text>
 
                             {/* FOOTER */}

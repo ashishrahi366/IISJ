@@ -11,10 +11,13 @@
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
+    "@mantine/carousel": "^9.0.1",
     "@mantine/core": "^9.0.1",
     "@mantine/hooks": "^9.0.1",
     "@mantine/notifications": "^9.0.1",
     "@tabler/icons-react": "^3.44.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.38.0",
     "react": "^19.2.4",
     "react-countup": "^6.5.3",

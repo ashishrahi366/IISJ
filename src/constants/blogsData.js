@@ -6,7 +6,7 @@ import FCRNA_1_B from "../assets/Blogs/FCRNA_1_B.jpg";
 import CKCOOK from "../assets/Blogs/CKCOOK.jpg";
 import CRNA_2 from "../assets/Blogs/CRNA_2.jpg";
 import CRNA_3jpg from "../assets/Blogs/CRNA_3jpg.jpg";
-import CRNA_4 from "../assets/Blogs/CRNA_4.jpg";
+import CRNA_4 from "../assets/Blogs/CRNA_4.webp";
 
 import NEWFellow from "../assets/Blogs/NEWFellow.jpg";
 import JNBlog from "../assets/Blogs/JNBlog.jpg";
@@ -22,7 +22,7 @@ import HWPO3 from "../assets/Blogs/HWPO3.jpg";
 import CRNA_11 from "../assets/Blogs/CRNA-11.jpg";
 import founder22 from "../assets/pages/founder22.JPG";
 import CRNA_22 from "../assets/Blogs/CRNA_22.webp";
-import CRNA_33 from "../assets/Blogs/CRNA_33.jpg";
+import CRNA_33 from "../assets/Blogs/CRNA_33.webp";
 
 
 import CA3 from "../assets/Pages/CA3.jpg";

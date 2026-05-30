@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import MediaCoverageSection from "../component/ui/MediaCoverageSection";
+import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 import {
   Container,
   Title,
@@ -21,6 +23,8 @@ import {
   SimpleGrid,
 } from "@mantine/core";
 
+import { Carousel } from "@mantine/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import {
   FaArrowRight,
   FaPlay,
@@ -33,110 +37,17 @@ import {
   FaNewspaper,
   FaClock,
   FaUserEdit,
+  // FaArrowRight,
+  // FaCalendarAlt,
 } from "react-icons/fa";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { useMemo } from "react";
+import { blogsData } from "../constants/blogsData";
 
 import "swiper/css";
 import "swiper/css/pagination";
-
 import heroImg from "../assets/pages/blogHero1.JPG";
 
-import g1 from "../assets/home/about-1.jpg";
-import g2 from "../assets/home/about-1.jpg";
-import g3 from "../assets/home/about-1.jpg";
-import g4 from "../assets/home/about-1.jpg";
-
 export default function BlogsPage() {
-  const featuredBlogs = [
-    {
-      id: "education-reform-2026",
-      title: "Education Reform for Marginalized Communities",
-      desc: "Grassroots education programs are transforming lives across underserved communities.",
-      image: g1,
-      category: "Education",
-      author: "Vimal Kumar",
-      authorImage: g1,
-      date: "May 25, 2026",
-      readTime: "5 min read",
-    },
-
-    {
-      id: "community-leadership",
-      title: "Building Community Leadership Through Action",
-      desc: "Training future changemakers to create sustainable social impact.",
-      image: g2,
-      category: "Leadership",
-      author: "Anjali Devi",
-      authorImage: g2,
-      date: "May 22, 2026",
-      readTime: "6 min read",
-    },
-
-    {
-      id: "social-justice-movement",
-      title: "The Future of Social Justice Movements",
-      desc: "Building inclusive systems rooted in equality, dignity, and community power.",
-      image: g3,
-      category: "Advocacy",
-      author: "Ravi Kumar",
-      authorImage: g3,
-      date: "May 18, 2026",
-      readTime: "8 min read",
-    },
-  ];
-
-  const latestBlogs = [
-    {
-      id: "future-education",
-      title: "Future of Inclusive Education",
-      desc: "Creating equal learning opportunities for every child.",
-      image: g1,
-      category: "Education",
-      author: "Admin",
-      authorImage: g1,
-      date: "May 11, 2026",
-      readTime: "4 min read",
-    },
-
-    {
-      id: "health-awareness",
-      title: "Health Awareness in Rural Communities",
-      desc: "Improving healthcare accessibility through local action.",
-      image: g2,
-      category: "Health",
-      author: "Priya Sharma",
-      authorImage: g2,
-      date: "May 9, 2026",
-      readTime: "6 min read",
-    },
-
-    {
-      id: "economic-growth",
-      title: "Economic Empowerment Initiatives",
-      desc: "Helping communities build sustainable livelihoods.",
-      image: g3,
-      category: "Development",
-      author: "Ravi Kumar",
-      authorImage: g3,
-      date: "May 7, 2026",
-      readTime: "5 min read",
-    },
-
-    {
-      id: "social-awareness",
-      title: "Creating Awareness About Social Equality",
-      desc: "Community-driven campaigns creating measurable impact.",
-      image: g4,
-      category: "Awareness",
-      author: "Avarna Team",
-      authorImage: g4,
-      date: "May 3, 2026",
-      readTime: "8 min read",
-    },
-  ];
-
   const categoryCards = [
     {
       title: "Education",
@@ -162,26 +73,24 @@ export default function BlogsPage() {
       desc: "Voices and stories from around the world",
     },
   ];
+  const featuredBlogs = useMemo(() => {
+    return blogsData.filter((blog) => blog.featured);
+  }, []);
 
-  const editorPicks = [
-    {
-      id: "editor-pick-1",
-      title: "Education Beyond Barriers",
-      image: g1,
-    },
+  const latestBlogs = useMemo(() => {
+    return [...blogsData].slice(0, 4);
+  }, []);
 
-    {
-      id: "editor-pick-2",
-      title: "Youth Voices Creating Change",
-      image: g2,
-    },
+  const editorPicks = useMemo(() => {
+    return [...blogsData].sort(() => Math.random() - 0.5).slice(0, 10);
+  }, []);
 
-    {
-      id: "editor-pick-3",
-      title: "Women Leading Communities",
-      image: g3,
-    },
-  ];
+  const autoplay = useRef(
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: false,
+    })
+  );
 
   return (
     <div style={{ background: "#f8fafc" }}>
@@ -259,87 +168,170 @@ export default function BlogsPage() {
       {/* FEATURED SLIDER */}
 
       <Container size="xl" py={100}>
-        <Group justify="space-between" mb={40}>
-          <div>
-            <Text c="orange" fw={700}>
-              FEATURED ARTICLES
+        <Group justify="space-between" mb={50}>
+          <Box>
+            <Text c="orange" fw={700} tt="uppercase" size="sm">
+              Featured Articles
             </Text>
 
-            <Title order={2} fw={900}>
-              Top Stories & Insights
+            <Title
+              order={2}
+              fw={900}
+              mt={5}
+              style={{
+                fontSize: "clamp(32px, 4vw, 52px)",
+              }}
+            >
+              Stories That Inspire Change
             </Title>
-          </div>
+
+            <Text c="dimmed" mt="sm" maw={650}>
+              Discover leadership journeys, community transformation stories,
+              grassroots action, and voices shaping a more equal future.
+            </Text>
+          </Box>
+
+          <Button
+            component={Link}
+            to="/blogs"
+            radius="xl"
+            color="orange"
+            variant="light"
+            rightSection={<FaArrowRight />}
+          >
+            View All Blogs
+          </Button>
         </Group>
 
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          autoplay={{ delay: 4000 }}
-          pagination={{ clickable: true }}
-          spaceBetween={30}
+        <Carousel
+          withIndicators
+          loop
+          align="start"
+          slideGap="xl"
+          plugins={[autoplay.current]}
+          styles={{
+            indicator: {
+              width: 10,
+              height: 10,
+              transition: "all 300ms ease",
+            },
+          }}
+          breakpoints={[
+            {
+              maxWidth: "sm",
+              slideSize: "100%",
+            },
+            {
+              maxWidth: "md",
+              slideSize: "50%",
+            },
+          ]}
+          slideSize="33.333333%"
         >
-          {featuredBlogs.map((blog) => (
-            <SwiperSlide key={blog.id}>
+          {blogsData.map((blog) => (
+            <Carousel.Slide key={blog.id}>
               <Card
                 component={Link}
-                to={`/blog/${blog.id}`}
-                radius="36px"
+                to={`/blogs/${blog.slug}`}
+                radius="32px"
                 shadow="xl"
                 p={0}
+                h="100%"
                 style={{
                   overflow: "hidden",
                   textDecoration: "none",
-                  cursor: "pointer",
+                  background: "#fff",
+                  border: "1px solid rgba(0,0,0,0.06)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 }}
               >
-                <Grid gutter={0}>
-                  <Grid.Col span={{ base: 12, md: 6 }}>
-                    <Image src={blog.image} h={550} fit="cover" />
-                  </Grid.Col>
+                {/* IMAGE */}
 
-                  <Grid.Col span={{ base: 12, md: 6 }}>
-                    <Box p={{ base: 30, md: 60 }}>
-                      <Badge color="orange">{blog.category}</Badge>
+                <Box
+                  style={{
+                    position: "relative",
+                  }}
+                >
+                  <Image src={blog.coverImage} h={260} fit="cover" />
 
-                      <Title
-                        order={1}
-                        mt="lg"
-                        fw={900}
-                        style={{ lineHeight: 1.15 }}
-                      >
-                        {blog.title}
-                      </Title>
+                  <Badge
+                    color="orange"
+                    radius="xl"
+                    variant="filled"
+                    style={{
+                      position: "absolute",
+                      top: 16,
+                      left: 16,
+                    }}
+                  >
+                    {blog.category}
+                  </Badge>
+                </Box>
 
-                      <Text mt="xl" size="lg" c="dimmed" lh={1.9}>
-                        {blog.desc}
-                      </Text>
+                {/* CONTENT */}
 
-                      <Group mt={40}>
-                        <Avatar src={blog.authorImage} radius="xl" />
+                <Box p="xl">
+                  <Stack gap="md">
+                    <Title
+                      order={4}
+                      fw={800}
+                      lineClamp={2}
+                      style={{
+                        lineHeight: 1.4,
+                        minHeight: 65,
+                      }}
+                    >
+                      {blog.title}
+                    </Title>
 
-                        <div>
-                          <Text fw={700}>{blog.author}</Text>
+                    <Text
+                      c="dimmed"
+                      size="sm"
+                      lh={1.8}
+                      lineClamp={3}
+                      style={{
+                        minHeight: 70,
+                      }}
+                    >
+                      {blog.shortDescription}
+                    </Text>
 
-                          <Text size="sm" c="dimmed">
-                            {blog.date} • {blog.readTime}
+                    <Group justify="space-between" mt="auto">
+                      <Group gap="sm">
+                        <Avatar radius="xl" color="orange">
+                          {blog.author?.charAt(0)}
+                        </Avatar>
+
+                        <Box>
+                          <Text size="sm" fw={700}>
+                            {blog.author}
                           </Text>
-                        </div>
+
+                          <Group gap={5}>
+                            <FaCalendarAlt size={10} color="#f97316" />
+
+                            <Text size="xs" c="dimmed">
+                              {blog.date}
+                            </Text>
+                          </Group>
+                        </Box>
                       </Group>
 
-                      <Button
-                        mt={40}
+                      <ActionIcon
+                        size={42}
                         radius="xl"
                         color="orange"
-                        rightSection={<FaArrowRight />}
+                        variant="light"
                       >
-                        Read Full Article
-                      </Button>
-                    </Box>
-                  </Grid.Col>
-                </Grid>
+                        <FaArrowRight />
+                      </ActionIcon>
+                    </Group>
+                  </Stack>
+                </Box>
               </Card>
-            </SwiperSlide>
+            </Carousel.Slide>
           ))}
-        </Swiper>
+        </Carousel>
       </Container>
 
       {/* BLOG CATEGORIES */}
@@ -404,7 +396,7 @@ export default function BlogsPage() {
             <Grid.Col key={blog.id} span={{ base: 12, md: 6 }}>
               <Card
                 component={Link}
-                to={`/blog/${blog.id}`}
+                to={`/blogs/${blog.slug}`}
                 radius="32px"
                 shadow="lg"
                 padding="lg"
@@ -415,7 +407,7 @@ export default function BlogsPage() {
                   overflow: "hidden",
                 }}
               >
-                <Image src={blog.image} height={280} radius="xl" />
+                <Image src={blog.coverImage} height={280} radius="xl" />
 
                 <Stack mt="lg">
                   <Group justify="space-between">
@@ -433,14 +425,14 @@ export default function BlogsPage() {
                   <Title order={3}>{blog.title}</Title>
 
                   <Text c="dimmed" size="sm" lineClamp={3}>
-                    {blog.desc}
+                    {blog.shortDescription}
                   </Text>
 
                   <Divider />
 
                   <Group justify="space-between">
                     <Group gap={10}>
-                      <Avatar src={blog.authorImage} radius="xl" />
+                      <Avatar src={blog.coverImage} radius="xl" />
 
                       <div>
                         <Text fw={700} size="sm">
@@ -491,7 +483,7 @@ export default function BlogsPage() {
               <Grid.Col key={blog.id} span={{ base: 12, md: 4 }}>
                 <Card
                   component={Link}
-                  to={`/blog/${blog.id}`}
+                  to={`/blogs/${blog.slug}`}
                   radius="30px"
                   p={0}
                   shadow="xl"
@@ -502,7 +494,7 @@ export default function BlogsPage() {
                   }}
                 >
                   <Box style={{ position: "relative" }}>
-                    <Image src={blog.image} h={420} fit="cover" />
+                    <Image src={blog.coverImage} h={420} fit="cover" />
 
                     <Overlay color="#000" opacity={0.45} />
 
@@ -566,13 +558,23 @@ export default function BlogsPage() {
                 <Button
                   size="lg"
                   radius="xl"
+                  target="_blank"
                   color="orange"
                   leftSection={<FaPlay />}
+                  component={Link}
+                  to="https://www.youtube.com/@mscindia2530"
                 >
                   Watch Videos
                 </Button>
 
-                <Button size="lg" radius="xl" variant="white">
+                <Button
+                  component={Link}
+                  target="_blank"
+                  to="https://www.youtube.com/@mscindia2530"
+                  size="lg"
+                  radius="xl"
+                  variant="white"
+                >
                   Subscribe Channel
                 </Button>
               </Group>
@@ -582,22 +584,73 @@ export default function BlogsPage() {
               <Box
                 style={{
                   position: "relative",
-                  paddingTop: "56.25%",
+                  borderRadius: "32px",
+                  overflow: "hidden",
+                  background:
+                    "linear-gradient(135deg, rgba(249,115,22,0.2), rgba(249,115,22,0.05))",
+                  padding: "8px",
+                  boxShadow: "0 30px 80px rgba(0,0,0,0.35)",
                 }}
               >
-                <iframe
-                  src="https://www.youtube.com/embed/g6xcJEIukhE"
-                  title="YouTube Video"
+                <Box
                   style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    border: 0,
-                    borderRadius: "24px",
+                    position: "relative",
+                    borderRadius: "28px",
+                    overflow: "hidden",
+                    background: "#000",
                   }}
-                  allowFullScreen
-                />
+                >
+                  {/* Video Label */}
+                  <Box
+                    style={{
+                      position: "absolute",
+                      top: 20,
+                      left: 20,
+                      zIndex: 5,
+                    }}
+                  ></Box>
+
+                  {/* Video Title */}
+                  <Box
+                    style={{
+                      position: "absolute",
+                      bottom: 20,
+                      left: 20,
+                      right: 20,
+                      zIndex: 5,
+                    }}
+                  >
+                    <Title order={3} c="white" fw={800}>
+                      Son of a Sweeper
+                    </Title>
+
+                    <Text c="rgba(255,255,255,0.75)" size="sm">
+                      Film Screening & Discussion
+                    </Text>
+                  </Box>
+
+                  {/* Responsive Video */}
+                  <Box
+                    style={{
+                      position: "relative",
+                      paddingTop: "56.25%",
+                    }}
+                  >
+                    <iframe
+                      src="https://www.youtube.com/embed/lRB45SsHqDY"
+                      title="Son of a Sweeper Film Screening and Discussion"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        width: "100%",
+                        height: "100%",
+                        border: 0,
+                      }}
+                    />
+                  </Box>
+                </Box>
               </Box>
             </Grid.Col>
           </Grid>
@@ -684,6 +737,8 @@ export default function BlogsPage() {
 
             <Grid.Col span={{ base: 12, md: 4 }}>
               <Button
+                component={Link}
+                to="/contact"
                 fullWidth
                 size="xl"
                 radius="xl"
@@ -741,11 +796,19 @@ export default function BlogsPage() {
               radius="xl"
               color="orange"
               leftSection={<FaUserEdit />}
+              component={Link}
+              to="/contact"
             >
               Submit Blog
             </Button>
 
-            <Button size="lg" radius="xl" variant="white">
+            <Button
+              size="lg"
+              radius="xl"
+              variant="white"
+              component={Link}
+              to="/contact"
+            >
               Contact Editorial Team
             </Button>
           </Group>

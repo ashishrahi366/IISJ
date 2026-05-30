@@ -10,11 +10,13 @@ import {
   List,
   Overlay,
   Stack,
+  Badge,
   Text,
   ThemeIcon,
   Title,
 } from "@mantine/core";
-
+import { currentFellows } from "../constants/fellows";
+import { blogsData } from "../constants/blogsData";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -25,9 +27,15 @@ import heroImg from "../assets/pages/FS1.png";
 import ChildBanner from "../assets/pages/FS4.JPG";
 import wwd4 from "../assets/pages/wwd4.JPG";
 import FF2 from "../assets/pages/mvv2.jpg";
+
 import FS3 from "../assets/pages/FS3.jpg";
 
 function FellowsForEqualityPage() {
+  const successStoryIds = [1, 3, 5];
+  const successStories = blogsData.filter((blog) =>
+    successStoryIds.includes(blog.id)
+  );
+
   const workAreas = [
     "Improving educational outcomes within the community",
     "Supporting employability through partnerships and training",
@@ -650,29 +658,7 @@ function FellowsForEqualityPage() {
 
           {/* FELLOWS ARRAY */}
           <Grid gutter="xl">
-            {[
-              {
-                name: "Ravi Kumar",
-                role: "Community Education Fellow",
-                image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200",
-                desc: "Working to improve educational access for children in underserved communities.",
-              },
-              {
-                name: "Pooja Devi",
-                role: "Women Leadership Fellow",
-                image:
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200",
-                desc: "Supporting women-led community initiatives and local advocacy campaigns.",
-              },
-              {
-                name: "Aman Valmiki",
-                role: "Youth Development Fellow",
-                image:
-                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200",
-                desc: "Building youth engagement programs focused on digital literacy and leadership.",
-              },
-            ].map((item, index) => (
+            {currentFellows.map((item, index) => (
               <Grid.Col key={index} span={{ base: 12, sm: 6, md: 4 }}>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
@@ -778,37 +764,15 @@ function FellowsForEqualityPage() {
           </Stack>
 
           <Grid gutter="xl">
-            {[
-              {
-                title: "From Fellowship to Community Leader",
-                image:
-                  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200",
-                desc: "Empowering rural youth through education and digital access.",
-                url: "/alumni/ravi-kumar",
-              },
-              {
-                title: "Women Leading Grassroots Change",
-                image:
-                  "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?q=80&w=1200",
-                desc: "Supporting women’s leadership and social justice initiatives.",
-                url: "/alumni/pooja-devi",
-              },
-              {
-                title: "Creating Opportunities Through Innovation",
-                image:
-                  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1200",
-                desc: "Building sustainable livelihoods and youth entrepreneurship.",
-                url: "/alumni/aman-valmiki",
-              },
-            ].map((item, index) => (
-              <Grid.Col key={index} span={{ base: 12, md: 4 }}>
+            {successStories.map((blog, index) => (
+              <Grid.Col key={blog.id} span={{ base: 12, md: 4 }}>
                 <motion.div
                   whileHover={{ y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
                   <Card
-                    component="a"
-                    href={item.url}
+                    component={Link}
+                    to={`/blogs/${blog.slug}`}
                     radius="28px"
                     p={0}
                     shadow="xl"
@@ -816,11 +780,12 @@ function FellowsForEqualityPage() {
                       overflow: "hidden",
                       textDecoration: "none",
                       cursor: "pointer",
+                      height: "100%",
                     }}
                   >
                     {/* IMAGE */}
                     <Box style={{ position: "relative" }}>
-                      <Image src={item.image} height={280} />
+                      <Image src={blog.coverImage} height={280} fit="cover" />
 
                       <Box
                         style={{
@@ -830,19 +795,37 @@ function FellowsForEqualityPage() {
                             "linear-gradient(to top, rgba(0,0,0,0.75), transparent)",
                         }}
                       />
+
+                      <Badge
+                        color="orange"
+                        radius="xl"
+                        style={{
+                          position: "absolute",
+                          top: 16,
+                          left: 16,
+                        }}
+                      >
+                        {blog.category}
+                      </Badge>
                     </Box>
 
                     {/* CONTENT */}
                     <Box p="xl">
-                      <Title order={4}>{item.title}</Title>
+                      <Title order={4} lineClamp={2}>
+                        {blog.title}
+                      </Title>
 
-                      <Text c="dimmed" mt="sm" size="sm" lh={1.7}>
-                        {item.desc}
+                      <Text c="dimmed" mt="sm" size="sm" lh={1.7} lineClamp={3}>
+                        {blog.shortDescription}
                       </Text>
 
-                      <Group mt="lg">
+                      <Group mt="lg" justify="space-between">
                         <Text fw={700} c="orange" size="sm">
-                          Read Story →
+                          Read Story
+                        </Text>
+
+                        <Text size="xs" c="dimmed">
+                          {blog.readTime}
                         </Text>
                       </Group>
                     </Box>

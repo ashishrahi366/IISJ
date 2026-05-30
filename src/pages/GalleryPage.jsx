@@ -15,9 +15,14 @@ import {
   Button,
   Tabs,
 } from "@mantine/core";
-
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
+import {
+  communityGallery,
+  educationGallery,
+  eventGallery,
+  impactGallery,
+} from "../constants/gallery";
 import {
   FaTimes,
   FaChevronLeft,
@@ -34,152 +39,6 @@ export default function GalleryPage() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [activeGallery, setActiveGallery] = useState("community");
 
-  /* =========================================
-      DIFFERENT GALLERY ARRAYS
-  ========================================= */
-
-  const communityGallery = [
-    {
-      id: 1,
-      title: "Community Leadership Training",
-      image: "https://picsum.photos/800/1000?random=1",
-      type: "image",
-      category: "community",
-    },
-    {
-      id: 2,
-      title: "Grassroots Awareness Program",
-      image: "https://picsum.photos/800/1200?random=2",
-      type: "image",
-      category: "community",
-    },
-    {
-      id: 3,
-      title: "Youth Empowerment Workshop",
-      image: "https://picsum.photos/800/900?random=3",
-      type: "image",
-      category: "community",
-    },
-    {
-      id: 4,
-      title: "Women Leadership Circle",
-      image: "https://picsum.photos/800/1100?random=4",
-      type: "image",
-      category: "community",
-    },
-    {
-      id: 5,
-      title: "Youth Empowerment Workshop",
-      image: "https://picsum.photos/800/900?random=3",
-      type: "image",
-      category: "community",
-    },
-    {
-      id: 6,
-      title: "Women Leadership Circle",
-      image: "https://picsum.photos/800/1100?random=4",
-      type: "image",
-      category: "community",
-    },
-  ];
-
-  const educationGallery = [
-    {
-      id: 5,
-      title: "Digital Learning Session",
-      image: "https://picsum.photos/800/1000?random=5",
-      type: "image",
-      category: "education",
-    },
-    {
-      id: 6,
-      title: "Scholarship Orientation",
-      image: "https://picsum.photos/800/1200?random=6",
-      type: "image",
-      category: "education",
-    },
-    {
-      id: 7,
-      title: "Children Learning Centre",
-      image: "https://picsum.photos/800/1000?random=7",
-      type: "image",
-      category: "education",
-    },
-    {
-      id: 8,
-      title: "Community Library",
-      image: "https://picsum.photos/800/1100?random=8",
-      type: "image",
-      category: "education",
-    },
-  ];
-
-  const eventGallery = [
-    {
-      id: 9,
-      title: "National Youth Summit",
-      image: "https://picsum.photos/800/1000?random=9",
-      type: "image",
-      category: "events",
-    },
-    {
-      id: 10,
-      title: "Social Justice Conference",
-      image: "https://picsum.photos/800/1200?random=10",
-      type: "image",
-      category: "events",
-    },
-    {
-      id: 11,
-      title: "Public Awareness Rally",
-      image: "https://picsum.photos/800/1100?random=11",
-      type: "image",
-      category: "events",
-    },
-    {
-      id: 12,
-      title: "Volunteer Meetup",
-      image: "https://picsum.photos/800/1000?random=12",
-      type: "image",
-      category: "events",
-    },
-  ];
-
-  const impactGallery = [
-    {
-      id: 13,
-      title: "Community Transformation",
-      image: "https://picsum.photos/800/1200?random=13",
-      type: "image",
-      category: "impact",
-    },
-    {
-      id: 14,
-      title: "Youth Leadership Journey",
-      image: "https://picsum.photos/800/1000?random=14",
-      type: "image",
-      category: "impact",
-    },
-    {
-      id: 15,
-      title: "Grassroots Innovation",
-      image: "https://picsum.photos/800/1100?random=15",
-      type: "image",
-      category: "impact",
-    },
-    {
-      id: 16,
-      title: "Community Success Story",
-      image: "https://picsum.photos/800/1000?random=16",
-      type: "image",
-      category: "impact",
-    },
-  ];
-
-  /* =========================================
-      ACTIVE GALLERY
-  ========================================= */
-
   const activeImages = useMemo(() => {
     switch (activeGallery) {
       case "education":
@@ -195,10 +54,6 @@ export default function GalleryPage() {
         return communityGallery;
     }
   }, [activeGallery]);
-
-  /* =========================================
-      MODAL FUNCTIONS
-  ========================================= */
 
   const openImage = (index) => {
     setSelectedIndex(index);
@@ -224,10 +79,7 @@ export default function GalleryPage() {
         overflow: "hidden",
       }}
     >
-      {/* =========================================
-            HERO SECTION
-      ========================================= */}
-
+      {/* HERO SECTION */}
       <Box
         style={{
           position: "relative",
@@ -268,16 +120,6 @@ export default function GalleryPage() {
             transition={{ duration: 0.8 }}
           >
             <Stack align="center" gap="xl">
-              <Badge
-                size="xl"
-                radius="xl"
-                variant="filled"
-                color="orange"
-                leftSection={<FaImages size={14} />}
-              >
-                Our Journey in Pictures
-              </Badge>
-
               <Title
                 ta="center"
                 c="white"
@@ -320,6 +162,8 @@ export default function GalleryPage() {
                   radius="xl"
                   variant="white"
                   leftSection={<FaPlay size={12} />}
+                  component={Link}
+                  to="/blogs"
                 >
                   Watch Stories
                 </Button>
@@ -329,10 +173,7 @@ export default function GalleryPage() {
         </Container>
       </Box>
 
-      {/* =========================================
-            STATS SECTION
-      ========================================= */}
-
+      {/* STATS SECTION */}
       <Container size="xl" py={90}>
         <SimpleGrid cols={{ base: 2, md: 4 }} spacing="xl">
           {[
@@ -389,50 +230,27 @@ export default function GalleryPage() {
         </SimpleGrid>
       </Container>
 
-      {/* =========================================
-            GALLERY TABS
-      ========================================= */}
+      {/* GALLERY TABS */}
 
       <Container size="xl" py={20}>
-        <Tabs
-          value={activeGallery}
-          onChange={setActiveGallery}
-          radius="xl"
-        >
+        <Tabs value={activeGallery} onChange={setActiveGallery} radius="xl">
           <Tabs.List grow>
-            <Tabs.Tab value="community">
-              Community
-            </Tabs.Tab>
+            <Tabs.Tab value="community">Community</Tabs.Tab>
 
-            <Tabs.Tab value="education">
-              Education
-            </Tabs.Tab>
+            <Tabs.Tab value="education">Education</Tabs.Tab>
 
-            <Tabs.Tab value="events">
-              Events
-            </Tabs.Tab>
+            <Tabs.Tab value="events">Events</Tabs.Tab>
 
-            <Tabs.Tab value="impact">
-              Impact
-            </Tabs.Tab>
+            <Tabs.Tab value="impact">Impact</Tabs.Tab>
           </Tabs.List>
         </Tabs>
       </Container>
 
-      {/* =========================================
-            GALLERY SECTION
-      ========================================= */}
-
+      {/* GALLERY SECTION */}
       <Container size="xl" py={80}>
         <Group justify="space-between" mb={40}>
           <div>
-            <Text
-              c="orange"
-              fw={700}
-              tt="uppercase"
-              size="sm"
-              mb={6}
-            >
+            <Text c="orange" fw={700} tt="uppercase" size="sm" mb={6}>
               Photo Collection
             </Text>
 
@@ -447,12 +265,7 @@ export default function GalleryPage() {
             </Title>
           </div>
 
-          <Badge
-            size="xl"
-            radius="xl"
-            variant="light"
-            color="orange"
-          >
+          <Badge size="xl" radius="xl" variant="light" color="orange">
             {activeImages.length} Photos
           </Badge>
         </Group>
@@ -548,12 +361,7 @@ export default function GalleryPage() {
                       {item.title}
                     </Title>
 
-                    <Text
-                      mt={8}
-                      size="sm"
-                      c="rgba(255,255,255,0.82)"
-                      lh={1.7}
-                    >
+                    <Text mt={8} size="sm" c="rgba(255,255,255,0.82)" lh={1.7}>
                       Inspiring moments captured from our social impact
                       initiatives and community transformation programs.
                     </Text>
@@ -565,9 +373,7 @@ export default function GalleryPage() {
         </SimpleGrid>
       </Container>
 
-      {/* =========================================
-            CTA SECTION
-      ========================================= */}
+      {/*CTA SECTION*/}
 
       <Container size="lg" py={100}>
         <Card
@@ -575,8 +381,7 @@ export default function GalleryPage() {
           p={50}
           shadow="xl"
           style={{
-            background:
-              "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
+            background: "linear-gradient(135deg, #f97316 0%, #ea580c 100%)",
             color: "white",
             textAlign: "center",
             overflow: "hidden",
@@ -588,12 +393,7 @@ export default function GalleryPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Badge
-              size="xl"
-              radius="xl"
-              variant="white"
-              color="dark"
-            >
+            <Badge size="xl" radius="xl" variant="white" color="dark">
               Join The Movement
             </Badge>
 
@@ -606,8 +406,7 @@ export default function GalleryPage() {
               }}
             >
               Every Photo Represents
-              <br />
-              A Story of Change
+              <br />A Story of Change
             </Title>
 
             <Text
@@ -620,12 +419,14 @@ export default function GalleryPage() {
                 lineHeight: 1.9,
               }}
             >
-              Become part of a growing movement dedicated to dignity,
-              equality, education, and grassroots empowerment.
+              Become part of a growing movement dedicated to dignity, equality,
+              education, and grassroots empowerment.
             </Text>
 
             <Group justify="center" mt={35}>
               <Button
+                component={Link}
+                to="/contact"
                 size="lg"
                 radius="xl"
                 variant="white"
@@ -639,6 +440,8 @@ export default function GalleryPage() {
                 radius="xl"
                 variant="outline"
                 color="white"
+                component={Link}
+                to="/Support-MSC"
               >
                 Donate Now
               </Button>
@@ -646,10 +449,7 @@ export default function GalleryPage() {
           </motion.div>
         </Card>
       </Container>
-
-      {/* =========================================
-            MODAL
-      ========================================= */}
+      {/* MODAL */}
 
       <Modal
         opened={opened}
@@ -757,12 +557,7 @@ export default function GalleryPage() {
                 maxWidth: "650px",
               }}
             >
-              <Badge
-                radius="xl"
-                color="orange"
-                variant="filled"
-                mb={15}
-              >
+              <Badge radius="xl" color="orange" variant="filled" mb={15}>
                 {activeImages[selectedIndex]?.category}
               </Badge>
 
@@ -783,8 +578,8 @@ export default function GalleryPage() {
                   lineHeight: 1.8,
                 }}
               >
-                Capturing moments of dignity, leadership, education,
-                and social transformation from our grassroots work.
+                Capturing moments of dignity, leadership, education, and social
+                transformation from our grassroots work.
               </Text>
             </Box>
           </motion.div>

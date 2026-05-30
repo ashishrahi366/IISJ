@@ -16,9 +16,7 @@ import {
   Title,
   Badge,
 } from "@mantine/core";
-
 import { motion } from "framer-motion";
-
 import {
   FaArrowRight,
   FaBookOpen,
@@ -29,14 +27,13 @@ import {
   FaHeart,
   FaPlay,
 } from "react-icons/fa";
-
 import { Link } from "react-router-dom";
 
+import {blogsData} from "../constants/blogsData";
 /* IMAGES */
 import heroImg from "../assets/pages/1wwd1.JPG";
 import wwdMsc from "../assets/pages/wwdMsc.JPG";
 import mscImg from "../assets/pages/wwdMsc.JPG";
-// import avarnaImg from "../assets/home/about-1.jpg";
 import avarnaImg from "../assets/pages/iisj2.jpeg";
 import iisjImg from "../assets/home/homeAbt1.jpeg";
 import wwdcom from "../assets/pages/wwdcom.jpeg";
@@ -103,6 +100,10 @@ const blogs = [
 ];
 
 export default function WhatWeDoPage() {
+  const storyBlogIds = [1, 4, 6];
+  const storiesBlogs = blogsData.filter((blog) =>
+    storyBlogIds.includes(blog.id)
+  );
   return (
     <Box bg="#071120">
       {/* HERO SECTION */}
@@ -451,7 +452,6 @@ export default function WhatWeDoPage() {
       </Box>
 
       {/* BLOGS */}
-
       <Container size="xl" py={100}>
         <Stack align="center" mb={60}>
           <Badge size="lg" radius="xl" color="orange" variant="light">
@@ -470,37 +470,65 @@ export default function WhatWeDoPage() {
         </Stack>
 
         <Grid gutter={40}>
-          {blogs.map((item, index) => (
-            <Grid.Col key={index} span={{ base: 12, md: 4 }}>
+          {storiesBlogs.map((blog) => (
+            <Grid.Col key={blog.id} span={{ base: 12, md: 4 }}>
               <motion.div whileHover={{ y: -8 }}>
                 <Card
+                  component={Link}
+                  to={`/blogs/${blog.slug}`}
                   radius="30px"
                   p={0}
                   style={{
                     overflow: "hidden",
                     background: "#0f172a",
                     border: "1px solid rgba(255,255,255,0.08)",
+                    textDecoration: "none",
+                    height: "100%",
                   }}
                 >
-                  <Image src={item.image} h={250} />
+                  <Box
+                    style={{
+                      position: "relative",
+                    }}
+                  >
+                    <Image src={blog.coverImage} h={250} fit="cover" />
+
+                    <Badge
+                      color="orange"
+                      radius="xl"
+                      variant="filled"
+                      style={{
+                        position: "absolute",
+                        top: 16,
+                        left: 16,
+                      }}
+                    >
+                      {blog.category}
+                    </Badge>
+                  </Box>
 
                   <Box p="xl">
-                    <Badge color="orange" variant="light" radius="xl" mb="md">
-                      Story
-                    </Badge>
-
-                    <Title order={3} c="white">
-                      {item.title}
+                    <Title order={3} c="white" lineClamp={2}>
+                      {blog.title}
                     </Title>
 
-                    <Button
-                      mt="lg"
-                      variant="subtle"
-                      color="orange"
-                      rightSection={<FaArrowRight />}
-                    >
-                      Read More
-                    </Button>
+                    <Text c="rgba(255,255,255,0.65)" mt="md" lineClamp={3}>
+                      {blog.shortDescription}
+                    </Text>
+
+                    <Group justify="space-between" mt="xl">
+                      <Text size="sm" c="dimmed">
+                        {blog.readTime}
+                      </Text>
+
+                      <Button
+                        variant="subtle"
+                        color="orange"
+                        rightSection={<FaArrowRight />}
+                      >
+                        Read More
+                      </Button>
+                    </Group>
                   </Box>
                 </Card>
               </motion.div>

@@ -16,61 +16,10 @@ import {
 
 import { motion } from "framer-motion";
 import { FaUser, FaCalendarAlt, FaArrowRight, FaClock } from "react-icons/fa";
-
 import { Link } from "react-router-dom";
 import { blogsData } from "../../constants/blogsData";
 import leaderImg from "../../assets/home/about-1.jpg";
 
-/* 🔥 BLOG DATA */
-const featuredBlogs = [
-  {
-    id: 1,
-    image: leaderImg,
-    category: "Education",
-    title: "Empowering Communities Through Education",
-    description:
-      "Building access to quality education and leadership opportunities for marginalized youth.",
-    author: "Admin",
-    date: "March 12, 2026",
-    readTime: "5 min read",
-  },
-
-  {
-    id: 2,
-    image: leaderImg,
-    category: "Healthcare",
-    title: "Healthcare Support for Everyone",
-    description:
-      "Delivering essential healthcare awareness and support to underserved communities.",
-    author: "Admin",
-    date: "March 18, 2026",
-    readTime: "4 min read",
-  },
-
-  {
-    id: 3,
-    image: leaderImg,
-    category: "Environment",
-    title: "Clean Water Initiative Across Rural Areas",
-    description:
-      "Providing access to safe drinking water and improving sanitation infrastructure.",
-    author: "Admin",
-    date: "March 22, 2026",
-    readTime: "6 min read",
-  },
-
-  {
-    id: 4,
-    image: leaderImg,
-    category: "Community",
-    title: "Join Hands to Create Lasting Change",
-    description:
-      "Volunteers and local leaders are building pathways toward dignity and empowerment.",
-    author: "Admin",
-    date: "March 25, 2026",
-    readTime: "3 min read",
-  },
-];
 const featuredBlog = blogsData.find((blog) => blog.featured) || blogsData[0];
 
 const otherBlogs = blogsData.filter((blog) => blog.id !== featuredBlog.id);
@@ -170,7 +119,7 @@ function BlogSection() {
                       zIndex: 5,
                     }}
                   >
-                    {featuredBlogs.category}
+                    {featuredBlog.category}
                   </Badge>
                 </Box>
               </Grid.Col>
@@ -187,11 +136,11 @@ function BlogSection() {
                         lineHeight: 1.15,
                       }}
                     >
-                      {featuredBlogs.title}
+                      {featuredBlog.title}
                     </Title>
 
                     <Text c="rgba(255,255,255,0.72)" size="lg" lh={2}>
-                      {featuredBlogs.shortDescription}
+                      {featuredBlog.shortDescription}
                     </Text>
 
                     {/* META */}
@@ -200,7 +149,7 @@ function BlogSection() {
                         <FaUser size={13} color="rgba(255,255,255,0.7)" />
 
                         <Text c="rgba(255,255,255,0.7)" size="sm">
-                          {featuredBlogs.author}
+                          {featuredBlog.author}
                         </Text>
                       </Group>
 
@@ -211,7 +160,7 @@ function BlogSection() {
                         />
 
                         <Text c="rgba(255,255,255,0.7)" size="sm">
-                          {featuredBlogs.date}
+                          {featuredBlog.date}
                         </Text>
                       </Group>
 
@@ -219,7 +168,7 @@ function BlogSection() {
                         <FaClock size={13} color="rgba(255,255,255,0.7)" />
 
                         <Text c="rgba(255,255,255,0.7)" size="sm">
-                          {featuredBlogs.readTime}
+                          {featuredBlog.readTime}
                         </Text>
                       </Group>
                     </Group>
@@ -247,7 +196,6 @@ function BlogSection() {
 
         {/* 🔥 BLOG GRID */}
         <Grid gutter="xl">
-          {/* {featuredBlogs.slice(1).map((blog, index) => ( */}
           {otherBlogs.slice(0, 3).map((blog, index) => (
             <Grid.Col key={blog.id} span={{ base: 12, md: 4 }}>
               <motion.div
