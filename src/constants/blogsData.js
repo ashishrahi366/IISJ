@@ -25,9 +25,9 @@ import CRNA_22 from "../assets/Blogs/CRNA_22.webp";
 import CRNA_33 from "../assets/Blogs/CRNA_33.webp";
 
 
-import CA3 from "../assets/Pages/CA3.jpg";
-import FS1 from "../assets/Pages/FS1.png";
-import about1 from "../assets/Pages/about1-msc.webp";
+import CA3 from "../assets/pages/CA3.jpg";
+import FS1 from "../assets/pages/FS1.png";
+import about1 from "../assets/pages/about1-msc.webp";
 
 
 export const blogsData = [

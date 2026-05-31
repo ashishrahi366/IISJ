@@ -1,4 +1,4 @@
-import HWPO from "../assets/Blogs/hwpo.jpg";
+import HWPO from "../assets/Blogs/HWPO.jpg";
 import HWPO1jpg from "../assets/Blogs/HWPO1jpg.jpg";
 
 import leader3 from "../assets/home/leader3.webp";
