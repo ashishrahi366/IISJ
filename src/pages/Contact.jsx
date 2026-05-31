@@ -48,7 +48,7 @@ import CA2 from "../assets/pages/CA2.jpg";
 import CA3 from "../assets/pages/CA3.jpg";
 import CA4 from "../assets/home/infoImg3.jpeg";
 
-function ContactPage() {
+function  ContactPage() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -380,10 +380,10 @@ function ContactPage() {
                 }}
               >
                 <Stack gap="lg">
-                  <Group>
+                  {/* <Group>
                     <FaPhoneAlt />
                     <Text fw={600}>+91 98765 43210</Text>
-                  </Group>
+                  </Group> */}
 
                   <Group>
                     <FaEnvelope />
