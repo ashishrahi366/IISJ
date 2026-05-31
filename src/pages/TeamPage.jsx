@@ -10,91 +10,18 @@ import {
   Image,
   Overlay,
   Paper,
-  SimpleGrid,
   Stack,
   Text,
   ThemeIcon,
   Title,
 } from "@mantine/core";
+import { FaArrowRight, FaUsers } from "react-icons/fa";
 
 import { motion } from "framer-motion";
-
 import { Link } from "react-router-dom";
-
-import {
-  FaArrowRight,
-  FaEnvelope,
-  FaInstagram,
-  FaLinkedinIn,
-  FaUsers,
-} from "react-icons/fa";
+import { teamMembers } from "../constants/comon";
 
 import heroImg from "../assets/home/infoImg3.jpeg";
-
-import member1 from "../assets/pages/founder22.JPG";
-import member2 from "../assets/home/leader2.JPG";
-import member3 from "../assets/home/about-2.jpg";
-import member4 from "../assets/home/about-2.jpg";
-
-/* TEAM DATA */
-
-const teamMembers = [
-  {
-    image: member1,
-
-    name: "Vimal Kumar",
-
-    role: "Founder & Social Justice Leader",
-
-    desc: "Leading grassroots movements for equality, dignity, and the eradication of caste-based discrimination across India.",
-
-    instagram: "#",
-
-    linkedin: "#",
-  },
-
-  {
-    image: member2,
-
-    name: "Kajori",
-
-    role: "Community Program Coordinator",
-
-    desc: "Working closely with local communities to strengthen education, leadership, and women empowerment initiatives.",
-
-    instagram: "#",
-
-    linkedin: "#",
-  },
-
-  {
-    image: member3,
-
-    name: "Eric",
-
-    role: "Youth Fellowship Mentor",
-
-    desc: "Supporting young leaders through fellowship programs, leadership training, and community engagement.",
-
-    instagram: "#",
-
-    linkedin: "#",
-  },
-
-  {
-    image: member4,
-
-    name: "Ashish Kumar",
-
-    role: "Education & Outreach Lead",
-
-    desc: "Managing educational initiatives, partnerships, and awareness programs for marginalized communities.",
-
-    instagram: "#",
-
-    linkedin: "#",
-  },
-];
 
 function TeamPage() {
   return (

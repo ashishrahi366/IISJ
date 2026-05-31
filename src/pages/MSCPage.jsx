@@ -14,12 +14,8 @@ import {
   ThemeIcon,
   Button,
 } from "@mantine/core";
-
 import {
-  FaBuilding,
   FaUsers,
-  FaGraduationCap,
-  FaHandsHelping,
   FaArrowRight,
   FaExclamationTriangle,
   FaBookOpen,
@@ -29,68 +25,28 @@ import {
   FaAward,
   FaTrophy,
 } from "react-icons/fa";
+
 import { motion } from "framer-motion";
+import {statsData} from "../constants/comon";
 
-import centerImg from "../assets/pages/mscCenter.jpg";
-import impactImg from "../assets/MSC/imapcted.JPG";
-import youthImg from "../assets/pages/FS3.jpg";
-import volunteerImg from "../assets/home/infoImg2.JPG";
 import awardImg from "../assets/home/award.webp";
-
 import HomeRecentNews from "../component/ui/HomeRecentNews";
-
 import heroImg from "../assets/MSC/MSC_Back.jpg";
 import MSCoverview from "../assets/MSC/MSCoverview.jpg";
 import HowrahImg from "../assets/MSC/Howrah-2.jpg";
 import BoyatGarbage from "../assets/MSC/BoyatGarbage.jpg";
 import MSCChart from "../assets/MSC/MSCChart.png";
 import InheritedImg from "../assets/home/Inherited-Biographies.jpg";
-import problemImg from "../assets/MSC/mscCenterProb.JPG";
-import projectImg from "../assets/MSC/mscCenter1.JPG";
+import problemImg from "../assets/MSC/mscCenterProb.webp";
+import projectImg from "../assets/MSC/mscCenter1.webp";
 
-import g1 from "../assets/home/about-1.jpg";
-import g2 from "../assets/home/about-1.jpg";
-import g3 from "../assets/home/about-1.jpg";
-import g4 from "../assets/home/about-1.jpg";
+
+import g1 from "../assets/home/homeHero1.webp";
+import g2 from "../assets/home/homeHero1.webp";
+import g3 from "../assets/home/homeHero1.webp";
+import g4 from "../assets/home/homeHero1.webp";
 
 export default function MSCPage() {
-  const statsData = [
-    {
-      number: "6+",
-      label: "Community Centers",
-      desc: "Safe learning and empowerment spaces across multiple states.",
-      icon: <FaBuilding size={22} />,
-      image: centerImg,
-      color: "#3b82f6",
-    },
-
-    {
-      number: "5000+",
-      label: "Lives Impacted",
-      desc: "Families empowered through education, awareness, and advocacy.",
-      icon: <FaUsers size={22} />,
-      image: impactImg,
-      color: "#f97316",
-    },
-
-    {
-      number: "100+",
-      label: "Youth Empowered",
-      desc: "Young leaders trained through fellowship and leadership programs.",
-      icon: <FaGraduationCap size={22} />,
-      image: youthImg,
-      color: "#22c55e",
-    },
-
-    {
-      number: "250+",
-      label: "Volunteers",
-      desc: "Dedicated changemakers supporting grassroots transformation.",
-      icon: <FaHandsHelping size={22} />,
-      image: volunteerImg,
-      color: "#a855f7",
-    },
-  ];
   return (
     <div>
       {/* HERO */}

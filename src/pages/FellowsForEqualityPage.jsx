@@ -23,8 +23,8 @@ import { Link } from "react-router-dom";
 import { FaArrowRight, FaUsers, FaCheckCircle } from "react-icons/fa";
 
 // import heroImg from "../assets/pages/wwd4.webp";
-import heroImg from "../assets/pages/FS1.png";
-import ChildBanner from "../assets/pages/FS4.JPG";
+import heroImg from "../assets/pages/FS1.webp";
+import ChildBanner from "../assets/pages/FS4.webp";
 import wwd4 from "../assets/pages/wwd4.webp";
 import FF2 from "../assets/pages/mvv2.webp";
 

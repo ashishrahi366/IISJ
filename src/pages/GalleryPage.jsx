@@ -32,7 +32,7 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-import heroImg from "../assets/home/about-1.jpg";
+import heroImg from "../assets/home/homeHero1.webp";
 
 export default function GalleryPage() {
   const [opened, setOpened] = useState(false);

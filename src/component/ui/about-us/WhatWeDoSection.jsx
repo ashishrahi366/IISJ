@@ -23,11 +23,11 @@ import {
 import { Link } from "react-router-dom";
 import wwd1 from "../../../assets/home/heroHome4.webp";
 import wwd2 from "../../../assets/pages/wwd2.webp";
-import wwd3 from "../../../assets/pages/wwd3.JPG";
+import wwd3 from "../../../assets/pages/wwd3.webp";
 import wwd4 from "../../../assets/pages/wwd4.webp";
 
-import about2 from "../../../assets/pages/about2.JPG";
-import heroHome5 from "../../../assets/home/heroHome5.JPG";
+import about2 from "../../../assets/pages/abtHero1.webp";
+import heroHome5 from "../../../assets/home/heroHome5.webp";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);

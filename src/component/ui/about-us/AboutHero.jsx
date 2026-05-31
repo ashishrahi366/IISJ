@@ -2,7 +2,7 @@ import { Box, Container, Title, Text, Overlay } from "@mantine/core";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { theme } from "../../../theme";
-import heroImg from "../../../assets/pages/abtHero1.jpg";
+import heroImg from "../../../assets/pages/abtHero1.webp";
 
 function AboutHero() {
   return (

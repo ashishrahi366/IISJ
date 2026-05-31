@@ -35,13 +35,13 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
-import heroImg from "../assets/home/heroHome3.JPG";
-import introImg from "../assets/pages/introiisj.JPG";
+import heroImg from "../assets/home/heroHome3.webp";
+import introImg from "../assets/pages/introiisj.webp";
 
-import g1 from "../assets/home/about-1.jpg";
-import g2 from "../assets/home/about-1.jpg";
-import g3 from "../assets/home/about-1.jpg";
-import g4 from "../assets/home/about-1.jpg";
+import g1 from "../assets/home/homeHero1.webp";
+import g2 from "../assets/home/homeHero1.webp";
+import g3 from "../assets/home/homeHero1.webp";
+import g4 from "../assets/home/homeHero1.webp";
 
 function IISJPage() {
   const scopeData = [

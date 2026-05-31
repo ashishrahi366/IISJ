@@ -31,9 +31,9 @@ import { Link } from "react-router-dom";
 
 import {blogsData} from "../constants/blogsData";
 /* IMAGES */
-import heroImg from "../assets/pages/1wwd1.JPG";
-import wwdMsc from "../assets/pages/wwdMsc.JPG";
-import mscImg from "../assets/pages/wwdMsc.JPG";
+import heroImg from "../assets/pages/1wwd1.webp";
+import wwdMsc from "../assets/pages/wwdMsc.webp";
+import mscImg from "../assets/pages/wwdMsc.webp";
 import avarnaImg from "../assets/pages/iisj2.jpeg";
 import iisjImg from "../assets/home/homeAbt1.jpeg";
 import wwdcom from "../assets/pages/wwdcom.jpeg";

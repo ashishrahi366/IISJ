@@ -20,41 +20,11 @@ import { motion } from "framer-motion";
 import { FaQuoteRight, FaLinkedin, FaArrowRight } from "react-icons/fa";
 
 // import leaderImg from "../../assets/home/Vimalpic2.jpg";
+import { leaderSectionLeadersData } from "../../constants/comon";
 import leaderImg from "../../assets/home/LeaderImg.jpg";
-import leader1 from "../../assets/home/Vimalpic2.jpg";
-import leader2 from "../../assets/home/leader2.JPG";
-import leader3 from "../../assets/home/leader3.webp";
 
 import { theme } from "../../theme";
-
 function LeaderSection() {
-  // 🔥 Leadership Data
-  const leaders = [
-    {
-      name: "Dr. Vimal Kumar",
-      designation: "Founder & CEO",
-      image: leader1,
-      description:
-        "A passionate social justice leader working to eradicate caste-based discrimination and empower marginalized communities through education, dignity, and leadership.",
-    },
-
-    {
-      name: "Kajori",
-      designation: "Director – Community Programs",
-      image: leader2,
-      description:
-        "Leads grassroots initiatives focused on women empowerment, education access, leadership training, and sustainable community transformation.",
-    },
-
-    {
-      name: "Eric",
-      designation: "Head of Youth Leadership",
-      image: leader3,
-      description:
-        "Works closely with young changemakers to build inclusive leadership networks, fellowship programs, and community-driven innovation projects.",
-    },
-  ];
-
   return (
     <Box
       py={100}
@@ -259,7 +229,7 @@ function LeaderSection() {
 
         {/* 🔥 LEADERSHIP CARDS */}
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl">
-          {leaders.map((leader, index) => (
+          {leaderSectionLeadersData.map((leader, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 60 }}

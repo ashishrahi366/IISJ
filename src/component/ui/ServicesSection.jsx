@@ -5,52 +5,17 @@ import {
   Card,
   Container,
   Grid,
-  Group,
-  Overlay,
   Stack,
   Text,
   ThemeIcon,
   Title,
 } from "@mantine/core";
 import { motion } from "framer-motion";
-import {
-  FaArrowRight,
-  FaBookOpen,
-  FaHandsHelping,
-  FaUsers,
-} from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const MotionCard = motion(Card);
-
-const services = [
-  {
-    icon: <FaBookOpen size={28} />,
-    title: "International Institute for Social Justice",
-    short: "Education • Leadership • Research",
-    desc: "IISJ empowers marginalized communities through leadership development, fellowships, research, education, and grassroots social justice initiatives that promote equality and dignity.",
-    path: "/IISJ",
-    gradient: "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
-  },
-
-  {
-    icon: <FaHandsHelping size={28} />,
-    title: "Movement for Scavenger Community",
-    short: "Grassroots • Equality • Empowerment",
-    desc: "MSC works to eradicate manual scavenging and strengthen sanitation worker communities through education, livelihood support, leadership programs, and community resource centers.",
-    path: "/MSC-Detail",
-    gradient: "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
-  },
-
-  {
-    icon: <FaUsers size={28} />,
-    title: "Avarna Education & Training Foundation",
-    short: "Opportunity • Inclusion • Change",
-    desc: "AVARNA supports Dalit, tribal, and marginalized communities through entrepreneurship, policy advocacy, education, and social empowerment initiatives.",
-    path: "/Avarna",
-    gradient: "linear-gradient(135deg, #ff7b00 0%, #ff9d3d 100%)",
-  },
-];
+import { homeServicesSectionData } from "../../constants/comon";
 
 function ServicesSection() {
   const navigate = useNavigate();
@@ -144,7 +109,7 @@ function ServicesSection() {
         {/* CARDS */}
 
         <Grid gutter={30}>
-          {services.map((item, index) => (
+          {homeServicesSectionData.map((item, index) => (
             <Grid.Col key={index} span={{ base: 12, md: 4 }}>
               <MotionCard
                 initial={{ opacity: 0, y: 50 }}

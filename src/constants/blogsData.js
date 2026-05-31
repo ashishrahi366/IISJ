@@ -1,32 +1,32 @@
 // import blogCover from "../assets/home/about-1.jpg";
 // https://www.mccaininstitute.org/resources/blog/coronavirus-social-distancing-and-untouchable-sanitation-workers/
-import FFE_B from "../assets/Blogs/FFE-B.JPG";
-import FCRNA_B from "../assets/Blogs/FCRNA_B.jpg";
-import FCRNA_1_B from "../assets/Blogs/FCRNA_1_B.jpg";
-import CKCOOK from "../assets/Blogs/CKCOOK.jpg";
-import CRNA_2 from "../assets/Blogs/CRNA_2.jpg";
-import CRNA_3jpg from "../assets/Blogs/CRNA_3jpg.jpg";
+import FFE_B from "../assets/Blogs/FFE-B.webp";
+import FCRNA_B from "../assets/Blogs/FCRNA_B.webp";
+import FCRNA_1_B from "../assets/Blogs/FCRNA_1_B.webp";
+import CKCOOK from "../assets/Blogs/CKCOOK.webp";
+import CRNA_2 from "../assets/Blogs/CRNA_2.webp";
+import CRNA_3jpg from "../assets/Blogs/CRNA_3jpg.webp";
 import CRNA_4 from "../assets/Blogs/CRNA_4.webp";
 
 import NEWFellow from "../assets/Blogs/NEWFellow.jpg";
 import JNBlog from "../assets/Blogs/JNBlog.jpg";
-import GDBlog from "../assets/Blogs/GDBlog.jpg";
-import BSBlog from "../assets/Blogs/BSBlog.jpg";
+import GDBlog from "../assets/Blogs/GDBlog.webp";
+import BSBlog from "../assets/Blogs/BSBlog.webp";
 
-import HWPO from "../assets/Blogs/HWPO.jpg";
-import HWPO1jpg from "../assets/Blogs/HWPO1jpg.jpg";
-import HWPO2 from "../assets/Blogs/HWPO2.jpg";
+import HWPO from "../assets/Blogs/HWPO.webp";
+import HWPO1jpg from "../assets/Blogs/HWPO1jpg.webp";
+import HWPO2 from "../assets/Blogs/HWPO2.webp";
 import HWPO4 from "../assets/Blogs/HWPO4.jpg";
 import HWPO3 from "../assets/Blogs/HWPO3.jpg";
 
-import CRNA_11 from "../assets/Blogs/CRNA-11.jpg";
-import founder22 from "../assets/pages/founder22.JPG";
+import CRNA_11 from "../assets/Blogs/CRNA-11.webp";
+import founder22 from "../assets/pages/founder22.webp";
 import CRNA_22 from "../assets/Blogs/CRNA_22.webp";
 import CRNA_33 from "../assets/Blogs/CRNA_33.webp";
 
 
 import CA3 from "../assets/pages/CA3.jpg";
-import FS1 from "../assets/pages/FS1.png";
+import FS1 from "../assets/pages/FS1.webp";
 import about1 from "../assets/pages/about1-msc.webp";
 
 
@@ -739,7 +739,7 @@ export const blogsData = [
                      need more love and humanity to kill the virus of casteism and racism in our society.
                 `,
             },
-            
+
         ],
     },
 ];

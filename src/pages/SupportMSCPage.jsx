@@ -28,10 +28,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 
-import heroHome5 from "../assets/home/heroHome5.JPG";
+import heroHome5 from "../assets/home/heroHome5.webp";
 import mvv3 from "../assets/pages/mvv3.webp";
-import partner from "../assets/pages/partner.JPG";
-import volunteer from "../assets/pages/volunteer.JPG";
+import partner from "../assets/pages/partner.webp";
+import volunteer from "../assets/pages/volunteer.webp";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);

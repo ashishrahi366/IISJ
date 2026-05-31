@@ -29,14 +29,12 @@ import {
 
 import { Link } from "react-router-dom";
 
-import heroImage from "../assets/home/about-1.jpg";
-import fellowshipImage from "../assets/home/about-1.jpg";
-import resourceImage from "../assets/home/about-1.jpg";
+import heroImage from "../assets/pages/CA1.webp";
+import fellowshipImage from "../assets/pages/partner.webp";
+import resourceImage from "../assets/pages/volunteer.webp";
 
 export default function OurProjectsPage() {
-  /* =========================
-     PROJECT DATA
-  ========================= */
+  /*  PROJECT DATA*/
 
   const focusAreas = [
     {
@@ -108,9 +106,7 @@ export default function OurProjectsPage() {
         overflow: "hidden",
       }}
     >
-      {/* =========================================
-    REDESIGNED HERO SECTION
-========================================= */}
+      {/*     REDESIGNED HERO SECTION*/}
 
       <Box
         style={{
@@ -394,9 +390,7 @@ export default function OurProjectsPage() {
         </Container>
       </Box>
 
-      {/* =========================================
-          FOCUS AREAS
-      ========================================= */}
+      {/*FOCUS AREAS*/}
 
       <Container size="xl" py={100}>
         <Stack align="center" mb={60}>
@@ -525,10 +519,7 @@ export default function OurProjectsPage() {
         </SimpleGrid>
       </Container>
 
-      {/* =========================================
-          HOW COMMUNITY WORKS
-      ========================================= */}
-
+      {/*  HOW COMMUNITY WORKS */}
       <div
         style={{
           background: "white",
@@ -638,9 +629,7 @@ export default function OurProjectsPage() {
         </Container>
       </div>
 
-      {/* =========================================
-          FELLOWSHIP SECTION
-      ========================================= */}
+      {/* FELLOWSHIP SECTION*/}
 
       <Container size="xl" py={100}>
         <Grid gutter={60} align="center">
@@ -739,9 +728,7 @@ export default function OurProjectsPage() {
         </Grid>
       </Container>
 
-      {/* =========================================
-          FINAL CTA
-      ========================================= */}
+      {/*FINAL CTA */}
 
       <Container size="xl" pb={100}>
         <motion.div
@@ -761,7 +748,7 @@ export default function OurProjectsPage() {
               position: "relative",
             }}
           >
-            <Overlay color="#000" opacity={0.12} />
+            {/* <Overlay color="#000" opacity={0.12} /> */}
 
             <Stack
               align="center"

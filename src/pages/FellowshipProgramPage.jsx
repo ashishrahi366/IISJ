@@ -11,7 +11,6 @@ import {
   Button,
   TextInput,
   Paper,
-  Overlay,
   ThemeIcon,
   Group,
   Notification,
@@ -25,22 +24,13 @@ import {
   FaArrowRight,
   FaCheckCircle,
   FaEnvelope,
-  FaHandsHelping,
-  FaUsers,
-  FaGraduationCap,
-  FaLightbulb,
 } from "react-icons/fa";
 
+import {programs} from "../constants/comon"
 import CTAImg from "../assets/pages/MSC-Activism.jpg";
 import heroImg from "../assets/pages/mvv2.webp";
 import fellowshipImg from "../assets/pages/fellowshipImg.jpg";
-import LeadershipImg from "../assets/pages/Leadership.svg";
-import CommunityImg from "../assets/pages/Community.svg";
-import SkillImg from "../assets/pages/Skill.avif";
-import EducationImg from "../assets/pages/Education.avif";
-import workshopImg from "../assets/home/about-1.jpg";
-import leaderImg from "../assets/home/about-1.jpg";
-import communityImg from "../assets/home/about-1.jpg";
+
 
 function FellowshipProgramPage() {
   const [email, setEmail] = useState("");
@@ -78,38 +68,6 @@ function FellowshipProgramPage() {
       setEmail("");
     }, 1500);
   };
-
-  // ✅ Program Features
-  const programs = [
-    {
-      title: "Leadership Workshops",
-      image: LeadershipImg,
-      icon: <FaUsers />,
-      desc: "Interactive leadership sessions designed to build confidence, public speaking, community organizing, and grassroots advocacy skills.",
-    },
-
-    {
-      title: "Community Projects",
-      image: CommunityImg,
-      icon: <FaHandsHelping />,
-      desc: "Fellows lead impactful projects in their own communities focused on education, awareness, dignity, and social transformation.",
-    },
-
-    {
-      title: "Skill Development",
-      image: SkillImg,
-      icon: <FaLightbulb />,
-      desc: "Participants receive mentoring, digital literacy training, communication support, and exposure to social innovation models.",
-    },
-
-    {
-      title: "Educational Support",
-      image: EducationImg,
-      icon: <FaGraduationCap />,
-      desc: "Selected fellows receive guidance, networking opportunities, and financial assistance to continue their learning journey.",
-    },
-  ];
-
   return (
     <>
       {/* 🔥 HERO SECTION */}

@@ -1,5 +1,5 @@
-import HWPO from "../assets/Blogs/HWPO.jpg";
-import HWPO1jpg from "../assets/Blogs/HWPO1jpg.jpg";
+import HWPO from "../assets/Blogs/HWPO.webp";
+import HWPO1jpg from "../assets/Blogs/HWPO1jpg.webp";
 
 import leader3 from "../assets/home/leader3.webp";
 import homeHero1 from "../assets/home/homeHero1.webp";

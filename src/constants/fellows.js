@@ -1,6 +1,6 @@
-import BSBlog from "../assets/Blogs/BSBlog.jpg";
+import BSBlog from "../assets/Blogs/BSBlog.webp";
 import JNBlog from "../assets/Blogs/JNBlog.jpg";
-import GDBlog from "../assets/Blogs/GDBlog.jpg";
+import GDBlog from "../assets/Blogs/GDBlog.webp";
 
 export const currentFellows = [
     {

@@ -39,8 +39,8 @@ import {
 
 import { Link } from "react-router-dom";
 
-import heroImg from "../assets/home/heroHome2.jpeg";
-import sectionImg from "../assets/home/leader2.JPG";
+import heroImg from "../assets/home/heroHome2.webp";
+import sectionImg from "../assets/home/leader2.webp";
 
 const actionAreas = [
   {

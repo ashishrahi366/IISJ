@@ -15,7 +15,7 @@ import {Link} from "react-router-dom"
 import { FaArrowRight, FaHandsHelping } from "react-icons/fa";
 
 import fp1 from "../../../assets/pages/fp1.jpg";
-import about1 from "../../../assets/pages/about1.JPG";
+import about1 from "../../../assets/pages/about1.webp";
 
 const MotionBox = motion(Box);
 
@@ -57,12 +57,6 @@ export default function VolunteerSupportCTA() {
                 opacity: 0.1,
               }}
             />
-
-            {/* <Overlay
-                gradient="linear-gradient(135deg, rgba(5,10,20,0.88) 0%, rgba(5,10,20,0.96) 100%)"
-                opacity={1}
-              /> */}
-
             {/* ORANGE BLUR */}
 
             <Box

@@ -45,7 +45,7 @@ import { blogsData } from "../constants/blogsData";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import heroImg from "../assets/pages/blogHero1.JPG";
+import heroImg from "../assets/pages/blogHero1.webp";
 
 export default function BlogsPage() {
   const categoryCards = [

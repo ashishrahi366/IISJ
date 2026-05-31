@@ -20,7 +20,7 @@ import { FaArrowRight, FaAward, FaGlobe, FaUsers } from "react-icons/fa";
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
-import leader2 from "../../../assets/home/leader2.JPG";
+import leader2 from "../../../assets/home/leader2.webp";
 import leader13 from "../../../assets/home/leader13.webp";
 import leader12 from "../../../assets/home/leader12.jpg";
 

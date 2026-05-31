@@ -18,7 +18,6 @@ import { motion } from "framer-motion";
 import { FaUser, FaCalendarAlt, FaArrowRight, FaClock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { blogsData } from "../../constants/blogsData";
-import leaderImg from "../../assets/home/about-1.jpg";
 
 const featuredBlog = blogsData.find((blog) => blog.featured) || blogsData[0];
 

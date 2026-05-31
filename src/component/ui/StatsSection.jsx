@@ -51,8 +51,6 @@ function useCounter(end, duration = 2) {
   return count;
 }
 
-/* STATS DATA */
-
 const stats = [
   {
     icon: FaUsers,

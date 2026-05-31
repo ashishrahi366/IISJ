@@ -19,7 +19,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 // import { } from "react-router-dom";
 
-import mscImg from "../../../assets/MSC/MSC-About.jpg";
+import mscImg from "../../../assets/MSC/MSC-About.webp";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);

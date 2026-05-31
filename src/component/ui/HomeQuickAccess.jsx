@@ -1,5 +1,3 @@
-// components/HomeQuickAccess.jsx
-
 import React from "react";
 import {
   Container,
@@ -10,57 +8,15 @@ import {
   Image,
   Button,
   Stack,
-  Group,
-  Overlay,
+
   Box,
 } from "@mantine/core";
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
-import {
-  FaArrowRight,
-  FaFolderOpen,
-  FaProjectDiagram,
-  FaHandsHelping,
-} from "react-icons/fa";
-
+import { FaArrowRight } from "react-icons/fa";
 import { theme } from "../../theme";
-
-// Dummy Images
-import infoImg from "../../assets/home/infoImg1.JPG";
-import projectImg from "../../assets/home/infoImg2.JPG";
-import involvedImg from "../../assets/home/infoImg3.jpeg";
-
-const cards = [
-  {
-    title: "Information",
-    description:
-      "Explore our initiatives, stories, reports, research, and community-driven impact across India.",
-    image: infoImg,
-    icon: <FaFolderOpen size={24} />,
-    link: "/MSC-Detail",
-    color: "#2563eb",
-  },
-  {
-    title: "Our Projects",
-    description:
-      "Discover transformative programs focused on education, leadership, equality, and empowerment.",
-    image: projectImg,
-    icon: <FaProjectDiagram size={24} />,
-    link: "/projects",
-    color: "#f59e0b",
-  },
-  {
-    title: "Get Involved",
-    description:
-      "Join us as a volunteer, partner, donor, or advocate to create meaningful social change.",
-    image: involvedImg,
-    icon: <FaHandsHelping size={24} />,
-    link: "/contact",
-    color: "#22c55e",
-  },
-];
+import { homeQuickAccessCard } from "../../constants/comon";
 
 export default function HomeQuickAccess() {
   return (
@@ -119,19 +75,16 @@ export default function HomeQuickAccess() {
             size="lg"
             style={{ lineHeight: 1.8 }}
           >
-            Learn about our movement, explore impactful community projects,
-            and become part of a growing network working for dignity,
-            equality, and justice.
+            Learn about our movement, explore impactful community projects, and
+            become part of a growing network working for dignity, equality, and
+            justice.
           </Text>
         </Stack>
 
         {/* CARDS */}
         <Grid gutter={35}>
-          {cards.map((item, index) => (
-            <Grid.Col
-              key={index}
-              span={{ base: 12, md: 6, lg: 4 }}
-            >
+          {homeQuickAccessCard.map((item, index) => (
+            <Grid.Col key={index} span={{ base: 12, md: 6, lg: 4 }}>
               <motion.div
                 initial={{ opacity: 0, y: 70 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -157,11 +110,7 @@ export default function HomeQuickAccess() {
                 >
                   {/* IMAGE */}
                   <Box style={{ position: "relative" }}>
-                    <Image
-                      src={item.image}
-                      h={260}
-                      alt={item.title}
-                    />
+                    <Image src={item.image} h={260} alt={item.title} />
 
                     {/* <Overlay
                       gradient="linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,0.85) 100%)"

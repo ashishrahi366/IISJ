@@ -1,5 +1,4 @@
 import React, { useMemo } from "react";
-// import from "react";
 import {
   Container,
   Grid,
@@ -18,9 +17,6 @@ import {
   ActionIcon,
   ThemeIcon,
 } from "@mantine/core";
-
-import { motion } from "framer-motion";
-
 import {
   FaArrowRight,
   FaCalendarAlt,
@@ -29,56 +25,9 @@ import {
   FaNewspaper,
 } from "react-icons/fa";
 
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { blogsData } from "../../constants/blogsData";
-import blogMain from "../../assets/home/about-1.jpg";
-
-// /* 🔥 FEATURED BLOG */
-// const featuredBlog = {
-//   id: 1,
-//   title: "Empowering Marginalized Communities Through Education & Leadership",
-//   desc: "Discover how community-driven initiatives are creating sustainable opportunities for youth, women, and underserved populations through education, leadership training, and grassroots empowerment programs.",
-//   image: blogMain,
-//   author: "Admin",
-//   date: "May 08, 2026",
-//   readTime: "6 min read",
-//   category: "Leadership",
-// };
-
-/* 🔥 SIDE BLOGS */
-// const recentBlogs = [
-//   {
-//     id: 2,
-//     title: "Women Leadership & Social Change",
-//     desc: "Creating opportunities for women to lead community transformation initiatives.",
-//     date: "May 12, 2026",
-//     category: "Women Empowerment",
-//   },
-
-//   {
-//     id: 3,
-//     title: "Youth Fellowship Program Launch",
-//     desc: "Supporting young changemakers through mentorship and leadership training.",
-//     date: "May 15, 2026",
-//     category: "Youth",
-//   },
-
-//   {
-//     id: 4,
-//     title: "Building Inclusive Rural Development",
-//     desc: "A sustainable model focused on equality, dignity, and local participation.",
-//     date: "May 18, 2026",
-//     category: "Development",
-//   },
-
-//   {
-//     id: 5,
-//     title: "Grassroots Leadership for Social Justice",
-//     desc: "Strengthening community-driven movements across marginalized regions.",
-//     date: "May 20, 2026",
-//     category: "Justice",
-//   },
-// ];
 
 export default function HomeRecentNews() {
   const featuredBlog = blogsData.find((blog) => blog.featured) || blogsData[0];

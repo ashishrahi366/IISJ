@@ -14,60 +14,11 @@ import {
 
 import { motion } from "framer-motion";
 
-import { FaArrowRight, FaPlay, FaExternalLinkAlt } from "react-icons/fa";
+import { homeMediaData } from "../../constants/comon";
 
 import { theme } from "../../theme";
 
-/* 🔥 MEDIA IMAGES */
-/* 🔥 Partner Logos / Images */
-import bbcImg from "../../assets/home/BBC2.jpg";
-import yourStoryImg from "../../assets/home/Yourstory.png";
-import bigStoryImg from "../../assets/home/BigStory.jpg";
-import AZU from "../../assets/home/AZU.webp";
-
 function MediaCoverageSection() {
-  /* 🔥 DATA */
-  const mediaData = [
-    {
-      title: "BBC",
-      subtitle: "International Coverage",
-      image: bbcImg,
-      link: "https://www.bbc.co.uk/programmes/p04jlc9w",
-      icon: <FaExternalLinkAlt size={15} />,
-      color: "#f97316",
-      textColor: "#ffffff",
-    },
-
-    {
-      title: "YourStory",
-      subtitle: "Founder Story",
-      image: yourStoryImg,
-      link: "https://yourstory.com/2015/09/vimal-kumar",
-      icon: <FaArrowRight size={15} />,
-      color: "#3b82f6",
-      textColor: "#3c9efa",
-    },
-
-    {
-      title: "Big Story",
-      subtitle: "Video Documentary",
-      image: bigStoryImg,
-      link: "https://www.youtube.com/watch?v=GF44g6sxqy0",
-      icon: <FaPlay size={15} />,
-      color: "#ef4444",
-      textColor: "#eb1515",
-    },
-    {
-      title: "Arizona State University",
-      subtitle: "National Security Lab",
-      image: AZU,
-      link: "https://ldns.asu.edu/about/vimal-kumar",
-      icon: <FaPlay size={15} />,
-      color: "#3b0614",
-      textColor: "#3b0614",
-    },
-  ];
-
   return (
     <Box
       py={100}
@@ -109,7 +60,7 @@ function MediaCoverageSection() {
 
         {/* 🔥 IMAGE FOCUSED CARDS */}
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl">
-          {mediaData.map((item, index) => (
+          {homeMediaData.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
