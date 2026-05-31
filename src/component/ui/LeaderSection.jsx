@@ -17,17 +17,13 @@ import {
 
 import { motion } from "framer-motion";
 
-import {
-  FaQuoteRight,
-  FaLinkedin,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaQuoteRight, FaLinkedin, FaArrowRight } from "react-icons/fa";
 
 // import leaderImg from "../../assets/home/Vimalpic2.jpg";
 import leaderImg from "../../assets/home/LeaderImg.jpg";
 import leader1 from "../../assets/home/Vimalpic2.jpg";
 import leader2 from "../../assets/home/leader2.JPG";
-import leader3 from "../../assets/home/leader3.jpg";
+import leader3 from "../../assets/home/leader3.webp";
 
 import { theme } from "../../theme";
 
@@ -43,7 +39,7 @@ function LeaderSection() {
     },
 
     {
-      name: "Anjali Devi",
+      name: "Kajori",
       designation: "Director – Community Programs",
       image: leader2,
       description:
@@ -51,7 +47,7 @@ function LeaderSection() {
     },
 
     {
-      name: "Rahul Kumar",
+      name: "Eric",
       designation: "Head of Youth Leadership",
       image: leader3,
       description:
@@ -95,13 +91,7 @@ function LeaderSection() {
             marginBottom: "70px",
           }}
         >
-          <Badge
-            color="orange"
-            variant="light"
-            radius="xl"
-            size="lg"
-            mb={18}
-          >
+          <Badge color="orange" variant="light" radius="xl" size="lg" mb={18}>
             Leadership Team
           </Badge>
 
@@ -124,18 +114,10 @@ function LeaderSection() {
             </span>
           </Title>
 
-          <Text
-            c="dimmed"
-            mt="lg"
-            size="lg"
-            maw={760}
-            mx="auto"
-            lh={1.9}
-          >
-            Our leadership team combines lived experience,
-            grassroots activism, education, and community
-            engagement to create sustainable social impact
-            across underserved communities.
+          <Text c="dimmed" mt="lg" size="lg" maw={760} mx="auto" lh={1.9}>
+            Our leadership team combines lived experience, grassroots activism,
+            education, and community engagement to create sustainable social
+            impact across underserved communities.
           </Text>
         </motion.div>
 
@@ -156,12 +138,7 @@ function LeaderSection() {
                   borderRadius: "34px",
                 }}
               >
-                <Image
-                  src={leaderImg}
-                  radius="34px"
-                  h={550}
-                  fit="cover"
-                />
+                <Image src={leaderImg} radius="34px" h={550} fit="cover" />
 
                 <Overlay
                   gradient="linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,0.8) 100%)"
@@ -178,12 +155,7 @@ function LeaderSection() {
                     color: "white",
                   }}
                 >
-                  <Badge
-                    color="orange"
-                    variant="filled"
-                    radius="xl"
-                    mb={12}
-                  >
+                  <Badge color="orange" variant="filled" radius="xl" mb={12}>
                     Founder
                   </Badge>
 
@@ -191,10 +163,7 @@ function LeaderSection() {
                     Dr. Vimal Kumar
                   </Title>
 
-                  <Text
-                    mt={4}
-                    c="rgba(255,255,255,0.85)"
-                  >
+                  <Text mt={4} c="rgba(255,255,255,0.85)">
                     CEO & Founder
                   </Text>
                 </Box>
@@ -215,11 +184,9 @@ function LeaderSection() {
                 p="45px"
                 shadow="xl"
                 style={{
-                  background:
-                    "rgba(255,255,255,0.85)",
+                  background: "rgba(255,255,255,0.85)",
                   backdropFilter: "blur(18px)",
-                  border:
-                    "1px solid rgba(255,255,255,0.6)",
+                  border: "1px solid rgba(255,255,255,0.6)",
                 }}
               >
                 <Stack gap="xl">
@@ -240,28 +207,31 @@ function LeaderSection() {
                       fontStyle: "italic",
                     }}
                   >
-                    “Leadership is not about power — it is
-                    about creating dignity, opportunity,
-                    and justice for communities that have
+                    “Leadership is not about power — it is about creating
+                    dignity, opportunity, and justice for communities that have
                     been unheard for generations.”
                   </Text>
 
-                  <Text
-                    c="dimmed"
-                    lh={2}
-                    size="lg"
-                  >
-                    Dr. Vimal Kumar has dedicated his life
-                    to advocating for marginalized
-                    communities and building movements that
-                    challenge systemic inequality. Through
-                    grassroots leadership, education, and
-                    policy advocacy, he continues to inspire
-                    thousands of young changemakers across
-                    world.
+                  <Text c="dimmed" lh={2} size="lg">
+                    Dr. Vimal Kumar has dedicated his life to advocating for
+                    marginalized communities and building movements that
+                    challenge systemic inequality. Through grassroots
+                    leadership, education, and policy advocacy, he continues to
+                    inspire thousands of young changemakers across world.
                   </Text>
 
-                  <Group mt="md">
+                  <Group
+                    component="a"
+                    href="https://www.linkedin.com/in/dr-vimal-kumar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    mt="md"
+                    gap="md"
+                    style={{
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
                     <ThemeIcon
                       size={48}
                       radius="xl"
@@ -272,14 +242,11 @@ function LeaderSection() {
                     </ThemeIcon>
 
                     <div>
-                      <Text fw={700}>
+                      <Text fw={700} c="dark">
                         Connect With Leadership
                       </Text>
 
-                      <Text
-                        size="sm"
-                        c="dimmed"
-                      >
+                      <Text size="sm" c="dimmed">
                         Learn more about our mission
                       </Text>
                     </div>
@@ -291,10 +258,7 @@ function LeaderSection() {
         </Grid>
 
         {/* 🔥 LEADERSHIP CARDS */}
-        <SimpleGrid
-          cols={{ base: 1, sm: 2, md: 3 }}
-          spacing="xl"
-        >
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl">
           {leaders.map((leader, index) => (
             <motion.div
               key={index}
@@ -316,8 +280,7 @@ function LeaderSection() {
                 style={{
                   overflow: "hidden",
                   background: "white",
-                  border:
-                    "1px solid rgba(0,0,0,0.05)",
+                  border: "1px solid rgba(0,0,0,0.05)",
                   height: "100%",
                 }}
               >
@@ -328,11 +291,7 @@ function LeaderSection() {
                     overflow: "hidden",
                   }}
                 >
-                  <Image
-                    src={leader.image}
-                    height={400}
-                    fit="cover"
-                  />
+                  <Image src={leader.image} height={400} fit="cover" />
 
                   <Overlay
                     gradient="linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.75) 100%)"
@@ -353,10 +312,7 @@ function LeaderSection() {
                       {leader.name}
                     </Title>
 
-                    <Text
-                      c="rgba(255,255,255,0.85)"
-                      fw={500}
-                    >
+                    <Text c="rgba(255,255,255,0.85)" fw={500}>
                       {leader.designation}
                     </Text>
                   </Box>
@@ -364,34 +320,15 @@ function LeaderSection() {
 
                 {/* CONTENT */}
                 <Box p="xl">
-                  <Text
-                    c="dimmed"
-                    lh={1.9}
-                  >
+                  <Text c="dimmed" lh={1.9}>
                     {leader.description}
                   </Text>
 
                   {/* FOOTER */}
-                  <Group
-                    justify="space-between"
-                    mt="xl"
-                  >
-                    <Badge
-                      color="orange"
-                      variant="light"
-                      radius="xl"
-                    >
+                  <Group justify="space-between" mt="xl">
+                    <Badge color="orange" variant="light" radius="xl">
                       Leadership Team
                     </Badge>
-
-                    {/* <ThemeIcon
-                      radius="xl"
-                      size={40}
-                      color="orange"
-                      variant="light"
-                    >
-                      <FaArrowRight size={14} />
-                    </ThemeIcon> */}
                   </Group>
                 </Box>
               </Card>

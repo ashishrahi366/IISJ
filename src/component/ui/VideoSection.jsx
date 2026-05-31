@@ -8,7 +8,8 @@ import {
   Stack,
 } from "@mantine/core";
 import { motion } from "framer-motion";
-import { FaPlay, FaArrowRight } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { theme } from "../../theme";
 
 function VideoSection() {
@@ -97,6 +98,8 @@ function VideoSection() {
 
                 {/* CTA */}
                 <Button
+                  component={Link}
+                  to="https://www.youtube.com/@mscindia2530"
                   color="orange"
                   rightSection={<FaArrowRight size={14} />}
                   size="md"

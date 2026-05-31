@@ -23,6 +23,7 @@ import { theme } from "../../theme";
 import bbcImg from "../../assets/home/BBC2.jpg";
 import yourStoryImg from "../../assets/home/Yourstory.png";
 import bigStoryImg from "../../assets/home/BigStory.jpg";
+import AZU from "../../assets/home/AZU.webp";
 
 function MediaCoverageSection() {
   /* 🔥 DATA */
@@ -55,6 +56,15 @@ function MediaCoverageSection() {
       icon: <FaPlay size={15} />,
       color: "#ef4444",
       textColor: "#eb1515",
+    },
+    {
+      title: "Arizona State University",
+      subtitle: "National Security Lab",
+      image: AZU,
+      link: "https://ldns.asu.edu/about/vimal-kumar",
+      icon: <FaPlay size={15} />,
+      color: "#3b0614",
+      textColor: "#3b0614",
     },
   ];
 

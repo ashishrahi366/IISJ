@@ -32,7 +32,7 @@ import {
 } from "react-icons/fa";
 
 import CTAImg from "../assets/pages/MSC-Activism.jpg";
-import heroImg from "../assets/pages/MSC-Engage.jpg";
+import heroImg from "../assets/pages/mvv2.webp";
 import fellowshipImg from "../assets/pages/fellowshipImg.jpg";
 import LeadershipImg from "../assets/pages/Leadership.svg";
 import CommunityImg from "../assets/pages/Community.svg";

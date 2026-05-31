@@ -4,46 +4,51 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
-
 import "swiper/css";
 import "swiper/css/navigation";
-import slide1 from "../../assets/home/homeHero1.JPG";
+
+import slide1 from "../../assets/home/homeHero1.webp";
 import slide2 from "../../assets/home/heroHome2.jpeg";
 import slide3 from "../../assets/home/heroHome3.JPG";
-import slide4 from "../../assets/home/heroHome4.JPG";
+import slide4 from "../../assets/home/heroHome4.webp";
 import slide5 from "../../assets/home/heroHome5.JPG";
 import slide6 from "../../assets/home/homeHero6.jpeg";
 
 const slides = [
   {
     image: slide1,
-    title: "Let's Change The World With Humanity",
-    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+    title: "Empowering Leaders From The Scavenger Community",
+    text: "Through fellowship, mentorship, and collective action, AVRNA is nurturing a new generation of leaders dedicated to equality, dignity, and social transformation.",
   },
+
   {
     image: slide2,
-    title: "Let's Save More Lifes With Our Helping Hand",
-    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+    title: "Building Futures Through Fellows For Equality",
+    text: "Our fellowship program equips young changemakers with leadership skills, community organizing experience, and the confidence to create lasting impact.",
   },
+
   {
     image: slide3,
-    title: "Let's Change The World With Humanity",
-    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+    title: "Voices Of Change, Stories Of Resilience",
+    text: "From grassroots communities to national platforms, young leaders are raising their voices and challenging barriers through education and advocacy.",
   },
+
   {
     image: slide4,
-    title: "Let's Save More Lifes With Our Helping Hand",
-    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+    title: "Strengthening Communities Through Collective Leadership",
+    text: "AVRNA supports community-driven initiatives that foster education, social justice, and opportunities for future generations.",
   },
+
   {
     image: slide5,
-    title: "Let's Change The World With Humanity",
-    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+    title: "Creating Opportunities Beyond Generational Barriers",
+    text: "By connecting youth with mentorship, networks, and resources, we help unlock pathways to leadership and sustainable development.",
   },
+
   {
     image: slide6,
-    title: "Let's Save More Lifes With Our Helping Hand",
-    text: "Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet",
+    title: "Together Towards Equality And Human Dignity",
+    text: "Every fellowship journey contributes to a stronger movement working towards inclusion, dignity, and equal opportunities for all.",
   },
 ];
 

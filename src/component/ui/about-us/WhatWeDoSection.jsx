@@ -21,10 +21,10 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import wwd1 from "../../../assets/home/heroHome4.JPG";
-import wwd2 from "../../../assets/pages/wwd2.JPG";
+import wwd1 from "../../../assets/home/heroHome4.webp";
+import wwd2 from "../../../assets/pages/wwd2.webp";
 import wwd3 from "../../../assets/pages/wwd3.JPG";
-import wwd4 from "../../../assets/pages/wwd4.JPG";
+import wwd4 from "../../../assets/pages/wwd4.webp";
 
 import about2 from "../../../assets/pages/about2.JPG";
 import heroHome5 from "../../../assets/home/heroHome5.JPG";
@@ -302,6 +302,8 @@ export default function WhatWeDoSection() {
                 </Text>
 
                 <Button
+                  component={Link}
+                  to="/Our-Projects"
                   mt={35}
                   size="lg"
                   radius="xl"

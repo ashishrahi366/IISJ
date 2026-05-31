@@ -14,8 +14,8 @@ import {
 import { motion } from "framer-motion";
 import { FaBookOpen, FaHandsHelping, FaLightbulb } from "react-icons/fa";
 
-import about1 from "../../../assets/pages/about1-msc.JPG";
-import about2 from "../../../assets/home/homeHero1.JPG";
+import about1 from "../../../assets/pages/about1-msc.webp";
+import about2 from "../../../assets/home/homeHero1.webp";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);

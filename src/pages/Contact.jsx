@@ -19,9 +19,6 @@ import {
   Divider,
 } from "@mantine/core";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
@@ -39,10 +36,12 @@ import {
   FaUserFriends,
 } from "react-icons/fa";
 
-import { theme } from "../theme";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import heroImg from "../assets/pages/VimalinAction-scaled.jpg";
+import heroImg from "../assets/pages/VimalinAction-scaled.webp";
+
 import contact2 from "../assets/pages/contact2.jpeg";
 import CA1 from "../assets/pages/CA1.JPG";
 import CA2 from "../assets/pages/CA2.jpg";
@@ -101,24 +100,14 @@ function ContactPage() {
 
   const socialLinks = [
     {
-      icon: <FaFacebookF />,
-      bg: "#1877f2",
-      link: "#",
-    },
-    {
-      icon: <FaInstagram />,
-      bg: "#e1306c",
-      link: "#",
-    },
-    {
       icon: <FaLinkedinIn />,
       bg: "#0a66c2",
-      link: "#",
+      link: "https://www.linkedin.com/company/movement-for-scavenger-community-msc/posts/?feedView=all",
     },
     {
       icon: <FaYoutube />,
       bg: "#ff0000",
-      link: "#",
+      link: "/https://www.youtube.com/@mscindia2530",
     },
   ];
 
@@ -398,7 +387,7 @@ function ContactPage() {
 
                   <Group>
                     <FaEnvelope />
-                    <Text fw={600}>contact@iisjcollective.org</Text>
+                    <Text fw={600}>iisj.contact@gmail.com</Text>
                   </Group>
 
                   <Divider color="rgba(255,255,255,0.2)" />
@@ -645,7 +634,7 @@ function ContactPage() {
         {(() => {
           const programs = [
             {
-              image:CA1,
+              image: CA1,
               title: "Community Leadership Program",
               description:
                 "Empowering youth and grassroots leaders through leadership workshops, civic participation, and community organizing initiatives.",
@@ -654,7 +643,7 @@ function ContactPage() {
             },
 
             {
-              image:CA2,
+              image: CA2,
               title: "Movement for Scavenger Community – MSC",
               description:
                 "Aim is equality, the same chances for everyone, no matter what caste, class they belong to. Goal is empowerment through education.",
@@ -662,7 +651,7 @@ function ContactPage() {
               link: "/MSC-Detail",
             },
             {
-              image:CA3,
+              image: CA3,
               title: "Fellowship Program",
               description:
                 "Our fellows live and work at different locations. Working hand in hand with the committee of the local Dr. B. R. Ambedkar Community Resource Centre.",
@@ -671,7 +660,7 @@ function ContactPage() {
             },
 
             {
-              image:CA4,
+              image: CA4,
               title: "Avarna Foundation",
               description:
                 "It represents a world beyond division—where identity is not defined by caste, gender, religion, or race, but by shared humanity and collective growth.",

@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   Container,
   Title,
@@ -11,37 +10,12 @@ import {
   Overlay,
 } from "@mantine/core";
 
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
+import { homeGalleryData } from "../../constants/gallery";
 
 export default function HomeGallery() {
-  const galleryData = [
-    {
-      title: "Community Leadership Program",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-    },
-    {
-      title: "Women Empowerment Workshop",
-      image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
-    },
-    {
-      title: "Youth Fellowship Training",
-      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7",
-    },
-    {
-      title: "Grassroots Education Initiative",
-      image: "https://images.unsplash.com/photo-1497486751825-1233686d5d80",
-    },
-    {
-      title: "Healthcare Awareness Campaign",
-      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514",
-    },
-    {
-      title: "Social Justice Conference",
-      image: "https://images.unsplash.com/photo-1511578314322-379afb476865",
-    },
-  ];
-
   return (
     <div
       style={{
@@ -79,7 +53,7 @@ export default function HomeGallery() {
 
         {/* GALLERY GRID */}
         <Grid gutter="xl">
-          {galleryData.map((item, index) => (
+          {homeGalleryData.map((item, index) => (
             <Grid.Col key={index} span={{ base: 12, sm: 6, md: 4 }}>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}

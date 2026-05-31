@@ -24,7 +24,7 @@ import {
 import { Link } from "react-router-dom";
 import about3 from "../assets/pages/about3.JPG";
 import vimal1 from "../assets/pages/vimal1.jpeg";
-import leader13 from "../assets/home/leader13.jpg";
+import leader13 from "../assets/home/leader13.webp";
 import leader12 from "../assets/home/leader12.jpg";
 import Vimalpic2 from "../assets/home/Vimalpic2.jpg";
 

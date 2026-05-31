@@ -271,7 +271,7 @@ function ServicesSection() {
 
                 {/* FLOATING GLOW */}
 
-                <Overlay opacity={0.04} color="#fff" />
+                {/* <Overlay opacity={0.04} color="#fff" /> */}
               </MotionCard>
             </Grid.Col>
           ))}

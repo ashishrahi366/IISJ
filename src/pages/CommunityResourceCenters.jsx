@@ -24,7 +24,7 @@ import {
 
 import CRC1 from "../assets/pages/CRC1.JPG";
 import CRC2 from "../assets/pages/CRC2.JPG";
-import wwd2 from "../assets/pages/wwd2.JPG";
+import wwd2 from "../assets/pages/wwd2.webp";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);

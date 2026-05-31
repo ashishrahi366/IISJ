@@ -26,7 +26,7 @@ import { motion } from "framer-motion";
 import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 import { getBlogsByIds } from "../utils/methods";
-import heroImg from "../assets/home/heroHome4.JPG";
+import heroImg from "../assets/home/heroHome4.webp";
 const upcomingEvents = [
   //   {
   //     title: "National Leadership Workshop 2026",

@@ -13,45 +13,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 
+import {aboutusGalleryImages} from "../../../constants/gallery";
+
 const MotionBox = motion(Box);
 
-const galleryImages = [
-  {
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
-    title: "Leadership Workshops",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop",
-    title: "Community Learning",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop",
-    title: "Youth Engagement",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-    title: "Education Initiatives",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop",
-    title: "Youth Engagement",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-    title: "Education Initiatives",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-    title: "Education Initiatives",
-  },
-];
 
 export default function GalleryPreviewSection() {
   return (
@@ -144,7 +109,7 @@ export default function GalleryPreviewSection() {
         {/* GALLERY GRID */}
 
         <Grid gutter={22}>
-          {galleryImages.map((item, index) => (
+          {aboutusGalleryImages.map((item, index) => (
             <Grid.Col
               key={index}
               span={{
@@ -179,14 +144,6 @@ export default function GalleryPreviewSection() {
                       transition: "0.5s",
                     }}
                   />
-
-                  {/* OVERLAY */}
-
-                  <Overlay
-                    gradient="linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%)"
-                    opacity={1}
-                  />
-
                   {/* CONTENT */}
 
                   <Box

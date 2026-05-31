@@ -35,7 +35,7 @@ import centerImg from "../assets/pages/mscCenter.jpg";
 import impactImg from "../assets/MSC/imapcted.JPG";
 import youthImg from "../assets/pages/FS3.jpg";
 import volunteerImg from "../assets/home/infoImg2.JPG";
-import awardImg from "../assets/home/homeHero1.JPG";
+import awardImg from "../assets/home/award.webp";
 
 import HomeRecentNews from "../component/ui/HomeRecentNews";
 

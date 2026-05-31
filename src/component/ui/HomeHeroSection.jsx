@@ -126,9 +126,11 @@ export default function HomeHeroSection() {
                   lineHeight: 1.9,
                 }}
               >
-                IISJ works alongside marginalized communities to create access
+                IISJ, Based in the United States, This institue focuses on global dialogue,
+                academic bridge-building, policy research and training around systemic inequality and social justice
+                {/* IISJ works alongside marginalized communities to create access
                 to education, leadership opportunities, community development,
-                and sustainable social transformation across India.
+                and sustainable social transformation across India. */}
               </Text>
 
               <Text
@@ -149,7 +151,7 @@ export default function HomeHeroSection() {
               <Group mt={35}>
                 <Button
                   component={Link}
-                  to="/about"
+                  to="/IISJ"
                   size="lg"
                   radius="xl"
                   color="orange"

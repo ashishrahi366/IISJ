@@ -20,9 +20,9 @@ import {
   FaUsers,
 } from "react-icons/fa";
 
-import mvv3 from "../../../assets/pages/mvv1.JPG";
-import mvv2 from "../../../assets/pages/mvv2.jpg";
-import mvv1 from "../../../assets/pages/mvv3.JPG";
+import mvv3 from "../../../assets/pages/mvv1.webp";
+import mvv2 from "../../../assets/pages/mvv2.webp";
+import mvv1 from "../../../assets/pages/mvv3.webp";
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 

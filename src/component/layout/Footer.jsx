@@ -28,10 +28,6 @@ import {
 } from "react-icons/fa";
 
 import { motion } from "framer-motion";
-
-import { theme } from "../../theme";
-
-/* LOGO */
 import logo from "../../assets/Logomark_Digital.png";
 
 const quickLinks = [
@@ -72,15 +68,10 @@ function Footer() {
   return (
     <Box
       style={{
-        background:
-          "linear-gradient(180deg, #071120 0%, #0f172a 100%)",
-
+        background: "linear-gradient(180deg, #071120 0%, #0f172a 100%)",
         color: "white",
-
         position: "relative",
-
         overflow: "hidden",
-
         marginTop: "80px",
       }}
     >
@@ -113,32 +104,13 @@ function Footer() {
                 {/* LOGO */}
 
                 <Group gap="md">
-                  <Image
-                    src={logo}
-                    w={55}
-                    h={55}
-                    fit="contain"
-                  />
-
-                  <Title order={2}>
-                    <span style={{ color: "#ff7b00" }}>
-                      IISJ
-                    </span>
-
-                    <span style={{ color: "white" }}>
-                      Collective
-                    </span>
-                  </Title>
+                  <Image src={logo} w={55} h={55} fit="contain" />
                 </Group>
 
-                <Text
-                  c="rgba(255,255,255,0.72)"
-                  size="sm"
-                  lh={1.9}
-                >
-                  Building equality, dignity, and leadership through
-                  education, grassroots action, and community
-                  empowerment initiatives across India.
+                <Text c="rgba(255,255,255,0.72)" size="sm" lh={1.9}>
+                  Building equality, dignity, and leadership through education,
+                  grassroots action, and community empowerment initiatives
+                  across India.
                 </Text>
 
                 {/* SOCIAL ICONS */}
@@ -150,35 +122,20 @@ function Footer() {
                     variant="light"
                     color="orange"
                     component="a"
-                    href="#"
+                    href="https://www.youtube.com/@mscindia2530"
                     style={{
                       transition: "0.3s",
                     }}
                   >
                     <FaYoutube size={18} />
                   </ActionIcon>
-
                   <ActionIcon
                     size={42}
                     radius="xl"
                     variant="light"
                     color="orange"
                     component="a"
-                    href="#"
-                    style={{
-                      transition: "0.3s",
-                    }}
-                  >
-                    <FaInstagram size={18} />
-                  </ActionIcon>
-
-                  <ActionIcon
-                    size={42}
-                    radius="xl"
-                    variant="light"
-                    color="orange"
-                    component="a"
-                    href="#"
+                    href="https://www.linkedin.com/company/movement-for-scavenger-community-msc/posts/?feedView=all"
                     style={{
                       transition: "0.3s",
                     }}
@@ -198,11 +155,7 @@ function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <Title
-                order={4}
-                mb="lg"
-                c="white"
-              >
+              <Title order={4} mb="lg" c="white">
                 Quick Links
               </Title>
 
@@ -220,14 +173,11 @@ function Footer() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = "#ff7b00";
-                      e.currentTarget.style.transform =
-                        "translateX(5px)";
+                      e.currentTarget.style.transform = "translateX(5px)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color =
-                        "rgba(255,255,255,0.7)";
-                      e.currentTarget.style.transform =
-                        "translateX(0px)";
+                      e.currentTarget.style.color = "rgba(255,255,255,0.7)";
+                      e.currentTarget.style.transform = "translateX(0px)";
                     }}
                   >
                     {item.label}
@@ -245,11 +195,7 @@ function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Title
-                order={4}
-                mb="lg"
-                c="white"
-              >
+              <Title order={4} mb="lg" c="white">
                 Our Projects
               </Title>
 
@@ -267,14 +213,11 @@ function Footer() {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.color = "#ff7b00";
-                      e.currentTarget.style.transform =
-                        "translateX(5px)";
+                      e.currentTarget.style.transform = "translateX(5px)";
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color =
-                        "rgba(255,255,255,0.7)";
-                      e.currentTarget.style.transform =
-                        "translateX(0px)";
+                      e.currentTarget.style.color = "rgba(255,255,255,0.7)";
+                      e.currentTarget.style.transform = "translateX(0px)";
                     }}
                   >
                     {item.label}
@@ -293,10 +236,7 @@ function Footer() {
               transition={{ duration: 0.9 }}
             >
               <Stack gap="lg">
-                <Title
-                  order={4}
-                  c="white"
-                >
+                <Title order={4} c="white">
                   Contact Us
                 </Title>
 
@@ -305,41 +245,22 @@ function Footer() {
                   p="lg"
                   style={{
                     background: "rgba(255,255,255,0.04)",
-                    border:
-                      "1px solid rgba(255,255,255,0.08)",
+                    border: "1px solid rgba(255,255,255,0.08)",
                   }}
                 >
                   <Stack gap="md">
                     <Group gap="sm" align="flex-start">
                       <FaMapMarkerAlt color="#ff7b00" />
 
-                      <Text
-                        size="sm"
-                        c="rgba(255,255,255,0.72)"
-                      >
+                      <Text size="sm" c="rgba(255,255,255,0.72)">
                         Haryana, India
                       </Text>
-                    </Group>
-
-                    <Group gap="sm">
-                      <FaPhoneAlt color="#ff7b00" />
-
-                      <Text
-                        size="sm"
-                        c="rgba(255,255,255,0.72)"
-                      >
-                        +91 XXXXX XXXXX
-                      </Text>
-                    </Group>
-
+                    </Group>{" "}
                     <Group gap="sm">
                       <FaEnvelope color="#ff7b00" />
 
-                      <Text
-                        size="sm"
-                        c="rgba(255,255,255,0.72)"
-                      >
-                        info@iisj.org
+                      <Text size="sm" c="rgba(255,255,255,0.72)">
+                        iisj.contact@gmail.com
                       </Text>
                     </Group>
                   </Stack>
@@ -348,20 +269,13 @@ function Footer() {
                 {/* NEWSLETTER */}
 
                 <Box>
-                  <Text
-                    fw={600}
-                    mb="sm"
-                  >
+                  <Text fw={600} mb="sm">
                     Newsletter
                   </Text>
 
-                  <Text
-                    size="sm"
-                    c="rgba(255,255,255,0.7)"
-                    mb="md"
-                  >
-                    Get updates about fellowships, community stories,
-                    and social justice initiatives.
+                  <Text size="sm" c="rgba(255,255,255,0.7)" mb="md">
+                    Get updates about fellowships, community stories, and social
+                    justice initiatives.
                   </Text>
 
                   <Box
@@ -375,11 +289,9 @@ function Footer() {
                       size="md"
                       styles={{
                         input: {
-                          background:
-                            "rgba(255,255,255,0.06)",
+                          background: "rgba(255,255,255,0.06)",
 
-                          border:
-                            "1px solid rgba(255,255,255,0.1)",
+                          border: "1px solid rgba(255,255,255,0.1)",
 
                           color: "white",
 
@@ -417,18 +329,11 @@ function Footer() {
 
       <Container size="xl" py="lg">
         <Group justify="space-between" wrap="wrap">
-          <Text
-            size="sm"
-            c="rgba(255,255,255,0.6)"
-          >
-            © {new Date().getFullYear()} IISJ Collective. All Rights
-            Reserved.
+          <Text size="sm" c="rgba(255,255,255,0.6)">
+            © {new Date().getFullYear()} IISJ Collective. All Rights Reserved.
           </Text>
 
-          <Text
-            size="sm"
-            c="rgba(255,255,255,0.6)"
-          >
+          <Text size="sm" c="rgba(255,255,255,0.6)">
             Built with ❤️ for social justice & equality
           </Text>
         </Group>

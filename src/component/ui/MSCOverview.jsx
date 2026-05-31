@@ -34,7 +34,6 @@ function MSCOverview() {
                 MSC Overview
               </Text>
             </Group>
-
             {/* Title */}
             <Title
               order={2}
@@ -46,22 +45,24 @@ function MSCOverview() {
             >
               Movement for Scavenger Community (MSC)
             </Title>
-
             {/* Description */}
             <Text c="dimmed" size="md" mb="md">
-              Movement for Scavenger Community (MSC) is an all-Indian NGO which
-              provides access to basic human rights for the members of the
-              scavenger-community. Working with local communties and activists,
-              MSC uses strictly non-violent methods to make change towards
-              equality happen for everyone.
+              Movement for Scavenger Community (MSC) - Operating in India, This
+              grassroot intiative work directly to uplift, educate and empower
+              the marginalized sanitation-worker communities, focusing closely
+              on dignity, leadership, and human rights.
+            </Text>{" "}
+            <Text c="dimmed" size="md">
+              (MSC) is an all-Indian NGO which provides access to basic human
+              rights for the members of the scavenger-community. Working with
+              local communties and activists, MSC uses strictly non-violent
+              methods to make change towards equality happen for everyone.
             </Text>
-
             <Text c="dimmed" size="md">
               By collaborating with local organizations and volunteers, we
               ensure that help reaches those who need it most, efficiently and
               effectively.
             </Text>
-
             <Button
               component={Link}
               to="/MSC-Detail"

@@ -1,6 +1,15 @@
 import HWPO from "../assets/Blogs/hwpo.jpg";
 import HWPO1jpg from "../assets/Blogs/HWPO1jpg.jpg";
 
+import leader3 from "../assets/home/leader3.webp";
+import homeHero1 from "../assets/home/homeHero1.webp";
+import heroHome4 from "../assets/home/heroHome4.webp";
+import leader13 from "../assets/home/leader13.webp";
+
+import wwd4 from "../assets/pages/wwd4.webp";
+import wwd2 from "../assets/pages/wwd2.webp";
+import mvv2 from "../assets/pages/mvv2.webp";
+
 export const communityGallery = [
     {
         id: 1,
@@ -17,8 +26,6 @@ export const communityGallery = [
         category: "community",
     }
 ];
-
-
 export const educationGallery = [
     {
         id: 5,
@@ -35,7 +42,6 @@ export const educationGallery = [
         category: "education",
     }
 ];
-
 export const eventGallery = [
     {
         id: 9,
@@ -66,8 +72,6 @@ export const eventGallery = [
         category: "events",
     },
 ];
-
-
 export const impactGallery = [
     {
         id: 13,
@@ -96,5 +100,62 @@ export const impactGallery = [
         image: "https://picsum.photos/800/1000?random=16",
         type: "image",
         category: "impact",
+    },
+];
+export const homeGalleryData = [
+    {
+        title: "Community Leadership Program",
+        image: HWPO,
+    },
+    {
+        title: "Women Empowerment Workshop",
+
+        image: leader3,
+    },
+    {
+        title: "Youth Fellowship Training",
+        image: HWPO1jpg,
+    },
+    {
+        title: "Grassroots Education Initiative",
+        image: homeHero1,
+    },
+    {
+        title: "Healthcare Awareness Campaign",
+        image: heroHome4,
+    },
+    {
+        title: "Social Justice Conference",
+        image: leader13,
+    },
+];
+export const aboutusGalleryImages = [
+    {
+        image: wwd4,
+        title: "Leadership Workshops",
+    },
+    {
+        image: wwd2,
+        title: "Community Learning",
+    },
+    {
+        image: mvv2,
+        title: "Youth Engagement",
+    },
+    {
+        image: homeHero1,
+        title: "Education Initiatives",
+    },
+    {
+        image: heroHome4,
+        title: "Youth Engagement",
+    },
+    {
+        image: HWPO1jpg,
+        title: "Education Initiatives",
+    },
+    {
+        image: HWPO,
+        title: "Education Initiatives",
     },
 ];
