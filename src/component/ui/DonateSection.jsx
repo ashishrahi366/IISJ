@@ -12,6 +12,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FaArrowRight, FaEnvelope, FaCheck } from "react-icons/fa";
 import { useRef, useState } from "react";
 import bgImage from "../../assets/home/DRBRBack.jpg";
+import { sendEmail } from "../../utils/sendEmail";
 
 function DonateSection() {
   const ref = useRef(null);
@@ -41,8 +42,9 @@ function DonateSection() {
     return "";
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const validationError = validateEmail(email);
+
     if (validationError) {
       setError(validationError);
       return;
@@ -51,16 +53,34 @@ function DonateSection() {
     setError("");
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      setSuccess(true);
+    let subject = "Someone try to contact from Donation Section";
+    let name = email;
+    let senderEmail = email;
+    let message = "Someone try to contact from Donation Section";
+    try {
+      // const result = await sendEmail(subject, name, senderEmail, message);
+      const result = await sendEmail({
+        subject,
+        name,
+        email: senderEmail,
+        message,
+      });
+      console.log("sent");
+      if (result.success) {
+        setSuccess(true);
 
-      // reset after 2 sec
-      setTimeout(() => {
-        setSuccess(false);
-        setEmail("");
-      }, 2000);
-    }, 2000);
+        setTimeout(() => {
+          setSuccess(false);
+          setEmail("");
+        }, 2000);
+      } else {
+        setError(result.message);
+      }
+    } catch {
+      setError("Failed to send request");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
