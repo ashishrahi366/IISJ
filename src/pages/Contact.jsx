@@ -21,14 +21,13 @@ import {
 
 import {
   FaMapMarkerAlt,
-  FaPhoneAlt,
   FaEnvelope,
   FaHandsHelping,
   FaGlobeAsia,
   FaUsers,
   FaArrowRight,
-  FaFacebookF,
-  FaInstagram,
+  // FaFacebookF,
+  // FaInstagram,
   FaLinkedinIn,
   FaYoutube,
   FaHeart,
