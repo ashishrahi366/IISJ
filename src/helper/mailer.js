@@ -7,11 +7,7 @@ export const sendEmail = async ({
     try {
       const formData = new FormData();
   
-      formData.append(
-        "access_key",
-        import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
-      );
-  
+      
       formData.append("subject", subject);
       formData.append("name", name);
       formData.append("email", email);
