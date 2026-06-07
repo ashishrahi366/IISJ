@@ -22,23 +22,18 @@ function DonateSection() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
 
-  // 🔥 Parallax
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
   const yBg = useTransform(scrollYProgress, [0, 1], [80, -80]);
-
   const validateEmail = (value) => {
     if (!value) return "Email is required";
-
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // ✅ better regex
-
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regex.test(value.trim())) {
       return "Enter a valid email";
     }
-
     return "";
   };
 
@@ -58,7 +53,6 @@ function DonateSection() {
     let senderEmail = email;
     let message = "Someone try to contact from Donation Section";
     try {
-      // const result = await sendEmail(subject, name, senderEmail, message);
       const result = await sendEmail({
         subject,
         name,
