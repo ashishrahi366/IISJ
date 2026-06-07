@@ -35,6 +35,7 @@ import {
   FaUserFriends,
 } from "react-icons/fa";
 
+import { sendEmail } from "../utils/sendEmail";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -66,35 +67,39 @@ function ContactPage() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const email = form.email.trim();
-
+  
     if (!email) {
       setError("Email is required");
       return;
     }
-
+  
     if (!validateEmail(email)) {
       setError("Enter a valid email");
       return;
     }
-
+  
     setError("");
     setLoading(true);
-
-    setTimeout(() => {
-      setLoading(false);
+  
+    const result = await sendEmail({
+      subject: form.subject || "Contact Form Submission",
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    });
+  
+    setLoading(false);
+  
+    if (result.success) {
       setSuccess(true);
-
-      setForm({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    }, 2000);
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } else {
+      setError(result.message || "Failed to send. Please try again.");
+    }
   };
 
   const socialLinks = [

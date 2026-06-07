@@ -205,7 +205,7 @@ export const homeHeroSlides = [
   },
 ];
 
-import bbcImg from "../assets/home/BBC.png";
+import bbcImg from "../assets/home/BBC2.jpg";
 import yourStoryImg from "../assets/home/Yourstory.png";
 import bigStoryImg from "../assets/home/BigStory.jpg";
 import AZU from "../assets/home/AZU.webp";

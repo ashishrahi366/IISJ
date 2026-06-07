@@ -12,7 +12,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FaArrowRight, FaEnvelope, FaCheck } from "react-icons/fa";
 import { useRef, useState } from "react";
 import bgImage from "../../assets/home/DRBRBack.jpg";
-import { sendEmail } from "../../helper/mailer";
+import { sendEmail } from "../../utils/mailer";
 
 function DonateSection() {
   const ref = useRef(null);
