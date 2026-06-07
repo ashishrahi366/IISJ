@@ -35,7 +35,7 @@ import {
   FaUserFriends,
 } from "react-icons/fa";
 
-import { sendEmail } from "../utils/sendEmail";
+import { sendEmail } from "../utils/mailer";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
